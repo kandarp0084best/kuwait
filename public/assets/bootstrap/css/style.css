@@ -1,10 +1,10 @@
 .main-div
 {
-	height: 810px;
+  height: 830px;
 }
 .navbar-brand
 {
-	color: #000;
+  color: #000;
 }
 ul.nav.navbar-nav {
   display: flex;
@@ -20,18 +20,18 @@ ul.nav.navbar-nav {
 }
 
 .listHorizontal li a{
-	text-decoration:none;
-	color: #000;
+  text-decoration:none;
+  color: #000;
     font-size: 18px;
 }
 .text-dark
 {
-	text-decoration:none;
-	color: #000;
+  text-decoration:none;
+  color: #000;
 }
 li.active a
 {
-	color: blue;
+  color: blue;
 }
 .rotate {
     left: calc(50% - 2.5rem);
@@ -55,22 +55,25 @@ li.active a
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     text-align: center;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-right: 12px;
 }
 .custom-form-check
 {
-	padding-left: 2.5em;
+  padding-left: 2.5em;
 }
 .text-left
 {
-	text-align: left !important;
+  text-align: left !important;
 }
 .vertical_align
 {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 .table_title
 {
-	font-size: 30px;
+  font-size: 30px;
 }
 ul {
   margin: 0;
@@ -84,4 +87,20 @@ ul.dashed > li {
 ul.dashed > li:before {
   content: "-";
   text-indent: -5px;
+}
+.form_box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.vertical-align
+{
+  vertical-align: bottom;
+}
+/*.error {
+    color: #9b1616;
+}*/
+.errorMsq {
+  color: #9b1616;
+  display: block;
 }

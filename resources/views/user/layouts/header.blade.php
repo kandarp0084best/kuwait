@@ -5,6 +5,8 @@
 
 	<link rel="stylesheet" type="text/css" href="{{asset('public/assets/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/assets/bootstrap/css/style.css')}}">
+  	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/css/toastr.css')}}">
+
 </head>
 <body>
 

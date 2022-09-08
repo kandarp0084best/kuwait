@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 Route::get('/alumni', 'App\Http\Controllers\User\AlumniController@index')->name('alumni');
+Route::post('/alumni/save', [App\Http\Controllers\user\AlumniController::class, 'store'])->name('save.alumni');
 
 
 

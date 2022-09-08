@@ -1,0 +1,15 @@
+.team_1,.team_2,.score
+{
+	font-size: 18px;
+}
+.team_1 img,.team_2 img
+{
+	display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: #E6E7ED;
+    border-radius: 16px;
+    background-position: 50% 50%;
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+}

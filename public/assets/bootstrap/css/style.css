@@ -1,0 +1,87 @@
+.main-div
+{
+	height: 810px;
+}
+.navbar-brand
+{
+	color: #000;
+}
+ul.nav.navbar-nav {
+  display: flex;
+  justify-content: space-around;
+  color: #b6d8cf;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.listHorizontal li {
+    display: inline-block;
+    padding: 10px 0px 0px 25px;
+}
+
+.listHorizontal li a{
+	text-decoration:none;
+	color: #000;
+    font-size: 18px;
+}
+.text-dark
+{
+	text-decoration:none;
+	color: #000;
+}
+li.active a
+{
+	color: blue;
+}
+.rotate {
+    left: calc(50% - 2.5rem);
+    line-height: 1;
+    padding-top: 0.5rem;
+    position: relative;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    white-space: nowrap;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+.rotate2 {
+    left: calc(50% - 1.5rem);
+    line-height: 1;
+    padding-top: 0.5rem;
+    position: relative;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    white-space: nowrap;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    text-align: center;
+}
+.custom-form-check
+{
+	padding-left: 2.5em;
+}
+.text-left
+{
+	text-align: left !important;
+}
+.vertical_align
+{
+	vertical-align: middle;
+}
+.table_title
+{
+	font-size: 30px;
+}
+ul {
+  margin: 0;
+}
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+  text-indent: -5px;
+}
+ul.dashed > li:before {
+  content: "-";
+  text-indent: -5px;
+}

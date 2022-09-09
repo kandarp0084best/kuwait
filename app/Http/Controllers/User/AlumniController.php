@@ -5,6 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Alumni;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Response;
+
+
 
 class AlumniController extends Controller
 {
@@ -35,8 +39,12 @@ class AlumniController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $alumni = Alumni::create($request->all());
+
+        return Response::json(['status' => 'success']);
+        
     }
 
     /**

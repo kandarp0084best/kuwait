@@ -1,10 +1,10 @@
 .main-div
 {
-	height: 810px;
+  height: 830px;
 }
 .navbar-brand
 {
-	color: #000;
+  color: #000;
 }
 ul.nav.navbar-nav {
   display: flex;
@@ -16,22 +16,22 @@ ul.nav.navbar-nav {
 
 .listHorizontal li {
     display: inline-block;
-    padding: 10px 0px 0px 25px;
+    padding: 0px 0px 0px 25px;
 }
 
 .listHorizontal li a{
-	text-decoration:none;
-	color: #000;
+  text-decoration:none;
+  color: #fff;
     font-size: 18px;
 }
 .text-dark
 {
-	text-decoration:none;
-	color: #000;
+  text-decoration:none;
+  color: #000;
 }
 li.active a
 {
-	color: blue;
+  color: #fff234;
 }
 .rotate {
     left: calc(50% - 2.5rem);
@@ -55,22 +55,25 @@ li.active a
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
     text-align: center;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-right: 12px;
 }
 .custom-form-check
 {
-	padding-left: 2.5em;
+  padding-left: 2.5em;
 }
 .text-left
 {
-	text-align: left !important;
+  text-align: left !important;
 }
 .vertical_align
 {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 .table_title
 {
-	font-size: 30px;
+  font-size: 30px;
 }
 ul {
   margin: 0;
@@ -84,4 +87,62 @@ ul.dashed > li {
 ul.dashed > li:before {
   content: "-";
   text-indent: -5px;
+}
+.form_box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.vertical-align
+{
+  vertical-align: bottom;
+}
+
+.errorMsq {
+  color: #ef0909;
+  display: block;
+}
+label#major\[\]-error {
+    position: absolute;
+    margin-top: 22px;
+    margin-left: -22px;
+}
+label#gender-error {
+    position: absolute;
+    margin-left: -84px;
+}
+label#importance_1-error, label#importance_2-error, label#importance_3-error, label#importance_4-error, label#importance_5-error, label#importance_6-error, label#attainment_1-error, label#attainment_2-error, label#attainment_3-error, label#attainment_4-error, label#attainment_5-error, label#attainment_6-error, label#questions_1-error, label#questions_2-error, label#questions_3-error, label#questions_4-error, label#questions_5-error, label#questions_6-error, label#questions_7-error {
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -22px;
+}
+label#conferences-error, label#activities-error, label#connected-error, label#programs-error, label#performance-error, label#training_course-error {
+    position: absolute;
+}
+label#programs-error, label#performance-error, label#training_course-error
+{
+  margin-left: -22px;
+}
+label#organization-error, label#staff-error, label#evaluated-error, label#prepared_1-error, label#prepared_2-error, label#prepared_3-error, label#prepared_4-error, label#prepared_5-error, label#prepared_6-error, label#prepared_7-error, label#prepared_8-error, label#prepared_9-error, label#prepared_10-error, label#prepared_11-error, label#prepared_12-error, label#prepared_13-error, label#prepared_14-error, label#prepared_15-error,label#important_1-error, label#important_2-error, label#important_3-error, label#important_4-error, label#important_5-error, label#important_6-error, label#important_7-error, label#important_8-error, label#important_9-error, label#important_10-error, label#important_11-error, label#important_12-error, label#important_13-error, label#important_14-error, label#important_15-error, label#significant_1-error, label#significant_2-error, label#significant_3-error, label#significant_4-error, label#significant_5-error, label#significant_6-error, label#objectives_important_1-error, label#objectives_important_2-error, label#objectives_important_3-error, label#objectives_important_4-error, label#objectives_important_5-error, label#objectives_important_6-error, label#summary_report-error, label#participating-error, label#hiring-error, label#necessary-error, label#majors-error {
+    position: absolute;
+}
+
+
+label#compare\[\]-error {
+    position: absolute;
+    margin-left: -22px;
+}
+.header-title, .small-text
+{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-light-custom
+{
+  background-color: #1a1f3d;
+}
+#organization_others, #staff_others, .thank-you-text
+{
+  display: none;
 }

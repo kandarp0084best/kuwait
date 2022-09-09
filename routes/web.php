@@ -19,10 +19,12 @@ Route::get('/', function () {
 
 
 Route::get('/alumni', 'App\Http\Controllers\User\AlumniController@index')->name('alumni');
+Route::post('/alumni/save', [App\Http\Controllers\User\AlumniController::class, 'store'])->name('save.alumni');
 
 
 
 Route::get('/employer', 'App\Http\Controllers\User\EmployerSurveyController@index')->name('employer');
+Route::post('/employer/survey/save', [App\Http\Controllers\User\EmployerSurveyController::class, 'store'])->name('save.employer_survey');
 
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Employer;
 use Illuminate\Http\Request;
+use Response;
+
 
 class EmployerSurveyController extends Controller
 {
@@ -36,8 +38,15 @@ class EmployerSurveyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $request['staff'] = implode(',', $request->staff);
+        $request['majors'] = implode(',', $request->major);
+        $request['evaluated'] = implode(',', $request->evaluated);
+
+        $employer = Employer::create($request->all());
+
+        return Response::json(['status' => 'success']);
     }
 
     /**

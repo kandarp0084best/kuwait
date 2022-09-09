@@ -10,5 +10,18 @@
 
 <script type="text/javascript" src="{{asset('public/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('public/assets/bootstrap/js/jquery.js')}}"></script>
+<script src="{{ asset('public/assets/js/jquery.validate.min.js')}}"></script>
+<!-- <script src="{{ asset('public/assets/js/additional-methods.js')}}"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+
+<script src="{{ asset('public/assets/js/alumni.js')}}"></script>
+<script src="{{ asset('public/assets/js/employer_survey.js')}}"></script>
+<script type="text/javascript" src="{{ asset('public/assets/js/toastr.min.js')}}"></script>
+
+<script type="text/javascript">
+	var APP_URL = {!! json_encode(url('/')) !!}
+</script>
+
 </body>
 </html>

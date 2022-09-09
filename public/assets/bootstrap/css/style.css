@@ -104,7 +104,7 @@ ul.dashed > li:before {
 }
 label#major\[\]-error {
     position: absolute;
-    margin-top: 22px;
+    margin-top: 155px;
     margin-left: -22px;
 }
 label#gender-error {
@@ -113,8 +113,8 @@ label#gender-error {
 }
 label#importance_1-error, label#importance_2-error, label#importance_3-error, label#importance_4-error, label#importance_5-error, label#importance_6-error, label#attainment_1-error, label#attainment_2-error, label#attainment_3-error, label#attainment_4-error, label#attainment_5-error, label#attainment_6-error, label#questions_1-error, label#questions_2-error, label#questions_3-error, label#questions_4-error, label#questions_5-error, label#questions_6-error, label#questions_7-error {
     position: absolute;
-    margin-top: 25px;
-    margin-left: -22px;
+    margin-top: 0px;
+    margin-left: 10px;
 }
 label#conferences-error, label#activities-error, label#connected-error, label#programs-error, label#performance-error, label#training_course-error {
     position: absolute;
@@ -145,4 +145,22 @@ label#compare\[\]-error {
 #organization_others, #staff_others, .thank-you-text
 {
   display: none;
+}
+label#organization-error {
+    margin-top: 50px;
+    margin-left: -22px;
+}
+label#compare-error {
+    position: absolute;
+    margin-left: -22px;
+}
+label#staff\[\]-error {
+    margin-top: 128px;
+    position: absolute;
+    margin-left: -22px;
+}
+label#evaluated\[\]-error {
+    position: absolute;
+    margin-top: 155px;
+    margin-left: -22px;
 }

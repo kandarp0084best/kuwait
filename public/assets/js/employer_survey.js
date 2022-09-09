@@ -30,13 +30,13 @@ $(function() {
       'organization': { 
         required: true 
       },
-      'staff': { 
+      'staff[]': { 
         required: true 
       },
-      'majors': { 
+      'major[]': { 
         required: true 
       },
-      'evaluated': { 
+      'evaluated[]': { 
         required: true 
       },
       'important_1': { 

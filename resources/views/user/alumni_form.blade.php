@@ -43,9 +43,9 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 			  <div class="form-group">
-			    <label>Major:</label>
+			    <label>Engineering Major:</label>
 			    <select class="form-control" name="major">
-			    	<option  selected="" disabled="">-- Select Major --</option>
+			    	<option  selected="" disabled="">-- Select Engineering Major --</option>
 			    	<option value="Chemical">Chemical</option>
 			    	<option value="Civil">Civil</option>
 			    	<option value="Computer">Computer</option>
@@ -56,48 +56,6 @@
 			    </select>
 			  </div>
 			</div>
-			<!-- <div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Chemical" name="major[]" class="form-check-input" id="Chemical">
-				    <label class="form-check-label" >Chemical</label>
-			  	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Civil" name="major[]" class="form-check-input" id="Civil">
-				    <label class="form-check-label" >Civil</label>
-			    </div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Computer" name="major[]" class="form-check-input" id="Computer">
-				    <label class="form-check-label" >Computer</label>
-			    </div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Electrical" name="major[]" class="form-check-input" id="Electrical">
-				    <label class="form-check-label">Electrical</label>
-			    </div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Mechanical" name="major[]" class="form-check-input" id="Mechanical">
-				    <label class="form-check-label" >Mechanical</label>
-			    </div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" value="Petroleum" name="major[]" class="form-check-input" id="Petroleum">
-				    <label class="form-check-label">Petroleum</label>
-			    </div>
-			</div>
-			<div class="col-md-3">
-				<div class="form-group form-check">
-				    <input type="checkbox" name="major[]" value="Industrial & Management Systems" class="form-check-input" id="Industrial & Management Systems">
-				    <label class="form-check-label" name="major[]" >Industrial & Management Systems</label>
-			    </div>
-			</div> -->
 		</div>
 
 		<div class="row mb-3">
@@ -123,64 +81,167 @@
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Year of Graduation:</label>
-				    <input type="text" class="form-control" name="graduation" id="graduation" placeholder="Year of Graduation...">
-				 </div>
-			</div>
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
-				    <label>Employer:</label>
-				    <input type="text" class="form-control" name="employer" id="employer" placeholder="Employer....">
-				 </div>
-			</div>
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
-				    <label>Job Title:</label>
-				    <input type="text" class="form-control" name="job_title" id="job_title" placeholder="Job Title....">
-				 </div>
-			</div>
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
-				    <label>Job Description:</label>
-				    <textarea class="form-control" name="job_description" id="job_description" placeholder="Job Description...." rows="5"></textarea>
-				 </div>
-			</div>
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
 				    <label>Mailing Address:</label>
 				    <input type="text" class="form-control" name="mailing_address" id="mailing_address" placeholder="Mailing Address....">
 				 </div>
 			</div>
+
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
 				    <label>E-mail:</label>
 				    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail....">
 				 </div>
 			</div>
+
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Advanced Degrees (M.Sc./PhD if any):</label>
-				    <input type="text" class="form-control" name="degrees" id="degrees" placeholder="Advanced Degrees (M.Sc./PhD if any)....">
+				    <label>Telephone:</label>
+				    <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Telephone....">
 				 </div>
 			</div>
+		
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Year of Graduation:</label>
+				    <input type="text" class="form-control" name="graduation" id="graduation" placeholder="Year of Graduation...">
+				 </div>
+			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Advanced Degrees (M.Sc./PhD if any):</label><br>
+				    <!-- <input type="text" class="form-control" name="degrees" id="degrees" placeholder="Advanced Degrees (M.Sc./PhD if any)...."> -->
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="MSc" name="degrees" class="form-check-input"  >
+					    <label class="form-check-label">MSc</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="MBA" name="degrees" class="form-check-input"  >
+					    <label class="form-check-label">MBA</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="PhD" name="degrees" class="form-check-input"  >
+					    <label class="form-check-label">PhD</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Others" name="degrees" class="form-check-input"  >
+					    <label class="form-check-label">Others</label>
+				    </div>
+
+				 </div>
+			</div>
+
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
 				    <label>University Honors/Recognitions (if any):</label>
 				    <input type="text" class="form-control" name="university" id="university" placeholder="University Honors/Recognitions (if any)....">
 				 </div>
 			</div>
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
-				    <label>Employment Honors/Recognitions (if any)</label>
-				    <input type="text" class="form-control" name="employment" id="employment" placeholder="Employment Honors/Recognitions (if any)....">
-				 </div>
-			</div>
+
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
 				    <label>Membership in Professional Societies (if any):</label>
 				    <input type="text" class="form-control" name="membership" id="membership" placeholder="Membership in Professional Societies (if any)....">
 				 </div>
 			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Employment Status:</label><br>
+				    <!-- <input type="text" class="form-control" name="employment_status" id="employment_status" placeholder="Employment Status...."> -->
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Employed" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">Employed</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="MSc/PhD Student" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">MSc/PhD Student</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Self Employed" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">Self Employed</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Unemployed not seeking job" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">Unemployed not seeking job</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Unemployed seeking job" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">Unemployed seeking job</label>
+				    </div>
+				    <div class="form-group form-check-inline">
+					    <input type="radio" value="Others" name="employment_status" class="form-check-input"  >
+					    <label class="form-check-label">Others</label>
+				    </div>
+				 </div>
+			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Employer:</label>
+				    <input type="text" class="form-control" name="employer" id="employer" placeholder="Employer....">
+				 </div>
+			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Employer Classification:</label><br>
+				    <!-- <input type="text" class="form-control" name="employer_classification" id="employer_classification" placeholder="Employer Classification...."> -->
+				    <select class="form-control" name="employer_classification">
+				    	<option selected="" value="" disabled="">-- Select Employer Classification --</option>
+				    	<option value="Ministry/Government">Ministry/Government</option>
+				    	<option value="Research/Academic">Research/Academic</option>
+				    	<option value="Plants (Power/Water)">Plants (Power/Water)</option>
+				    	<option value="Oil Production/Exploration">Oil Production/Exploration</option>
+				    	<option value="Oil Refinery/Petrochemicals">Oil Refinery/Petrochemicals</option>
+				    	<option value="Investment (Company/Bank)">Investment (Company/Bank)</option>
+				    	<option value="Construction">Construction</option>
+				    	<option value="Manufacturing">Manufacturing</option>
+				    	<option value="Consultation">Consultation</option>
+				    	<option value="IT">IT</option>
+				    	<option value="Telecommunications">Telecommunications</option>
+				    	<option value="Others">Others</option>
+				    </select>
+				 </div>
+			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Job Title:</label>
+				    <input type="text" class="form-control" name="job_title" id="job_title" placeholder="Job Title....">
+				 </div>
+			</div>
+
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Job Responsibilities:</label><br>
+				    <!-- <textarea class="form-control" name="job_description" id="job_description" placeholder="Job Description...." rows="5"></textarea> -->
+				    <select class="form-control" name="job_description">
+				    	<option selected="" value="" disabled="">-- Select Job Responsibilities --</option>
+				    	<option value="Management">Management</option>
+				    	<option value="Project Management">Project Management</option>
+				    	<option value="Design">Design</option>
+				    	<option value="Maintenanve">Maintenanve</option>
+				    	<option value="Programming">Programming</option>
+				    	<option value="Product/Process Development">Product/Process Development</option>
+				    	<option value="Teaching">Teaching</option>
+				    	<option value="Auditing/Review">Auditing/Review</option>
+				    	<option value="Planning">Planning</option>
+				    	<option value="Operation/Inspection">Operation/Inspection</option>
+				    	<option value="Research">Research</option>
+				    	<option value="Others">Others</option>
+				    </select>
+
+				 </div>
+			</div>
+			
+			<div class="col-md-12 mb-3">
+				<div class="form-group">
+				    <label>Employment Honors/Recognition (if any):</label>
+				    <input type="text" class="form-control" name="employment" id="employment" placeholder="Employment Honors/Recognition (if any)....">
+				 </div>
+			</div>
+			
 		</div>
 
 		<div class="row mb-3">
@@ -1260,14 +1321,32 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<label>5. In light of your professional experience, please list three of the most useful technical knowledge or professional skills that you acquired during your studies at Kuwait University.</label>
-				<textarea class="form-control" name="experience" id="experience" rows="5"></textarea>
+				<!-- <textarea class="form-control" name="experience" id="experience" rows="5"></textarea> -->
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="experience_1" class="form-control" placeholder="1. Answer">
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="experience_2" class="form-control" placeholder="2. Answer">
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="experience_3" class="form-control" placeholder="3. Answer">
 			</div>
 		</div>
 
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<label>6. Please list three technical knowledge or professional skills that you think should be taught in the engineering program that you attended at Kuwait University</label>
-				<textarea class="form-control" name="technical" id="technical" rows="5"></textarea>
+				<!-- <textarea class="form-control" name="technical" id="technical" rows="5"></textarea> -->
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="technical_1" class="form-control" placeholder="1. Answer">
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="technical_2" class="form-control" placeholder="2. Answer">
+			</div>
+			<div class="col-md-12 mb-1">
+				<input type="text" name="technical_3" class="form-control" placeholder="3. Answer">
 			</div>
 		</div>
 
@@ -1276,6 +1355,7 @@
 				<label>7. What improvements to facilities (classrooms, laboratories, library, computing resources, recreation etc.), faculty (science, social science, and engineering) or delivery mode (hands-on tutorials, video lectures, online lecturing etc.) are likely to enhance learning at Kuwait University?</label>
 				<textarea class="form-control" name="improvements" id="improvements" rows="5"></textarea>
 			</div>
+			
 		</div>
 
 

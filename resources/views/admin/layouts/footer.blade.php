@@ -53,6 +53,7 @@
 
 <!-- bootstrap datepicker -->
 <script src="{{asset('public/assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('public/assets/js/alumni.js')}}"></script>
 
 <script type="text/javascript">
   var APP_URL = {!! json_encode(url('/')) !!}

@@ -6,8 +6,14 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         
-        <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
+        <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
           <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+        </li>
+         <li class="{{ request()->is('admin/alumni') ? 'active' : '' }}">
+          <a href="{{route('alumni.index')}}"><i class="fa fa-dashboard"></i> <span>Alumni</span></a>
+        </li>
+         <li class="">
+          <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>employer</span></a>
         </li>
         
         <li class="header">Exit</li>

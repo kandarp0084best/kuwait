@@ -39,4 +39,6 @@ Route::get('/admin', function () {
 });
 
 
-Route::get('/dashboard', [App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/admin/dashboard', [App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/admin/alumni', [App\Http\Controllers\admin\AlumniController::class, 'index'])->name('alumni.index');
+Route::post('/admin/alumni/get/report', [App\Http\Controllers\admin\AlumniController::class, 'getReport'])->name('get.report');

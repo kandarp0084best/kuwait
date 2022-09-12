@@ -110,13 +110,34 @@ $(function() {
       'training_course': { 
         required: true 
       },
-      'experience': { 
+      'experience_1': { 
         required: true 
       },
-      'technical': { 
+      'experience_2': { 
+        required: true 
+      },
+      'experience_3': { 
+        required: true 
+      },
+      'technical_1': { 
+        required: true 
+      },
+      'technical_2': { 
+        required: true 
+      },
+      'technical_3': { 
         required: true 
       },
       'improvements': { 
+        required: true 
+      },
+      'employment_status': { 
+        required: true
+      },
+      'employer_classification': { 
+        required: true 
+      },
+      'telephone': { 
         required: true 
       },
     },
@@ -162,4 +183,36 @@ $(function() {
         }});
     }
   });
+});
+
+
+
+$('#filter').on('click',function(){
+
+  var form = document.alumni_filter;
+  var formData = new FormData(form);
+
+  $.ajax({
+            type: "POST",
+            url: APP_URL+'/admin/alumni/get/report',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function( data ) {
+
+                $('#appendData').html('');
+                $('#appendData').append(data);
+                //   $('#alumnisave').attr("disabled", false); 
+                //   $('#alumnisave').empty();
+                //   $('#alumnisave').append('Submit');
+                // if (data.status)  {
+                //   $('#alumni').trigger("reset");
+
+                //   $('html, body').animate({ scrollTop: 0 }, 'slow');
+                //   toastr.success('Success!');
+
+                  // }            
+            }
+      });
+
 });

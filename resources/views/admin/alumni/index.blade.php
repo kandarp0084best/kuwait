@@ -80,49 +80,49 @@ tr.tr_foo {
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="response"> Response
+                    <input type="checkbox" name="response" value="response"> Response
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="degrees"> Advanced Education and Certifications
+                    <input type="checkbox" name="degrees" value="degrees"> Advanced Education and Certifications
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="employment_status"> Employment
+                    <input type="checkbox" name="employment" value="employment"> Employment
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="professional"> Professional Societies
+                    <input type="checkbox" name="professional" value="professional"> Professional Societies
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="overall"> Overall Preparation at Kuwait University
+                    <input type="checkbox" name="overall" value="overall"> Overall Preparation at Kuwait University
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="level"> Level of Attainment
+                    <input type="checkbox" name="level" value="level"> Level of Attainment
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="importance"> Importance to Career
+                    <input type="checkbox" name="importance" value="importance"> Importance to Career
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="checkbox_f" value="select_all"> Select All
+                    <input type="checkbox" name="select_all" value="select_all"> Select All
                   </label>
                 </div>
                 

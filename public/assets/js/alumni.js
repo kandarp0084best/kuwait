@@ -191,6 +191,8 @@ $('#filter').on('click',function(){
 
   var form = document.alumni_filter;
   var formData = new FormData(form);
+  $('#appendData').html('');
+  $('.show-load').show();
 
   $.ajax({
             type: "POST",
@@ -200,6 +202,7 @@ $('#filter').on('click',function(){
             contentType: false,
             success: function( data ) {
 
+                $('.show-load').hide();
                 $('#appendData').html('');
                 $('#appendData').append(data);
                 //   $('#alumnisave').attr("disabled", false); 

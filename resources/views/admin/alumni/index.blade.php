@@ -10,6 +10,13 @@ tr.tr_foo {
     color: orange;
     font-weight: 900;
 }
+.text-middle
+{
+
+  vertical-align : middle !important;
+  text-align:center !important;
+
+}
 </style>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -60,22 +67,30 @@ tr.tr_foo {
 
                 <div class="form-group">
                   <label for="years">Time Period Year:</label>
-                  <select class="form-control" name="year">
-                    <option value="" disabled="" selected="">-- Time Period Year --</option>
-                    <option value="{{date('Y',strtotime('-1 year'))}}">{{date('Y',strtotime('-1 year'))}}</option>
-                    <option value="{{ now()->year }}">{{ now()->year }}</option>
-                    <option value="{{date('Y',strtotime('+1 year'))}}">{{date('Y',strtotime('+1 year'))}}</option>
-                  </select>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('-1 year'))}}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{ now()->year }}">
+                    <label class="form-check-label" >{{ now()->year }}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('+1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('+1 year'))}}</label>
+                  </div>
                 </div>
 
                 <div class="form-group">
                   <label for="years">Semester:</label>
-                  <select class="form-control" name="semester">
-                    <option value="" disabled="" selected="">-- Semester --</option>
-                    <option value="Fall">Fall</option>
-                    <option value="Spring">Spring</option>
-                    <option value="Summer">Summer</option>
-                  </select>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="semester" value="Fall">
+                    <label class="form-check-label" >Fall</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input" type="radio" name="semester" value="Spring">
+                    <label class="form-check-label" >Spring</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input" type="radio" name="semester" value="Summer">
+                    <label class="form-check-label" >Summer</label>
+                  </div>
                 </div>
 
                 <div class="checkbox">
@@ -110,7 +125,7 @@ tr.tr_foo {
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="level" value="level"> Level of Attainment
+                    <input type="checkbox" name="attainment" value="attainment"> Level of Attainment
                   </label>
                 </div>
 
@@ -151,12 +166,12 @@ tr.tr_foo {
             <!-- /.box-header -->
             <!-- form start -->
             <div class="row">
-              
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+              <div class="col-md-12 text-center show-load" style="display: none;"><h3>Processing...</h3></div>
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
                 <div id="appendData" style="padding:10px;"></div>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-3"></div>
             </div>
            
           </div>

@@ -5,9 +5,14 @@
     background: #5C5CFF;
     color: #fff;
 }
-tr.tr_foo {
+.tr_foo {
     background: #ffa50040 !important;
     color: orange;
+    font-weight: 900;
+}
+.tr_foo_1 {
+    background: #ffa50040 !important;
+    color: #000;
     font-weight: 900;
 }
 .text-middle
@@ -16,6 +21,12 @@ tr.tr_foo {
   vertical-align : middle !important;
   text-align:center !important;
 
+}
+.avg_footer
+{
+  background: #ffae2dcc !important;
+  color: #000;
+  font-weight: 900;
 }
 </style>
 <!-- Content Wrapper. Contains page content -->

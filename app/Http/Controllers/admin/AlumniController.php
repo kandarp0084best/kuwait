@@ -30,8 +30,8 @@ class AlumniController extends Controller
 		else
 		{
 			
-			$major_Unspecified = Alumni::where('major','')->count();
-			$data['major']['Unspecified'] = $major_Unspecified;
+			// $major_Unspecified = Alumni::where('major','')->count();
+			// $data['major']['Unspecified'] = $major_Unspecified;
 
 			$major_chemical = Alumni::where('major','Chemical')->count();
 			$data['major']['Chemical'] = $major_chemical;
@@ -80,7 +80,7 @@ class AlumniController extends Controller
 			$total_gender = 0;
 
 			/* Total Gendar */
-			$data['gender']['Unspecified'] = Alumni::where('gender','')->count();
+			// $data['gender']['Unspecified'] = Alumni::where('gender','')->count();
 			$data['gender']['Male'] = Alumni::where('gender','Male')->count();
 			$data['gender']['Female'] = Alumni::where('gender','Female')->count();
 			
@@ -105,7 +105,7 @@ class AlumniController extends Controller
 
 			} else {
 
-				$data['graduation']['Unspecified'] = Alumni::where('graduation','')->count();
+				// $data['graduation']['Unspecified'] = Alumni::where('graduation','')->count();
 				$data['graduation']['Other'] = Alumni::whereBetween('graduation',[2017, now()->year])->count();
 				$data['graduation']['2015-2016'] = Alumni::whereBetween('graduation',[2015, 2016])->count();
 				$data['graduation']['2014-2015'] = Alumni::whereBetween('graduation',[2014, 2015])->count();
@@ -131,7 +131,7 @@ class AlumniController extends Controller
 
 			/* Advanced Degrees */
 			$total_degrees = 0;
-			$data['degrees']['Unspecified'] = Alumni::where('degrees',null)->count();
+			// $data['degrees']['Unspecified'] = Alumni::where('degrees',null)->count();
 			$data['degrees']['MSc'] = Alumni::where('degrees','MSc')->count();
 			$data['degrees']['MBA'] = Alumni::where('degrees','MBA')->count();
 			$data['degrees']['PhD'] = Alumni::where('degrees','PhD')->count();
@@ -151,7 +151,7 @@ class AlumniController extends Controller
 
 			/* Advanced Degrees */
 			$total_membership = 0;
-			$data['membership']['Unspecified'] = Alumni::where('membership',null)->count();
+			// $data['membership']['Unspecified'] = Alumni::where('membership',null)->count();
 			$data['membership']['Professional Certification'] = Alumni::where('membership','!=','')->count();
 
 
@@ -173,7 +173,7 @@ class AlumniController extends Controller
 
 			/* Employment */
 			$total_employment = 0;
-			$data['employment']['Unspecified'] = Alumni::where('employment',null)->count();
+			// $data['employment']['Unspecified'] = Alumni::where('employment',null)->count();
 			$employment = Alumni::where('employment','!=', '')->get();
 			foreach ($employment as $keyemp => $valueemp) {
 				$data['employment'][$valueemp->employment] = Alumni::where('employment',$valueemp->employment)->count();
@@ -410,31 +410,40 @@ class AlumniController extends Controller
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th>Rate your overall preparation at Kuwait University</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
 
-				for ($i=1; $i <8; $i++) { 
-
+				for ($i=1; $i <8; $i++) {
+					$weight = 5; 
+					$sum = 0;
+					$multi_sum = 0;
 					foreach ($data['overall_'.$i] as $key => $value) {
 						$html .= '<tr><td>'.$key.'</td>';
 						foreach ($value as $k1 => $v1) {
 							$html .= '<td>'.$v1.'</td>';
+							$sum = $sum + $v1;
+
+							$multi = $weight * $v1;
+							$multi_sum = $multi_sum + $multi;
+							$weight --;
 						}
+						$avg = $multi_sum / $sum;
+						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
 				}
 
 				
-			$html .= '</table>';
+			// $html .= '</table>';
 
 
 			/* Question 1 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_1',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_1',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_1',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_1',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_1',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_1',6)->count();
-			$data['overall_year_1']['Be a technically competent engineer'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_1',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_1',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_1',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_1',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_1',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_1',6)->count();
+			// $data['overall_year_1']['Be a technically competent engineer'][] = $un_01;
 
 			$Q1Other_ans_01 = array();
 			$Q1Other_ans_01['year'] = 'Other';
@@ -444,6 +453,8 @@ class AlumniController extends Controller
 			$Q1Other_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('questions_1',4)->count();
 			$Q1Other_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('questions_1',5)->count();
 			$Q1Other_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('questions_1',6)->count();
+
+
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1Other_ans_01;
 
 			$Q1_ans_01 = array();
@@ -512,15 +523,15 @@ class AlumniController extends Controller
 
 
 			/* Question 2 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_2',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_2',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_2',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_2',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_2',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_2',6)->count();
-			$data['overall_year_2']['Obtain your first job after graduation'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_2',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_2',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_2',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_2',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_2',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_2',6)->count();
+			// $data['overall_year_2']['Obtain your first job after graduation'][] = $un_01;
 
 			$Q2Other_ans_01 = array();
 			$Q2Other_ans_01['year'] = 'Other';
@@ -599,15 +610,15 @@ class AlumniController extends Controller
 
 
 			/* Question 3 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_3',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_3',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_3',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_3',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_3',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_3',6)->count();
-			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_3',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_3',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_3',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_3',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_3',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_3',6)->count();
+			// $data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $un_01;
 
 			$Q3Other_ans_01 = array();
 			$Q3Other_ans_01['year'] = 'Other';
@@ -686,15 +697,15 @@ class AlumniController extends Controller
 
 
 			/* Question 4 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_4',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_4',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_4',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_4',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_4',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_4',6)->count();
-			$data['overall_year_4']['Contribute to the society as an engineer'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_4',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_4',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_4',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_4',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_4',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_4',6)->count();
+			// $data['overall_year_4']['Contribute to the society as an engineer'][] = $un_01;
 
 			$Q4Other_ans_01 = array();
 			$Q4Other_ans_01['year'] = 'Other';
@@ -773,15 +784,15 @@ class AlumniController extends Controller
 
 
 			/* Question 5 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_5',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_5',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_5',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_5',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_5',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_5',6)->count();
-			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_5',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_5',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_5',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_5',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_5',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_5',6)->count();
+			// $data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $un_01;
 
 			$Q5Other_ans_01 = array();
 			$Q5Other_ans_01['year'] = 'Other';
@@ -861,15 +872,15 @@ class AlumniController extends Controller
 
 
 			/* Question 6 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_6',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_6',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_6',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_6',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_6',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_6',6)->count();
-			$data['overall_year_6']['Pursue advanced degree'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_6',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_6',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_6',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_6',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_6',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_6',6)->count();
+			// $data['overall_year_6']['Pursue advanced degree'][] = $un_01;
 
 			$Q6Other_ans_01 = array();
 			$Q6Other_ans_01['year'] = 'Other';
@@ -949,15 +960,15 @@ class AlumniController extends Controller
 
 
 			/* Question 7 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_7',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_7',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_7',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_7',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_7',5)->count();
-			$un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_7',6)->count();
-			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('questions_7',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('questions_7',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('questions_7',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('questions_7',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('questions_7',5)->count();
+			// $un_01['QO_6'] = Alumni::where('graduation',null)->where('questions_7',6)->count();
+			// $data['overall_year_7']['Be an entrepreneur and start your own business'][] = $un_01;
 
 			$Q7Other_ans_01 = array();
 			$Q7Other_ans_01['year'] = 'Other';
@@ -1043,21 +1054,50 @@ class AlumniController extends Controller
 			 	$html .= '<tr><th>Rate your overall preparation at Kuwait University</th><th>Graduation Year</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
 
 				for ($i=1; $i <8; $i++) { 
-
 					foreach ($data['overall_year_'.$i] as $key => $value) {
+
+						
 						foreach ($value as $k1 => $v1) 
 						{
+
 							if ($k1 == 0) {
-								$html .= '<tr><td rowspan="8" class="text-middle">'.$key.'</td>';
+								$html .= '<tr><td rowspan="7" class="text-middle">'.$key.'</td>';
+								$weight_1 = 5; 
+								$sum_1 = 0;
+								$multi_sum_1 = 0;
 								foreach ($v1 as $k01 => $v01) {
-									$html .= '<td>'.$v01.'</td>';
+									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
+
+									if ($k01 != 'year') {
+										$sum_1 = ((int)$sum_1 + (int)$v01);
+										$multi = ((int)$weight_1 * (int)$v01);
+										$multi_sum_1 = $multi_sum_1 + $multi;
+										$weight_1 --;
+									}
+
 								}
+								$avg_1 = $multi_sum_1 / $sum_1;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
-								$html .= '<tr>';
+								$weight_2 = 5; 
+								$sum_2 = 0;
+								$multi_sum_2 = 0;
+								$html .= '<tr class="tr_foo_1">';
 								foreach ($v1 as $k01 => $v01) {
+
+
 									$html .= '<td>'.$v01.'</td>';
+									if ($k01 != 'year') {
+										$sum_2 = ((int)$sum_2 + (int)$v01);
+										$multi = ((int)$weight_2 * (int)$v01);
+										$multi_sum_2 = $multi_sum_2 + $multi;
+										$weight_2 --;
+									}
+
 								}
+								$avg_2 = $multi_sum_2 / $sum_2;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}
 						}
@@ -1125,12 +1165,21 @@ class AlumniController extends Controller
 			 	$html .= '<tr><th>Please evaluate educational objectives according to your level of attainment</th><th>Sig</th><th>Sat</th><th>SSat</th><th>NSat</th><th>Average</th></tr>';
 
 			 	for ($i=1; $i <7; $i++) { 
-
+			 		$weight = 5; 
+					$sum = 0;
+					$multi_sum = 0;
 					foreach ($data['attainment_'.$i] as $key => $value) {
 						$html .= '<tr><td>'.$key.'</td>';
 						foreach ($value as $k1 => $v1) {
 							$html .= '<td>'.$v1.'</td>';
+
+							$sum = $sum + $v1;
+							$multi = $weight * $v1;
+							$multi_sum = $multi_sum + $multi;
+							$weight --;
 						}
+						$avg = $multi_sum / $sum;
+						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
 				}
@@ -1139,13 +1188,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 1 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_1',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_1',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_1',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_1',4)->count();
-			$data['attainment_year_1']['Contribution to company/workplace'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_1',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_1',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_1',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_1',4)->count();
+			// $data['attainment_year_1']['Contribution to company/workplace'][] = $un_01;
 
 			$atta_other_01 = array();
 			$atta_other_01['year'] = 'Other';
@@ -1211,13 +1260,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 2 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_2',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_2',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_2',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_2',4)->count();
-			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_2',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_2',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_2',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_2',4)->count();
+			// $data['attainment_year_2']['Contribution to wellbeing of society'][] = $un_01;
 
 			$atta_other_01 = array();
 			$atta_other_01['year'] = 'Other';
@@ -1283,13 +1332,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 3 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_3',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_3',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_3',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_3',4)->count();
-			$data['attainment_year_3']['Career advancement'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_3',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_3',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_3',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_3',4)->count();
+			// $data['attainment_year_3']['Career advancement'][] = $un_01;
 
 			$atta_other_01 = array();
 			$atta_other_01['year'] = 'Other';
@@ -1355,13 +1404,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 4 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_4',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_4',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_4',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_4',4)->count();
-			$data['attainment_year_4']['Degree advancement'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_4',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_4',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_4',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_4',4)->count();
+			// $data['attainment_year_4']['Degree advancement'][] = $un_01;
 
 			$atta_other_01 = array();
 			$atta_other_01['year'] = 'Other';
@@ -1427,13 +1476,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 5 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_5',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_5',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_5',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_5',4)->count();
-			$data['attainment_year_5']['Staying current in profession'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_5',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_5',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_5',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_5',4)->count();
+			// $data['attainment_year_5']['Staying current in profession'][] = $un_01;
 
 			$atta_other_01 = array();
 			$atta_other_01['year'] = 'Other';
@@ -1500,13 +1549,13 @@ class AlumniController extends Controller
 
 
 			/* attainment 6 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_6',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_6',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_6',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_6',4)->count();
-			$data['attainment_year_6']['Use of leadership capabilities'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('attainment_6',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('attainment_6',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('attainment_6',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('attainment_6',4)->count();
+			// $data['attainment_year_6']['Use of leadership capabilities'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -1581,16 +1630,39 @@ class AlumniController extends Controller
 						foreach ($value as $k1 => $v1) 
 						{
 							if ($k1 == 0) {
-								$html .= '<tr><td rowspan="8" class="text-middle">'.$key.'</td>';
+								$weight_1 = 5; 
+								$sum_1 = 0;
+								$multi_sum_1 = 0;
+								$html .= '<tr><td rowspan="7" class="text-middle">'.$key.'</td>';
 								foreach ($v1 as $k01 => $v01) {
-									$html .= '<td>'.$v01.'</td>';
+									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
+
+									if ($k01 != 'year') {
+										$sum_1 = ((int)$sum_1 + (int)$v01);
+										$multi = ((int)$weight_1 * (int)$v01);
+										$multi_sum_1 = $multi_sum_1 + $multi;
+										$weight_1 --;
+									}
 								}
+								$avg_1 = $multi_sum_1 / $sum_1;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
+								$weight_2 = 5; 
+								$sum_2 = 0;
+								$multi_sum_2 = 0;
 								$html .= '<tr>';
 								foreach ($v1 as $k01 => $v01) {
-									$html .= '<td>'.$v01.'</td>';
+									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
+									if ($k01 != 'year') {
+										$sum_2 = ((int)$sum_2 + (int)$v01);
+										$multi = ((int)$weight_2 * (int)$v01);
+										$multi_sum_2 = $multi_sum_2 + $multi;
+										$weight_2 --;
+									}
 								}
+								$avg_2 = $multi_sum_2 / $sum_2;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}
 						}
@@ -1662,12 +1734,20 @@ class AlumniController extends Controller
 			 	$html .= '<tr><th>Please evaluate educational objective as per importance to career</th><th>Eimp</th><th>Vimp</th><th>Imp</th><th>Simp</th><th>NSat</th><th>Average</th></tr>';
 
 			 	for ($i=1; $i <7; $i++) { 
-
+			 		$weight = 5; 
+					$sum = 0;
+					$multi_sum = 0;
 					foreach ($data['importance_'.$i] as $key => $value) {
 						$html .= '<tr><td>'.$key.'</td>';
 						foreach ($value as $k1 => $v1) {
 							$html .= '<td>'.$v1.'</td>';
+							$sum = $sum + $v1;
+							$multi = $weight * $v1;
+							$multi_sum = $multi_sum + $multi;
+							$weight --;
 						}
+						$avg = $multi_sum / $sum;
+						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
 				}
@@ -1676,14 +1756,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 1 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_1',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_1',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_1',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_1',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_1',5)->count();
-			$data['importance_year_1']['Contribution to company/workplace'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_1',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_1',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_1',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_1',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_1',5)->count();
+			// $data['importance_year_1']['Contribution to company/workplace'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -1756,14 +1836,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 2 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_2',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_2',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_2',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_2',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_2',5)->count();
-			$data['importance_year_2']['Contribution to wellbeing of society'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_2',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_2',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_2',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_2',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_2',5)->count();
+			// $data['importance_year_2']['Contribution to wellbeing of society'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -1836,14 +1916,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 3 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_3',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_3',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_3',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_3',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_3',5)->count();
-			$data['importance_year_3']['Career advancement'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_3',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_3',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_3',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_3',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_3',5)->count();
+			// $data['importance_year_3']['Career advancement'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -1916,14 +1996,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 4 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_4',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_4',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_4',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_4',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_4',5)->count();
-			$data['importance_year_4']['Degree advancement'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_4',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_4',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_4',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_4',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_4',5)->count();
+			// $data['importance_year_4']['Degree advancement'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -1997,14 +2077,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 5 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_5',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_5',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_5',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_5',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_5',5)->count();
-			$data['importance_year_5']['Staying current in profession'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_5',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_5',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_5',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_5',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_5',5)->count();
+			// $data['importance_year_5']['Staying current in profession'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -2079,14 +2159,14 @@ class AlumniController extends Controller
 
 
 			/* attainment 6 */
-			$un_01 = array();
-			$un_01['year'] = 'Unspecified';
-			$un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_6',1)->count();
-			$un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_6',2)->count();
-			$un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_6',3)->count();
-			$un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_6',4)->count();
-			$un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_6',5)->count();
-			$data['importance_year_6']['Use of leadership capabilities'][] = $un_01;
+			// $un_01 = array();
+			// $un_01['year'] = 'Unspecified';
+			// $un_01['QO_1'] = Alumni::where('graduation',null)->where('importance_6',1)->count();
+			// $un_01['QO_2'] = Alumni::where('graduation',null)->where('importance_6',2)->count();
+			// $un_01['QO_3'] = Alumni::where('graduation',null)->where('importance_6',3)->count();
+			// $un_01['QO_4'] = Alumni::where('graduation',null)->where('importance_6',4)->count();
+			// $un_01['QO_5'] = Alumni::where('graduation',null)->where('importance_6',5)->count();
+			// $data['importance_year_6']['Use of leadership capabilities'][] = $un_01;
 
 
 			$atta_other_01 = array();
@@ -2167,16 +2247,36 @@ class AlumniController extends Controller
 						foreach ($value as $k1 => $v1) 
 						{
 							if ($k1 == 0) {
-								$html .= '<tr><td rowspan="8" class="text-middle">'.$key.'</td>';
+								$weight_1 = 5; 
+								$sum_1 = 0;
+								$multi_sum_1 = 0;
+								$html .= '<tr><td rowspan="7" class="text-middle">'.$key.'</td>';
 								foreach ($v1 as $k01 => $v01) {
-									$html .= '<td>'.$v01.'</td>';
+									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
+									if ($k01 != 'year') {
+										$sum_1 = ((int)$sum_1 + (int)$v01);
+										$multi = ((int)$weight_1 * (int)$v01);
+										$multi_sum_1 = $multi_sum_1 + $multi;
+										$weight_1 --;
+									}
 								}
+								$avg_1 = $multi_sum_1 / $sum_1;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
+								$weight_2 = 5; 
+								$sum_2 = 0;
+								$multi_sum_2 = 0;
 								$html .= '<tr>';
 								foreach ($v1 as $k01 => $v01) {
-									$html .= '<td>'.$v01.'</td>';
+									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
+									$sum_2 = ((int)$sum_2 + (int)$v01);
+									$multi = ((int)$weight_2 * (int)$v01);
+									$multi_sum_2 = $multi_sum_2 + $multi;
+									$weight_2 --;
 								}
+								$avg_2 = $multi_sum_2 / $sum_2;
+								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}
 						}

@@ -204,17 +204,14 @@ $('#filter').on('click',function(){
 
                 $('.show-load').hide();
                 $('#appendData').html('');
-                $('#appendData').append(data);
-                //   $('#alumnisave').attr("disabled", false); 
-                //   $('#alumnisave').empty();
-                //   $('#alumnisave').append('Submit');
-                // if (data.status)  {
-                //   $('#alumni').trigger("reset");
+                if (data) 
+                {
+                  $('#appendData').append(data);
 
-                //   $('html, body').animate({ scrollTop: 0 }, 'slow');
-                //   toastr.success('Success!');
-
-                  // }            
+                } else {
+                  $('#appendData').append('<h2 class="text-center">Data not found!</h2>');
+                }
+                         
             }
       });
 

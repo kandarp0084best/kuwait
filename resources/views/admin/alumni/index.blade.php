@@ -80,6 +80,18 @@
                   <label for="years">Time Period Year:</label>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('-5 year'))}}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('-4 year'))}}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('-3 year'))}}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
+                    <label class="form-check-label" >{{date('Y',strtotime('-2 year'))}}</label>
+                    &nbsp;&nbsp;
+                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
                     <label class="form-check-label" >{{date('Y',strtotime('-1 year'))}}</label>
                     &nbsp;&nbsp;
                     <input class="form-check-input"  type="radio" name="year" value="{{ now()->year }}">
@@ -90,7 +102,7 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="years">Semester:</label>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="semester" value="Fall">
@@ -102,7 +114,7 @@
                     <input class="form-check-input" type="radio" name="semester" value="Summer">
                     <label class="form-check-label" >Summer</label>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="checkbox">
                   <label>

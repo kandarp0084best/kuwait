@@ -259,3 +259,36 @@ $('.staff').on('change',function(){
   }
 
 })
+
+
+
+
+$('#employer_filter').on('click',function(){
+
+  var form = document.employer_filter;
+  var formData = new FormData(form);
+  $('#appendData').html('');
+  $('.show-load').show();
+
+  $.ajax({
+            type: "POST",
+            url: APP_URL+'/admin/employer/get/report',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function( data ) {
+
+                $('.show-load').hide();
+                $('#appendData').html('');
+                if (data) 
+                {
+                  $('#appendData').append(data);
+
+                } else {
+                  $('#appendData').append('<h2 class="text-center">Data not found!</h2>');
+                }
+                         
+            }
+      });
+
+});

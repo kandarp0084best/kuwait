@@ -12,8 +12,8 @@
          <li class="{{ request()->is('admin/alumni') ? 'active' : '' }}">
           <a href="{{route('alumni.index')}}"><i class="fa fa-dashboard"></i> <span>Alumni</span></a>
         </li>
-         <li class="">
-          <a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> <span>employer</span></a>
+         <li class="{{ request()->is('admin/employer') ? 'active' : '' }}">
+          <a href="{{route('employer.index')}}"><i class="fa fa-dashboard"></i> <span>employer</span></a>
         </li>
         
         <li class="header">Exit</li>

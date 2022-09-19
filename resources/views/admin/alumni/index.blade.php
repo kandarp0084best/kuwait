@@ -1,7 +1,7 @@
 @include('admin.layouts.header')
 
 <style type="text/css">
-  table.table.table-bordered.table-striped.text-center tr th {
+  table.table.table-bordered.table-striped tr th {
     background: #5C5CFF;
     color: #fff;
 }
@@ -77,29 +77,17 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="years">Time Period Year:</label>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('-5 year'))}}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('-4 year'))}}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('-3 year'))}}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('-2 year'))}}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('-1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('-1 year'))}}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{ now()->year }}">
-                    <label class="form-check-label" >{{ now()->year }}</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input"  type="radio" name="year" value="{{date('Y',strtotime('+1 year'))}}">
-                    <label class="form-check-label" >{{date('Y',strtotime('+1 year'))}}</label>
-                  </div>
+                  <label for="years">Year:</label>
+                   <select  class="form-control" name="year">
+                      <option value='' selected="" disabled="">-- Select Year --</option>
+
+                    <?php 
+                       for($i = 2017 ; $i < date('Y'); $i++){
+                          echo "<option value='".$i."'>$i</option>";
+                       }
+                    ?>
+                    <option value='{{now()->year}}'>{{now()->year}}</option>
+                  </select>
                 </div>
 
                 <!-- <div class="form-group">
@@ -118,49 +106,49 @@
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="response" value="response"> Response
+                    <input type="checkbox" class="all_checked" name="response" value="response"> Response
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="degrees" value="degrees"> Advanced Education and Certifications
+                    <input type="checkbox" class="all_checked" name="degrees" value="degrees"> Advanced Education and Certifications
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="employment" value="employment"> Employment
+                    <input type="checkbox" class="all_checked" name="employment" value="employment"> Employment
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="professional" value="professional"> Professional Societies
+                    <input type="checkbox" class="all_checked" name="professional" value="professional"> Professional Societies
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="overall" value="overall"> Overall Preparation at Kuwait University
+                    <input type="checkbox" class="all_checked" name="overall" value="overall"> Overall Preparation at Kuwait University
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="attainment" value="attainment"> Level of Attainment
+                    <input type="checkbox" class="all_checked" name="attainment" value="attainment"> Level of Attainment
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="importance" value="importance"> Importance to Career
+                    <input type="checkbox" class="all_checked" name="importance" value="importance"> Importance to Career
                   </label>
                 </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="select_all" value="select_all"> Select All
+                    <input type="checkbox" name="select_all" class="select_all" value="select_all"> Select All
                   </label>
                 </div>
                 

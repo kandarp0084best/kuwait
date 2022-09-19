@@ -40,5 +40,9 @@ Route::get('/admin', function () {
 
 
 Route::get('/admin/dashboard', [App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
+
 Route::get('/admin/alumni', [App\Http\Controllers\admin\AlumniController::class, 'index'])->name('alumni.index');
 Route::post('/admin/alumni/get/report', [App\Http\Controllers\admin\AlumniController::class, 'getReport'])->name('get.report');
+
+Route::get('/admin/employer', [App\Http\Controllers\admin\EmployerController::class, 'index'])->name('employer.index');
+Route::post('/admin/employer/get/report', [App\Http\Controllers\admin\EmployerController::class, 'getReport'])->name('get.report');

@@ -216,3 +216,15 @@ $('#filter').on('click',function(){
       });
 
 });
+
+
+$('.select_all').on('change',function(){
+
+  if ($(this).is(':checked')) {
+    $( ".all_checked" ).prop( "checked", true );
+
+  } else{
+    $( ".all_checked" ).prop( "checked", false );
+  }
+
+});

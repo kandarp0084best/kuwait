@@ -763,17 +763,17 @@
 			</div>
 			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
-				    <input type="radio" value="1" name="necessary" class="form-check-input" id="necessary" >
+				    <input type="radio" value="1" name="necessary" class="form-check-input necessary" id="necessary" >
 				    <label class="form-check-label" >Yes</label>
 			    </div>
 			    <div class="form-group form-check-inline">
-				    <input type="radio" value="0" name="necessary" class="form-check-input" id="necessary" >
+				    <input type="radio" value="0" name="necessary" class="form-check-input necessary" id="necessary" >
 				    <label class="form-check-label" >No</label>
 			    </div>
 			</div>
 		</div>
 
-		<div class="row mb-3">
+		<div class="row mb-3" id="specify" style="display: none;">
 			<div class="col-md-12">
 				<label>- &nbsp;If yes, Please specify.</label>
 				<textarea class="form-control" rows="5"  name="specify"></textarea>

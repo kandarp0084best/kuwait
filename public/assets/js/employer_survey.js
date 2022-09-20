@@ -174,9 +174,6 @@ $(function() {
       'necessary': { 
         required: true 
       },
-      'specify': { 
-        required: true 
-      },
       'hiring': { 
         required: true 
       },
@@ -256,6 +253,18 @@ $('.staff').on('change',function(){
     $('#staff_others').show();
   } else {
     $('#staff_others').hide();
+  }
+
+})
+
+
+
+$('.necessary').on('change',function(){
+
+  if($(this).val() == 1){
+    $('#specify').show();
+  } else {
+    $('#specify').hide();
   }
 
 })

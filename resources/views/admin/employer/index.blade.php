@@ -1,7 +1,7 @@
 @include('admin.layouts.header')
 
 <style type="text/css">
-  table.table.table-bordered.table-striped.text-center tr th {
+  table.table.table-bordered.table-striped tr th {
     background: #5C5CFF;
     color: #fff;
 }
@@ -66,11 +66,11 @@
                    <select  class="form-control" name="year">
                       <option value='' selected="" disabled="">-- Select Year --</option>
 
-                    <?php 
-                       for($i = 2010 ; $i < date('Y'); $i++){
+                    <!-- <?php 
+                       for($i = 2022 ; $i < date('Y'); $i++){
                           echo "<option value='".$i."'>$i</option>";
                        }
-                    ?>
+                    ?> -->
                       <option value='{{now()->year}}'>{{now()->year}}</option>
                     </select>
                 </div>

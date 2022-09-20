@@ -53,6 +53,7 @@
 
 <!-- bootstrap datepicker -->
 <script src="{{asset('public/assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/jquery.validate.min.js')}}"></script>
 <script src="{{asset('public/assets/js/alumni.js')}}"></script>
 <script src="{{asset('public/assets/js/employer_survey.js')}}"></script>
 

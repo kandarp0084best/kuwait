@@ -358,15 +358,6 @@ class AlumniController extends Controller
 
 
 			/* attainment 1 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',5)->count();
-			$data['importance_year_1']['Contribution to company/workplace'][] = $atta_other_01;
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
 			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
@@ -379,61 +370,52 @@ class AlumniController extends Controller
 
 			$imp_02 = array();
 			$imp_02['year'] = '2018-2019';
-			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',1)->count();
-			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',2)->count();
-			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',3)->count();
-			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',4)->count();
-			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',5)->count();
+			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_1',1)->count();
+			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_1',2)->count();
+			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_1',3)->count();
+			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_1',4)->count();
+			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_1',5)->count();
 			$data['importance_year_1']['Contribution to company/workplace'][] = $imp_02;
 
 
 			$imp_03 = array();
 			$imp_03['year'] = '2019-2020';
-			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',1)->count();
-			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',2)->count();
-			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',3)->count();
-			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',4)->count();
-			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',5)->count();
+			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_1',1)->count();
+			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_1',2)->count();
+			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_1',3)->count();
+			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_1',4)->count();
+			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_1',5)->count();
 			$data['importance_year_1']['Contribution to company/workplace'][] = $imp_03;
 
 
 			$imp_04 = array();
 			$imp_04['year'] = '2020-2021';
-			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',1)->count();
-			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',2)->count();
-			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',3)->count();
-			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',4)->count();
-			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',5)->count();
+			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_1',1)->count();
+			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_1',2)->count();
+			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_1',3)->count();
+			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_1',4)->count();
+			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_1',5)->count();
 			$data['importance_year_1']['Contribution to company/workplace'][] = $imp_04;
 
 
 			$imp_05 = array();
 			$imp_05['year'] = '2021-2022';
-			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',1)->count();
-			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',2)->count();
-			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',3)->count();
-			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',4)->count();
-			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',5)->count();
+			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_1',1)->count();
+			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_1',2)->count();
+			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_1',3)->count();
+			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_1',4)->count();
+			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_1',5)->count();
 			$data['importance_year_1']['Contribution to company/workplace'][] = $imp_05;
 
 
 			/* attainment 2 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',5)->count();
-			$data['importance_year_2']['Contribution to wellbeing of society'][] = $atta_other_01;
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
-			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
-			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',2)->count();
-			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',3)->count();
-			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',4)->count();
-			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',5)->count();
+			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_2',1)->count();
+			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_2',2)->count();
+			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_2',3)->count();
+			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_2',4)->count();
+			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_2',5)->count();
 			$data['importance_year_2']['Contribution to wellbeing of society'][] = $imp_01;
 
 
@@ -449,60 +431,51 @@ class AlumniController extends Controller
 
 			$imp_03 = array();
 			$imp_03['year'] = '2019-2020';
-			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',1)->count();
-			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',2)->count();
-			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',3)->count();
-			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',4)->count();
-			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',5)->count();
+			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_2',1)->count();
+			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_2',2)->count();
+			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_2',3)->count();
+			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_2',4)->count();
+			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_2',5)->count();
 			$data['importance_year_2']['Contribution to wellbeing of society'][] = $imp_03;
 
 
 			$imp_04 = array();
 			$imp_04['year'] = '2020-2021';
-			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',1)->count();
-			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',2)->count();
-			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',3)->count();
-			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',4)->count();
-			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',5)->count();
+			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_2',1)->count();
+			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_2',2)->count();
+			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_2',3)->count();
+			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_2',4)->count();
+			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_2',5)->count();
 			$data['importance_year_2']['Contribution to wellbeing of society'][] = $imp_04;
 
 
 			$imp_05 = array();
 			$imp_05['year'] = '2021-2022';
-			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',1)->count();
-			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',2)->count();
-			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',3)->count();
-			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',4)->count();
-			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',5)->count();
+			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_2',1)->count();
+			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_2',2)->count();
+			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_2',3)->count();
+			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_2',4)->count();
+			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_2',5)->count();
 			$data['importance_year_2']['Contribution to wellbeing of society'][] = $imp_05;
 
 			/* attainment 3 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',5)->count();
-			$data['importance_year_3']['Career advancement'][] = $atta_other_01;
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
-			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
-			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',2)->count();
-			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',3)->count();
-			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',4)->count();
-			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',5)->count();
+			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_3',1)->count();
+			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_3',2)->count();
+			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_3',3)->count();
+			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_3',4)->count();
+			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_3',5)->count();
 			$data['importance_year_3']['Career advancement'][] = $imp_01;
 
 
 			$imp_02 = array();
 			$imp_02['year'] = '2018-2019';
-			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',1)->count();
-			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',2)->count();
-			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',3)->count();
-			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',4)->count();
-			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',5)->count();
+			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_3',1)->count();
+			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_3',2)->count();
+			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_3',3)->count();
+			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_3',4)->count();
+			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_3',5)->count();
 			$data['importance_year_3']['Career advancement'][] = $imp_02;
 
 
@@ -518,61 +491,52 @@ class AlumniController extends Controller
 
 			$imp_04 = array();
 			$imp_04['year'] = '2020-2021';
-			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',1)->count();
-			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',2)->count();
-			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',3)->count();
-			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',4)->count();
-			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',5)->count();
+			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_3',1)->count();
+			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_3',2)->count();
+			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_3',3)->count();
+			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_3',4)->count();
+			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_3',5)->count();
 			$data['importance_year_3']['Career advancement'][] = $imp_04;
 
 
 			$imp_05 = array();
 			$imp_05['year'] = '2021-2022';
-			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',1)->count();
-			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',2)->count();
-			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',3)->count();
-			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',4)->count();
-			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',5)->count();
+			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_3',1)->count();
+			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_3',2)->count();
+			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_3',3)->count();
+			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_3',4)->count();
+			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_3',5)->count();
 			$data['importance_year_3']['Career advancement'][] = $imp_05;
 
 
 			/* attainment 4 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',5)->count();
-			$data['importance_year_4']['Degree advancement'][] = $atta_other_01;
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
-			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
-			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',2)->count();
-			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',3)->count();
-			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',4)->count();
-			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',5)->count();
+			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_4',1)->count();
+			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_4',2)->count();
+			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_4',3)->count();
+			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_4',4)->count();
+			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_4',5)->count();
 			$data['importance_year_4']['Degree advancement'][] = $imp_01;
 
 
 			$imp_02 = array();
 			$imp_02['year'] = '2018-2019';
-			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',1)->count();
-			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',2)->count();
-			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',3)->count();
-			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',4)->count();
-			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',5)->count();
+			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_4',1)->count();
+			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_4',2)->count();
+			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_4',3)->count();
+			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_4',4)->count();
+			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_4',5)->count();
 			$data['importance_year_4']['Degree advancement'][] = $imp_02;
 
 
 			$imp_03 = array();
 			$imp_03['year'] = '2019-2020';
-			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',1)->count();
-			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',2)->count();
-			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',3)->count();
-			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',4)->count();
-			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',5)->count();
+			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_4',1)->count();
+			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_4',2)->count();
+			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_4',3)->count();
+			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_4',4)->count();
+			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_4',5)->count();
 			$data['importance_year_4']['Degree advancement'][] = $imp_03;
 
 
@@ -588,62 +552,52 @@ class AlumniController extends Controller
 
 			$imp_05 = array();
 			$imp_05['year'] = '2021-2022';
-			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',1)->count();
-			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',2)->count();
-			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',3)->count();
-			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',4)->count();
-			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',5)->count();
+			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_4',1)->count();
+			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_4',2)->count();
+			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_4',3)->count();
+			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_4',4)->count();
+			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_4',5)->count();
 			$data['importance_year_4']['Degree advancement'][] = $imp_05;
 
 
 			/* attainment 5 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2022])->where('importance_6',5)->count();
-			$data['importance_year_5']['Staying current in profession'][] = $atta_other_01;
-
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
-			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
-			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',2)->count();
-			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',3)->count();
-			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',4)->count();
-			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',5)->count();
+			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_5',1)->count();
+			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_5',2)->count();
+			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_5',3)->count();
+			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_5',4)->count();
+			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_5',5)->count();
 			$data['importance_year_5']['Staying current in profession'][] = $imp_01;
 
 
 			$imp_02 = array();
 			$imp_02['year'] = '2018-2019';
-			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',1)->count();
-			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',2)->count();
-			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',3)->count();
-			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',4)->count();
-			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',5)->count();
+			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_5',1)->count();
+			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_5',2)->count();
+			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_5',3)->count();
+			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_5',4)->count();
+			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_5',5)->count();
 			$data['importance_year_5']['Staying current in profession'][] = $imp_02;
 
 
 			$imp_03 = array();
 			$imp_03['year'] = '2019-2020';
-			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',1)->count();
-			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',2)->count();
-			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',3)->count();
-			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',4)->count();
-			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',5)->count();
+			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_5',1)->count();
+			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_5',2)->count();
+			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_5',3)->count();
+			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_5',4)->count();
+			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_5',5)->count();
 			$data['importance_year_5']['Staying current in profession'][] = $imp_03;
 
 
 			$imp_04 = array();
 			$imp_04['year'] = '2020-2021';
-			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',1)->count();
-			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',2)->count();
-			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',3)->count();
-			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',4)->count();
-			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',5)->count();
+			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_5',1)->count();
+			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_5',2)->count();
+			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_5',3)->count();
+			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_5',4)->count();
+			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_5',5)->count();
 			$data['importance_year_5']['Staying current in profession'][] = $imp_04;
 
 
@@ -658,63 +612,53 @@ class AlumniController extends Controller
 
 
 			/* attainment 6 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',4)->count();
-			$atta_other_01['opt_5'] = Alumni::whereBetween('graduation',[2017, now()->year])->where('importance_6',5)->count();
-			$data['importance_year_6']['Use of leadership capabilities'][] = $atta_other_01;
-
-
 			$imp_01 = array();
 			$imp_01['year'] = '2017-2018';
-			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',1)->count();
-			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',2)->count();
-			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',3)->count();
-			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',4)->count();
-			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_1',5)->count();
+			$imp_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_6',1)->count();
+			$imp_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_6',2)->count();
+			$imp_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_6',3)->count();
+			$imp_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_6',4)->count();
+			$imp_01['opt_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('importance_6',5)->count();
 			$data['importance_year_6']['Use of leadership capabilities'][] = $imp_01;
 
 
 			$imp_02 = array();
 			$imp_02['year'] = '2018-2019';
-			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',1)->count();
-			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',2)->count();
-			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',3)->count();
-			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',4)->count();
-			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_2',5)->count();
+			$imp_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_6',1)->count();
+			$imp_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_6',2)->count();
+			$imp_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_6',3)->count();
+			$imp_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_6',4)->count();
+			$imp_02['opt_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('importance_6',5)->count();
 			$data['importance_year_6']['Use of leadership capabilities'][] = $imp_02;
 
 
 			$imp_03 = array();
 			$imp_03['year'] = '2019-2020';
-			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',1)->count();
-			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',2)->count();
-			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',3)->count();
-			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',4)->count();
-			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_3',5)->count();
+			$imp_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_6',1)->count();
+			$imp_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_6',2)->count();
+			$imp_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_6',3)->count();
+			$imp_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_6',4)->count();
+			$imp_03['opt_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('importance_6',5)->count();
 			$data['importance_year_6']['Use of leadership capabilities'][] = $imp_03;
 
 
 			$imp_04 = array();
 			$imp_04['year'] = '2020-2021';
-			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',1)->count();
-			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',2)->count();
-			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',3)->count();
-			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',4)->count();
-			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_4',5)->count();
+			$imp_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_6',1)->count();
+			$imp_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_6',2)->count();
+			$imp_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_6',3)->count();
+			$imp_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_6',4)->count();
+			$imp_04['opt_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('importance_6',5)->count();
 			$data['importance_year_6']['Use of leadership capabilities'][] = $imp_04;
 
 
 			$imp_05 = array();
 			$imp_05['year'] = '2021-2022';
-			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',1)->count();
-			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',2)->count();
-			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',3)->count();
-			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',4)->count();
-			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_5',5)->count();
+			$imp_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_6',1)->count();
+			$imp_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_6',2)->count();
+			$imp_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_6',3)->count();
+			$imp_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_6',4)->count();
+			$imp_05['opt_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('importance_6',5)->count();
 			$data['importance_year_6']['Use of leadership capabilities'][] = $imp_05;
 
 
@@ -730,7 +674,7 @@ class AlumniController extends Controller
 								$weight_1 = 5; 
 								$sum_1 = 0;
 								$multi_sum_1 = 0;
-								$html .= '<tr><td rowspan="6" class="text-middle">'.$key.'</td>';
+								$html .= '<tr><td rowspan="5" class="text-middle">'.$key.'</td>';
 								foreach ($v1 as $k01 => $v01) {
 									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
 									if ($k01 != 'year') {
@@ -740,7 +684,11 @@ class AlumniController extends Controller
 										$weight_1 --;
 									}
 								}
-								$avg_1 = $multi_sum_1 / $sum_1;
+								if ($sum_1 != 0) {
+									$avg_1 = $multi_sum_1 / $sum_1;
+								} else {
+									$avg_1 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
@@ -755,7 +703,11 @@ class AlumniController extends Controller
 									$multi_sum_2 = $multi_sum_2 + $multi;
 									$weight_2 --;
 								}
-								$avg_2 = $multi_sum_2 / $sum_2;
+								if ($sum_2 != 0) {
+									$avg_2 = $multi_sum_2 / $sum_2;
+								} else {
+									$avg_2 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}
@@ -846,14 +798,6 @@ class AlumniController extends Controller
 
 
 			/* attainment 1 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_1']['Contribution to company/workplace'][] = $atta_other_01;
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
 			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
@@ -865,57 +809,48 @@ class AlumniController extends Controller
 
 			$atta_02 = array();
 			$atta_02['year'] = '2018-2019';
-			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',1)->count();
-			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',2)->count();
-			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',3)->count();
-			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',4)->count();
+			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_1',1)->count();
+			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_1',2)->count();
+			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_1',3)->count();
+			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_1',4)->count();
 			$data['attainment_year_1']['Contribution to company/workplace'][] = $atta_02;
 
 
 			$atta_03 = array();
 			$atta_03['year'] = '2019-2020';
-			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',1)->count();
-			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',2)->count();
-			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',3)->count();
-			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',4)->count();
+			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_1',1)->count();
+			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_1',2)->count();
+			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_1',3)->count();
+			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_1',4)->count();
 			$data['attainment_year_1']['Contribution to company/workplace'][] = $atta_03;
 
 
 			$atta_04 = array();
 			$atta_04['year'] = '2020-2021';
-			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',1)->count();
-			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',2)->count();
-			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',3)->count();
-			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',4)->count();
+			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_1',1)->count();
+			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_1',2)->count();
+			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_1',3)->count();
+			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_1',4)->count();
 			$data['attainment_year_1']['Contribution to company/workplace'][] = $atta_04;
 
 
 			$atta_05 = array();
 			$atta_05['year'] = '2021-2022';
-			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',1)->count();
-			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',2)->count();
-			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',3)->count();
-			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',4)->count();
+			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_1',1)->count();
+			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_1',2)->count();
+			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_1',3)->count();
+			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_1',4)->count();
 			$data['attainment_year_1']['Contribution to company/workplace'][] = $atta_05;
 
 
 
 			/* attainment 2 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $atta_other_01;
-
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
-			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
-			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',2)->count();
-			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',3)->count();
-			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',4)->count();
+			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_2',1)->count();
+			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_2',2)->count();
+			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_2',3)->count();
+			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_2',4)->count();
 			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $atta_01;
 
 
@@ -930,56 +865,47 @@ class AlumniController extends Controller
 
 			$atta_03 = array();
 			$atta_03['year'] = '2019-2020';
-			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',1)->count();
-			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',2)->count();
-			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',3)->count();
-			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',4)->count();
+			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_2',1)->count();
+			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_2',2)->count();
+			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_2',3)->count();
+			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_2',4)->count();
 			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $atta_03;
 
 
 			$atta_04 = array();
 			$atta_04['year'] = '2020-2021';
-			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',1)->count();
-			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',2)->count();
-			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',3)->count();
-			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',4)->count();
+			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_2',1)->count();
+			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_2',2)->count();
+			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_2',3)->count();
+			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_2',4)->count();
 			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $atta_04;
 
 
 			$atta_05 = array();
 			$atta_05['year'] = '2021-2022';
-			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',1)->count();
-			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',2)->count();
-			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',3)->count();
-			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',4)->count();
+			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_2',1)->count();
+			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_2',2)->count();
+			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_2',3)->count();
+			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_2',4)->count();
 			$data['attainment_year_2']['Contribution to wellbeing of society'][] = $atta_05;
 
 
 			/* attainment 3 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_3']['Career advancement'][] = $atta_other_01;
-
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
-			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
-			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',2)->count();
-			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',3)->count();
-			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',4)->count();
+			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_3',1)->count();
+			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_3',2)->count();
+			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_3',3)->count();
+			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_3',4)->count();
 			$data['attainment_year_3']['Career advancement'][] = $atta_01;
 
 
 			$atta_02 = array();
 			$atta_02['year'] = '2018-2019';
-			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',1)->count();
-			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',2)->count();
-			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',3)->count();
-			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',4)->count();
+			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_3',1)->count();
+			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_3',2)->count();
+			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_3',3)->count();
+			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_3',4)->count();
 			$data['attainment_year_3']['Career advancement'][] = $atta_02;
 
 
@@ -994,56 +920,47 @@ class AlumniController extends Controller
 
 			$atta_04 = array();
 			$atta_04['year'] = '2020-2021';
-			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',1)->count();
-			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',2)->count();
-			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',3)->count();
-			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',4)->count();
+			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_3',1)->count();
+			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_3',2)->count();
+			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_3',3)->count();
+			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_3',4)->count();
 			$data['attainment_year_3']['Career advancement'][] = $atta_04;
 
 
 			$atta_05 = array();
 			$atta_05['year'] = '2021-2022';
-			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',1)->count();
-			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',2)->count();
-			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',3)->count();
-			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',4)->count();
+			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_3',1)->count();
+			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_3',2)->count();
+			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_3',3)->count();
+			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_3',4)->count();
 			$data['attainment_year_3']['Career advancement'][] = $atta_05;
 
 
 			/* attainment 4 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_4']['Degree advancement'][] = $atta_other_01;
-
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
-			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
-			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',2)->count();
-			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',3)->count();
-			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',4)->count();
+			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_4',1)->count();
+			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_4',2)->count();
+			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_4',3)->count();
+			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_4',4)->count();
 			$data['attainment_year_4']['Degree advancement'][] = $atta_01;
 
 
 			$atta_02 = array();
 			$atta_02['year'] = '2018-2019';
-			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',1)->count();
-			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',2)->count();
-			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',3)->count();
-			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',4)->count();
+			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_4',1)->count();
+			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_4',2)->count();
+			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_4',3)->count();
+			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_4',4)->count();
 			$data['attainment_year_4']['Degree advancement'][] = $atta_02;
 
 
 			$atta_03 = array();
 			$atta_03['year'] = '2019-2020';
-			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',1)->count();
-			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',2)->count();
-			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',3)->count();
-			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',4)->count();
+			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_4',1)->count();
+			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_4',2)->count();
+			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_4',3)->count();
+			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_4',4)->count();
 			$data['attainment_year_4']['Degree advancement'][] = $atta_03;
 
 
@@ -1058,56 +975,47 @@ class AlumniController extends Controller
 
 			$atta_05 = array();
 			$atta_05['year'] = '2021-2022';
-			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',1)->count();
-			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',2)->count();
-			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',3)->count();
-			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',4)->count();
+			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_4',1)->count();
+			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_4',2)->count();
+			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_4',3)->count();
+			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_4',4)->count();
 			$data['attainment_year_4']['Degree advancement'][] = $atta_05;
 
 
 			/* attainment 5 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_5']['Staying current in profession'][] = $atta_other_01;
-
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
-			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
-			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',2)->count();
-			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',3)->count();
-			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',4)->count();
+			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_5',1)->count();
+			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_5',2)->count();
+			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_5',3)->count();
+			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_5',4)->count();
 			$data['attainment_year_5']['Staying current in profession'][] = $atta_01;
 
 
 			$atta_02 = array();
 			$atta_02['year'] = '2018-2019';
-			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',1)->count();
-			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',2)->count();
-			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',3)->count();
-			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',4)->count();
+			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_5',1)->count();
+			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_5',2)->count();
+			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_5',3)->count();
+			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_5',4)->count();
 			$data['attainment_year_5']['Staying current in profession'][] = $atta_02;
 
 
 			$atta_03 = array();
 			$atta_03['year'] = '2019-2020';
-			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',1)->count();
-			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',2)->count();
-			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',3)->count();
-			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',4)->count();
+			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_5',1)->count();
+			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_5',2)->count();
+			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_5',3)->count();
+			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_5',4)->count();
 			$data['attainment_year_5']['Staying current in profession'][] = $atta_03;
 
 
 			$atta_04 = array();
 			$atta_04['year'] = '2020-2021';
-			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',1)->count();
-			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',2)->count();
-			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',3)->count();
-			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',4)->count();
+			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_5',1)->count();
+			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_5',2)->count();
+			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_5',3)->count();
+			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_5',4)->count();
 			$data['attainment_year_5']['Staying current in profession'][] = $atta_04;
 
 
@@ -1122,64 +1030,55 @@ class AlumniController extends Controller
 
 
 			/* attainment 6 */
-			$atta_other_01 = array();
-			$atta_other_01['year'] = 'Other';
-			$atta_other_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',1)->count();
-			$atta_other_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',2)->count();
-			$atta_other_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',3)->count();
-			$atta_other_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2022])->where('attainment_6',4)->count();
-			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_other_01;
-
-
 			$atta_01 = array();
 			$atta_01['year'] = '2017-2018';
-			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',1)->count();
-			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',2)->count();
-			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',3)->count();
-			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_1',4)->count();
+			$atta_01['opt_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_6',1)->count();
+			$atta_01['opt_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_6',2)->count();
+			$atta_01['opt_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_6',3)->count();
+			$atta_01['opt_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('attainment_6',4)->count();
 			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_01;
 
 
 			$atta_02 = array();
 			$atta_02['year'] = '2018-2019';
-			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',1)->count();
-			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',2)->count();
-			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',3)->count();
-			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_2',4)->count();
+			$atta_02['opt_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_6',1)->count();
+			$atta_02['opt_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_6',2)->count();
+			$atta_02['opt_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_6',3)->count();
+			$atta_02['opt_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('attainment_6',4)->count();
 			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_02;
 
 
 			$atta_03 = array();
 			$atta_03['year'] = '2019-2020';
-			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',1)->count();
-			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',2)->count();
-			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',3)->count();
-			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_3',4)->count();
+			$atta_03['opt_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_6',1)->count();
+			$atta_03['opt_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_6',2)->count();
+			$atta_03['opt_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_6',3)->count();
+			$atta_03['opt_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('attainment_6',4)->count();
 			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_03;
 
 
 			$atta_04 = array();
 			$atta_04['year'] = '2020-2021';
-			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',1)->count();
-			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',2)->count();
-			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',3)->count();
-			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_4',4)->count();
+			$atta_04['opt_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_6',1)->count();
+			$atta_04['opt_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_6',2)->count();
+			$atta_04['opt_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_6',3)->count();
+			$atta_04['opt_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('attainment_6',4)->count();
 			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_04;
 
 
 			$atta_05 = array();
 			$atta_05['year'] = '2021-2022';
-			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',1)->count();
-			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',2)->count();
-			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',3)->count();
-			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_5',4)->count();
+			$atta_05['opt_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_6',1)->count();
+			$atta_05['opt_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_6',2)->count();
+			$atta_05['opt_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_6',3)->count();
+			$atta_05['opt_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('attainment_6',4)->count();
 			$data['attainment_year_6']['Use of leadership capabilities'][] = $atta_05;
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 			 	$html .= '<tr><th>Please evaluate educational objectives according to your level of attainment</th><th>Graduation Year</th><th>Sig</th><th>Sat</th><th>SSat</th><th>NSat</th><th>Average</th></tr>';
 
-			for ($i=1; $i <7; $i++) { 
+			for ($i=1; $i <6; $i++) { 
 
 					foreach ($data['attainment_year_'.$i] as $key => $value) {
 						foreach ($value as $k1 => $v1) 
@@ -1188,7 +1087,7 @@ class AlumniController extends Controller
 								$weight_1 = 5; 
 								$sum_1 = 0;
 								$multi_sum_1 = 0;
-								$html .= '<tr><td rowspan="6" class="text-middle">'.$key.'</td>';
+								$html .= '<tr><td rowspan="5" class="text-middle">'.$key.'</td>';
 								foreach ($v1 as $k01 => $v01) {
 									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
 
@@ -1199,7 +1098,11 @@ class AlumniController extends Controller
 										$weight_1 --;
 									}
 								}
-								$avg_1 = $multi_sum_1 / $sum_1;
+								if ($sum_1 != 0) {
+									$avg_1 = $multi_sum_1 / $sum_1;
+								} else {
+									$avg_1 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
@@ -1216,7 +1119,11 @@ class AlumniController extends Controller
 										$weight_2 --;
 									}
 								}
-								$avg_2 = $multi_sum_2 / $sum_2;
+								if ($sum_2 != 0) {
+									$avg_2 = $multi_sum_2 / $sum_2;
+								} else {
+									$avg_2 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}
@@ -1329,210 +1236,138 @@ class AlumniController extends Controller
 
 
 			/* Question 1 */
-			$Q1Other_ans_01 = array();
-			$Q1Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q1Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q1Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q1Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q1Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q1Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q1Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1Other_ans_01;
-
 			$Q1_ans_01 = array();
 			$Q1_ans_01['year'] = '2017-2018';
-			$Q1_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q1_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q1_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q1_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q1_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q1_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q1_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
+			$Q1_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
+			$Q1_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
+			$Q1_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
+			$Q1_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
+			$Q1_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1_ans_01;
+
 
 			$Q1_ans_02 = array();
 			$Q1_ans_02['year'] = '2018-2019';
-			$Q1_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q1_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q1_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q1_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q1_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q1_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q1_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',1)->count();
+			$Q1_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',2)->count();
+			$Q1_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',3)->count();
+			$Q1_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',4)->count();
+			$Q1_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',5)->count();
+			$Q1_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_1',6)->count();
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1_ans_02;
 
 
 			$Q1_ans_03 = array();
 			$Q1_ans_03['year'] = '2019-2020';
-			$Q1_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q1_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q1_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q1_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q1_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q1_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q1_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',1)->count();
+			$Q1_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',2)->count();
+			$Q1_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',3)->count();
+			$Q1_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',4)->count();
+			$Q1_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',5)->count();
+			$Q1_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_1',6)->count();
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1_ans_03;
 
 
 			$Q1_ans_04 = array();
 			$Q1_ans_04['year'] = '2020-2021';
-			$Q1_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q1_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q1_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q1_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q1_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q1_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q1_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',1)->count();
+			$Q1_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',2)->count();
+			$Q1_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',3)->count();
+			$Q1_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',4)->count();
+			$Q1_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',5)->count();
+			$Q1_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_1',6)->count();
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1_ans_04;
 
 
 			$Q1_ans_05 = array();
 			$Q1_ans_05['year'] = '2021-2022';
-			$Q1_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q1_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q1_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q1_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q1_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q1_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
+			$Q1_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',1)->count();
+			$Q1_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',2)->count();
+			$Q1_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',3)->count();
+			$Q1_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',4)->count();
+			$Q1_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',5)->count();
+			$Q1_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_1',6)->count();
 			$data['overall_year_1']['Be a technically competent engineer'][] = $Q1_ans_05;
 
 
 			/* Question 2 */
-			$Q2Other_ans_01 = array();
-			$Q2Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q2Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q2Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q2Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q2Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q2Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q2Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2Other_ans_01;
-
 			$Q2_ans_01 = array();
 			$Q2_ans_01['year'] = '2017-2018';
-			$Q2_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q2_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q2_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q2_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q2_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q2_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q2_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',1)->count();
+			$Q2_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',2)->count();
+			$Q2_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',3)->count();
+			$Q2_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',4)->count();
+			$Q2_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',5)->count();
+			$Q2_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_2',6)->count();
 			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2_ans_01;
 
 
 			$Q2_ans_02 = array();
 			$Q2_ans_02['year'] = '2018-2019';
-			$Q2_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q2_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q2_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q2_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q2_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q2_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q2_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
+			$Q2_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
+			$Q2_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
+			$Q2_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
+			$Q2_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
+			$Q2_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
 			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2_ans_02;
 
 
 			$Q2_ans_03 = array();
 			$Q2_ans_03['year'] = '2019-2020';
-			$Q2_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q2_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q2_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q2_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q2_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q2_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q2_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',1)->count();
+			$Q2_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',2)->count();
+			$Q2_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',3)->count();
+			$Q2_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',4)->count();
+			$Q2_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',5)->count();
+			$Q2_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_2',6)->count();
 			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2_ans_03;
 
 
 			$Q2_ans_04 = array();
 			$Q2_ans_04['year'] = '2020-2021';
-			$Q2_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q2_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q2_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q2_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q2_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q2_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q2_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',1)->count();
+			$Q2_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',2)->count();
+			$Q2_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',3)->count();
+			$Q2_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',4)->count();
+			$Q2_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',5)->count();
+			$Q2_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_2',6)->count();
 			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2_ans_04;
 
 
 			$Q2_ans_05 = array();
 			$Q2_ans_05['year'] = '2021-2022';
-			$Q2_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q2_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q2_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q2_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q2_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q2_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
+			$Q2_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',1)->count();
+			$Q2_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',2)->count();
+			$Q2_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',3)->count();
+			$Q2_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',4)->count();
+			$Q2_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',5)->count();
+			$Q2_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_2',6)->count();
 			$data['overall_year_2']['Obtain your first job after graduation'][] = $Q2_ans_05;
 
 
 
 			/* Question 3 */
-
-			$Q3Other_ans_01 = array();
-			$Q3Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q3Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q3Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q3Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q3Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q3Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q3Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $Q3Other_ans_01;
-
 			$Q3_ans_01 = array();
 			$Q3_ans_01['year'] = '2017-2018';
-			$Q3_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q3_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q3_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q3_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q3_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q3_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q3_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',1)->count();
+			$Q3_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',2)->count();
+			$Q3_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',3)->count();
+			$Q3_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',4)->count();
+			$Q3_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',5)->count();
+			$Q3_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_3',6)->count();
 			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $Q3_ans_01;
 
 
 			$Q3_ans_02 = array();
 			$Q3_ans_02['year'] = '2018-2019';
-			$Q3_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q3_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q3_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q3_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q3_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q3_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q3_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',1)->count();
+			$Q3_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',2)->count();
+			$Q3_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',3)->count();
+			$Q3_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',4)->count();
+			$Q3_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',5)->count();
+			$Q3_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_3',6)->count();
 			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $Q3_ans_02;
 
 
@@ -1549,82 +1384,57 @@ class AlumniController extends Controller
 
 			$Q3_ans_04 = array();
 			$Q3_ans_04['year'] = '2020-2021';
-			$Q3_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q3_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q3_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q3_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q3_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q3_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q3_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',1)->count();
+			$Q3_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',2)->count();
+			$Q3_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',3)->count();
+			$Q3_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',4)->count();
+			$Q3_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',5)->count();
+			$Q3_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_3',6)->count();
 			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $Q3_ans_04;
 
 
 			$Q3_ans_05 = array();
 			$Q3_ans_05['year'] = '2021-2022';
-			$Q3_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q3_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q3_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q3_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q3_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q3_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
+			$Q3_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',1)->count();
+			$Q3_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',2)->count();
+			$Q3_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',3)->count();
+			$Q3_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',4)->count();
+			$Q3_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',5)->count();
+			$Q3_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_3',6)->count();
 			$data['overall_year_3']['Have the necessary professional skills to meet expectations of your job'][] = $Q3_ans_05;
 
 
 			/* Question 4 */
-			$Q4Other_ans_01 = array();
-			$Q4Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q4Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q4Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q4Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q4Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q4Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q4Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-
-			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4Other_ans_01;
-
 			$Q4_ans_01 = array();
 			$Q4_ans_01['year'] = '2017-2018';
-			$Q4_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q4_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q4_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q4_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q4_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q4_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q4_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',1)->count();
+			$Q4_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',2)->count();
+			$Q4_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',3)->count();
+			$Q4_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',4)->count();
+			$Q4_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',5)->count();
+			$Q4_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_4',6)->count();
 			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4_ans_01;
 
 
 			$Q4_ans_02 = array();
 			$Q4_ans_02['year'] = '2018-2019';
-			$Q4_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q4_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q4_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q4_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q4_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q4_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q4_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',1)->count();
+			$Q4_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',2)->count();
+			$Q4_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',3)->count();
+			$Q4_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',4)->count();
+			$Q4_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',5)->count();
+			$Q4_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_4',6)->count();
 			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4_ans_02;
 
 
 			$Q4_ans_03 = array();
 			$Q4_ans_03['year'] = '2019-2020';
-			$Q4_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q4_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q4_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q4_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q4_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q4_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q4_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',1)->count();
+			$Q4_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',2)->count();
+			$Q4_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',3)->count();
+			$Q4_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',4)->count();
+			$Q4_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',5)->count();
+			$Q4_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_4',6)->count();
 			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4_ans_03;
 
 
@@ -1641,80 +1451,58 @@ class AlumniController extends Controller
 
 			$Q4_ans_05 = array();
 			$Q4_ans_05['year'] = '2021-2022';
-			$Q4_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q4_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q4_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q4_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q4_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q4_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
-			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4_ans_05;
+			$Q4_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',1)->count();
+			$Q4_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',2)->count();
+			$Q4_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',3)->count();
+			$Q4_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',4)->count();
+			$Q4_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',5)->count();
+			$Q4_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_4',6)->count();
+			$data['overall_year_4']['Contribute to the society as an engineer'][] = $Q4_ans_04;
+
+
 
 			/* Question 5 */
-			$Q5Other_ans_01 = array();
-			$Q5Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q5Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q5Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q5Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q5Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q5Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q5Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5Other_ans_01;
-
 			$Q5_ans_01 = array();
 			$Q5_ans_01['year'] = '2017-2018';
-			$Q5_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q5_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q5_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q5_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q5_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q5_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q5_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',1)->count();
+			$Q5_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',2)->count();
+			$Q5_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',3)->count();
+			$Q5_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',4)->count();
+			$Q5_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',5)->count();
+			$Q5_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_5',6)->count();
 			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5_ans_01;
 
 
 			$Q5_ans_02 = array();
 			$Q5_ans_02['year'] = '2018-2019';
-			$Q5_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q5_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q5_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q5_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q5_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q5_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q5_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',1)->count();
+			$Q5_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',2)->count();
+			$Q5_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',3)->count();
+			$Q5_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',4)->count();
+			$Q5_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',5)->count();
+			$Q5_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_5',6)->count();
 			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5_ans_02;
 
 
 			$Q5_ans_03 = array();
 			$Q5_ans_03['year'] = '2019-2020';
-			$Q5_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q5_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q5_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q5_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q5_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q5_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q5_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',1)->count();
+			$Q5_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',2)->count();
+			$Q5_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',3)->count();
+			$Q5_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',4)->count();
+			$Q5_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',5)->count();
+			$Q5_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_5',6)->count();
 			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5_ans_03;
 
 
 			$Q5_ans_04 = array();
 			$Q5_ans_04['year'] = '2020-2021';
-			$Q5_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q5_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q5_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q5_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q5_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q5_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q5_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',1)->count();
+			$Q5_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',2)->count();
+			$Q5_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',3)->count();
+			$Q5_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',4)->count();
+			$Q5_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',5)->count();
+			$Q5_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_5',6)->count();
 			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5_ans_04;
 
 
@@ -1729,165 +1517,117 @@ class AlumniController extends Controller
 			$data['overall_year_5']['Be aware of your responsibility to consider sustainability in engineering solutions'][] = $Q5_ans_05;
 
 
+
 			/* Question 6 */
-			$Q6Other_ans_01 = array();
-			$Q6Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q6Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q6Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q6Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q6Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q6Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q6Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_6']['Pursue advanced degree'][] = $Q6Other_ans_01;
-
-
 			$Q6_ans_01 = array();
 			$Q6_ans_01['year'] = '2017-2018';
-			$Q6_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q6_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q6_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q6_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q6_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q6_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q6_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',1)->count();
+			$Q6_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',2)->count();
+			$Q6_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',3)->count();
+			$Q6_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',4)->count();
+			$Q6_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',5)->count();
+			$Q6_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_6',6)->count();
 			$data['overall_year_6']['Pursue advanced degree'][] = $Q6_ans_01;
 
 
 			$Q6_ans_02 = array();
 			$Q6_ans_02['year'] = '2018-2019';
-			$Q6_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q6_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q6_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q6_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q6_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q6_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q6_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',1)->count();
+			$Q6_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',2)->count();
+			$Q6_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',3)->count();
+			$Q6_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',4)->count();
+			$Q6_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',5)->count();
+			$Q6_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_6',6)->count();
 			$data['overall_year_6']['Pursue advanced degree'][] = $Q6_ans_02;
 
 
 			$Q6_ans_03 = array();
 			$Q6_ans_03['year'] = '2019-2020';
-			$Q6_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q6_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q6_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q6_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q6_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q6_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q6_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',1)->count();
+			$Q6_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',2)->count();
+			$Q6_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',3)->count();
+			$Q6_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',4)->count();
+			$Q6_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',5)->count();
+			$Q6_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_6',6)->count();
 			$data['overall_year_6']['Pursue advanced degree'][] = $Q6_ans_03;
 
 
 			$Q6_ans_04 = array();
 			$Q6_ans_04['year'] = '2020-2021';
-			$Q6_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q6_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q6_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q6_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q6_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q6_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q6_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',1)->count();
+			$Q6_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',2)->count();
+			$Q6_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',3)->count();
+			$Q6_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',4)->count();
+			$Q6_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',5)->count();
+			$Q6_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_6',6)->count();
 			$data['overall_year_6']['Pursue advanced degree'][] = $Q6_ans_04;
 
 
 			$Q6_ans_05 = array();
 			$Q6_ans_05['year'] = '2021-2022';
-			$Q6_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q6_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q6_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q6_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q6_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q6_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
+			$Q6_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',1)->count();
+			$Q6_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',2)->count();
+			$Q6_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',3)->count();
+			$Q6_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',4)->count();
+			$Q6_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',5)->count();
+			$Q6_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_6',6)->count();
 			$data['overall_year_6']['Pursue advanced degree'][] = $Q6_ans_05;
 
 
+
 			/* Question 7 */
-			$Q7Other_ans_01 = array();
-			$Q7Other_ans_01['year'] = 'Other';
-			$questions_6_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',1)->count();
-			$questions_6_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',2)->count();
-			$questions_6_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',3)->count();
-			$questions_6_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',4)->count();
-			$questions_6_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',5)->count();
-			$questions_6_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_6',6)->count();
-
-			$questions_7_1 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',1)->count();
-			$questions_7_2 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',2)->count();
-			$questions_7_3 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',3)->count();
-			$questions_7_4 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',4)->count();
-			$questions_7_5 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',5)->count();
-			$questions_7_6 = Alumni::whereBetween('graduation',[2017, 2022])->where('questions_7',6)->count();
-
-			$Q7Other_ans_01['QO_1'] = ((int)$questions_6_1 + (int)$questions_7_1);
-			$Q7Other_ans_01['QO_2'] = ((int)$questions_6_2 + (int)$questions_7_2);
-			$Q7Other_ans_01['QO_3'] = ((int)$questions_6_3 + (int)$questions_7_3);
-			$Q7Other_ans_01['QO_4'] = ((int)$questions_6_4 + (int)$questions_7_4);
-			$Q7Other_ans_01['QO_5'] = ((int)$questions_6_5 + (int)$questions_7_5);
-			$Q7Other_ans_01['QO_6'] = ((int)$questions_6_6 + (int)$questions_7_6);
-			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7Other_ans_01;
-
-
 			$Q7_ans_01 = array();
 			$Q7_ans_01['year'] = '2017-2018';
-			$Q7_ans_01['QO_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',1)->count();
-			$Q7_ans_01['QO_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',2)->count();
-			$Q7_ans_01['QO_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',3)->count();
-			$Q7_ans_01['QO_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',4)->count();
-			$Q7_ans_01['QO_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',5)->count();
-			$Q7_ans_01['QO_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_1',6)->count();
+			$Q7_ans_01['QO1_1'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',1)->count();
+			$Q7_ans_01['QO1_2'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',2)->count();
+			$Q7_ans_01['QO1_3'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',3)->count();
+			$Q7_ans_01['QO1_4'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',4)->count();
+			$Q7_ans_01['QO1_5'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',5)->count();
+			$Q7_ans_01['QO1_6'] = Alumni::whereBetween('graduation',[2017, 2018])->where('questions_7',6)->count();
 			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7_ans_01;
 
 
 			$Q7_ans_02 = array();
 			$Q7_ans_02['year'] = '2018-2019';
-			$Q7_ans_02['QO_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',1)->count();
-			$Q7_ans_02['QO_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',2)->count();
-			$Q7_ans_02['QO_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',3)->count();
-			$Q7_ans_02['QO_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',4)->count();
-			$Q7_ans_02['QO_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',5)->count();
-			$Q7_ans_02['QO_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_2',6)->count();
+			$Q7_ans_02['QO2_1'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',1)->count();
+			$Q7_ans_02['QO2_2'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',2)->count();
+			$Q7_ans_02['QO2_3'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',3)->count();
+			$Q7_ans_02['QO2_4'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',4)->count();
+			$Q7_ans_02['QO2_5'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',5)->count();
+			$Q7_ans_02['QO2_6'] = Alumni::whereBetween('graduation',[2018, 2019])->where('questions_7',6)->count();
 			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7_ans_02;
 
 
 			$Q7_ans_03 = array();
 			$Q7_ans_03['year'] = '2019-2020';
-			$Q7_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',1)->count();
-			$Q7_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',2)->count();
-			$Q7_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',3)->count();
-			$Q7_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',4)->count();
-			$Q7_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',5)->count();
-			$Q7_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_3',6)->count();
+			$Q7_ans_03['QO_1'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',1)->count();
+			$Q7_ans_03['QO_2'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',2)->count();
+			$Q7_ans_03['QO_3'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',3)->count();
+			$Q7_ans_03['QO_4'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',4)->count();
+			$Q7_ans_03['QO_5'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',5)->count();
+			$Q7_ans_03['QO_6'] = Alumni::whereBetween('graduation',[2019, 2020])->where('questions_7',6)->count();
 			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7_ans_03;
 
 
 			$Q7_ans_04 = array();
 			$Q7_ans_04['year'] = '2020-2021';
-			$Q7_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',1)->count();
-			$Q7_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',2)->count();
-			$Q7_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',3)->count();
-			$Q7_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',4)->count();
-			$Q7_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',5)->count();
-			$Q7_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_4',6)->count();
+			$Q7_ans_04['QO_1'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',1)->count();
+			$Q7_ans_04['QO_2'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',2)->count();
+			$Q7_ans_04['QO_3'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',3)->count();
+			$Q7_ans_04['QO_4'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',4)->count();
+			$Q7_ans_04['QO_5'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',5)->count();
+			$Q7_ans_04['QO_6'] = Alumni::whereBetween('graduation',[2020, 2021])->where('questions_7',6)->count();
 			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7_ans_04;
 
 
 			$Q7_ans_05 = array();
 			$Q7_ans_05['year'] = '2021-2022';
-			$Q7_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',1)->count();
-			$Q7_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',2)->count();
-			$Q7_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',3)->count();
-			$Q7_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',4)->count();
-			$Q7_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',5)->count();
-			$Q7_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_5',6)->count();
+			$Q7_ans_05['QO_1'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',1)->count();
+			$Q7_ans_05['QO_2'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',2)->count();
+			$Q7_ans_05['QO_3'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',3)->count();
+			$Q7_ans_05['QO_4'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',4)->count();
+			$Q7_ans_05['QO_5'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',5)->count();
+			$Q7_ans_05['QO_6'] = Alumni::whereBetween('graduation',[2021, 2022])->where('questions_7',6)->count();
 			$data['overall_year_7']['Be an entrepreneur and start your own business'][] = $Q7_ans_05;
 
 
@@ -1898,12 +1638,11 @@ class AlumniController extends Controller
 				for ($i=1; $i <8; $i++) { 
 					foreach ($data['overall_year_'.$i] as $key => $value) {
 
-						
 						foreach ($value as $k1 => $v1) 
 						{
 
 							if ($k1 == 0) {
-								$html .= '<tr><td rowspan="6" class="text-middle">'.$key.'</td>';
+								$html .= '<tr><td rowspan="5" class="text-middle">'.$key.'</td>';
 								$weight_1 = 5; 
 								$sum_1 = 0;
 								$multi_sum_1 = 0;
@@ -1918,7 +1657,11 @@ class AlumniController extends Controller
 									}
 
 								}
-								$avg_1 = $multi_sum_1 / $sum_1;
+								if ($sum_1 != 0) {
+									$avg_1 = $multi_sum_1 / $sum_1;
+								} else {
+									$avg_1 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_1, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							} else {
@@ -1938,7 +1681,11 @@ class AlumniController extends Controller
 									}
 
 								}
-								$avg_2 = $multi_sum_2 / $sum_2;
+								if ($sum_2 != 0) {
+									$avg_2 = $multi_sum_2 / $sum_2;
+								} else {
+									$avg_2 = 0;
+								}
 								$html .= '<td class="avg_footer">'.number_format((float)$avg_2, 2, '.', '').'</td>';
 								$html .= '</tr>';
 							}

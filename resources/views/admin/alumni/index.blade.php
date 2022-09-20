@@ -81,11 +81,11 @@
                    <select  class="form-control" name="year">
                       <option value='' selected="" disabled="">-- Select Year --</option>
 
-                    <?php 
+                    <!-- <?php 
                        for($i = 2017 ; $i < date('Y'); $i++){
                           echo "<option value='".$i."'>$i</option>";
                        }
-                    ?>
+                    ?> -->
                     <option value='{{now()->year}}'>{{now()->year}}</option>
                   </select>
                 </div>

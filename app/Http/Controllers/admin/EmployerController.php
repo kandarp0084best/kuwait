@@ -393,7 +393,11 @@ class EmployerController extends Controller
 						$multi_sum = $multi_sum + $multi;
 						$weight --;
 					}
-					$avg = $multi_sum / $sum;
+					if ($sum != 0) {
+						$avg = $multi_sum / $sum;
+					} else {
+						$avg = 0;
+					}
 					$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 					$html .= '</tr>';
 				}
@@ -560,7 +564,11 @@ class EmployerController extends Controller
 						$multi_sum = $multi_sum + $multi;
 						$weight --;
 					}
-					$avg = $multi_sum / $sum;
+					if ($sum != 0) {
+						$avg = $multi_sum / $sum;
+					} else {
+						$avg = 0;
+					}
 					$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 					$html .= '</tr>';
 				}
@@ -628,7 +636,11 @@ class EmployerController extends Controller
 						$multi_sum = $multi_sum + $multi;
 						$weight --;
 					}
-					$avg = $multi_sum / $sum;
+					if ($sum != 0) {
+						$avg = $multi_sum / $sum;
+					} else {
+						$avg = 0;
+					}
 					$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 					$html .= '</tr>';
 				}
@@ -709,7 +721,11 @@ class EmployerController extends Controller
 						$multi_sum = $multi_sum + $multi;
 						$weight --;
 					}
-					$avg = $multi_sum / $sum;
+					if ($sum != 0) {
+						$avg = $multi_sum / $sum;
+					} else {
+						$avg = 0;
+					}
 					$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 					$html .= '</tr>';
 				}
@@ -820,7 +836,7 @@ class EmployerController extends Controller
 		$html .= '</table>';
 
 
-		
+
 		$total_participating = 0;
 		$data['participating']['Yes'] = Employer::where('years_in_position',$request->year)->where('participating', '=', 1)->count();
 		$data['participating']['No'] = Employer::where('years_in_position',$request->year)->where('participating', '=', 0)->count();

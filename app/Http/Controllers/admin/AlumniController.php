@@ -172,15 +172,18 @@ class AlumniController extends Controller
 			foreach ($job_title as $keybt => $valuebt) {
 				$data['job_title'][$valuebt->job_title] = Alumni::where('job_title',$valuebt->job_title)->count();
 			}
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;">Job Title</th><th style="width:30%;">Total Responses</th></tr>';
-				foreach ($data['job_title'] as $k1 => $v1) {
-					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
-					$total_job_title = $total_job_title + $v1;
-				}
-				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_job_title.'</td></tr>';
 
-			$html .= '</table>';
+			if (isset($data['job_title'])) {
+				$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
+					$html .= '<tr><th style="width:70%;">Job Title</th><th style="width:30%;">Total Responses</th></tr>';
+					foreach ($data['job_title'] as $k1 => $v1) {
+						$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
+						$total_job_title = $total_job_title + $v1;
+					}
+					$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_job_title.'</td></tr>';
+
+				$html .= '</table>';
+			}
 
 			/* Job Description */
 			$total_job_description = 0;
@@ -188,15 +191,18 @@ class AlumniController extends Controller
 			foreach ($job_description as $keyjd => $valuejd) {
 				$data['job_description'][$valuejd->job_description] = Alumni::where('job_description',$valuejd->job_description)->count();
 			}
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;">Job Responsibilities</th><th style="width:30%;">Total Responses</th></tr>';
-				foreach ($data['job_description'] as $k1 => $v1) {
-					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
-					$total_job_description = $total_job_description + $v1;
-				}
-				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_job_description.'</td></tr>';
 
-			$html .= '</table>';
+			if (isset($data['job_description'])) {
+				$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
+					$html .= '<tr><th style="width:70%;">Job Responsibilities</th><th style="width:30%;">Total Responses</th></tr>';
+					foreach ($data['job_description'] as $k1 => $v1) {
+						$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
+						$total_job_description = $total_job_description + $v1;
+					}
+					$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_job_description.'</td></tr>';
+
+				$html .= '</table>';
+			}
 
 
 			/* Employment */
@@ -348,7 +354,11 @@ class AlumniController extends Controller
 							$multi_sum = $multi_sum + $multi;
 							$weight --;
 						}
+						if ($sum != 0) {
 						$avg = $multi_sum / $sum;
+						} else {
+							$avg = 0;
+						}
 						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
@@ -788,7 +798,11 @@ class AlumniController extends Controller
 							$multi_sum = $multi_sum + $multi;
 							$weight --;
 						}
-						$avg = $multi_sum / $sum;
+						if ($sum != 0) {
+							$avg = $multi_sum / $sum;
+						} else {
+							$avg = 0;
+						}
 						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
@@ -1225,7 +1239,11 @@ class AlumniController extends Controller
 							$multi_sum = $multi_sum + $multi;
 							$weight --;
 						}
-						$avg = $multi_sum / $sum;
+						if ($sum != 0) {
+							$avg = $multi_sum / $sum;
+						} else {
+							$avg = 0;
+						}
 						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}

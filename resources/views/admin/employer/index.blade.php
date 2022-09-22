@@ -52,7 +52,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Employer filter</h3>
+              <h3 class="box-title">Search</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -62,18 +62,33 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
+                  <label for="Departm">Departm ent:</label>
+                  <select class="form-control" name="major">
+                    <option value="" disabled="" selected="">-- Departm ent --</option>
+                    <option value="College">College</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Industrial & Management Systems">Industrial</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Petroleum">Petroleum</option>
+                  </select>
+                </div>
+
+                <!-- <div class="form-group">
                    <label for="Year">Select Year:</label>
                    <select  class="form-control" name="year">
                       <option value='' selected="" disabled="">-- Select Year --</option>
 
-                    <!-- <?php 
+                    <?php 
                        for($i = 2022 ; $i < date('Y'); $i++){
                           echo "<option value='".$i."'>$i</option>";
                        }
-                    ?> -->
+                    ?> 
                       <option value='{{now()->year}}'>{{now()->year}}</option>
                     </select>
-                </div>
+                </div> -->
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary" id="employer_filter">Submit</button>

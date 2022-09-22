@@ -168,7 +168,10 @@ $(function() {
       'abilities_knowledge': { 
         required: true 
       },
-      'compare': { 
+      'compare_a': {
+        required: true 
+      },
+      'compare_b': {
         required: true 
       },
       'necessary': { 

@@ -18,7 +18,7 @@
 		<div class="col-md-3">
 		</div>
 			
-		<div class="col-md-12 text-center pt-5 pb-5"><h1>Employer Assessment of Engineering Graduates</h1></div>
+		<div class="col-md-12 text-center pt-5 pb-5"><h1>Employer Assessment of Engineering Graduates<br>Academic Year 2022 – 2023</h1></div>
 
 		<div class="col-md-4 text-center small-text">
 			P.O. Box 5969, Safat 13060, Kuwait
@@ -81,7 +81,7 @@
 			<div class="col-md-12">
 				<div class="form-group">
 				    <label>Years in position:</label>
-				    <input type="text" class="form-control" name="years_in_position" id="years_in_position" placeholder="Years in position..." >
+				    <input type="Number" min="0" class="form-control" name="years_in_position" id="years_in_position" placeholder="Years in position..." >
 				 </div>
 			</div>
 		</div>
@@ -98,20 +98,20 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>Tel:</label>
-				    <input type="text" class="form-control" name="tel" id="tel" placeholder="Tel..." >
+				    <label>Contact Number:</label>
+				    <input type="text" class="form-control" name="tel" id="tel" placeholder="Contact Number..." >
 				 </div>
 			</div>
 		</div>
 
-		<div class="row mb-3">
+		<!-- <div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
 				    <label>Fax:</label>
 				    <input type="text" class="form-control" name="fax" id="fax" placeholder="Fax..." >
 				 </div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
@@ -237,10 +237,27 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label>- &nbsp;Number of engineers employed in your company (if known):</label>
-					</div>
-					<div class="col-md-12">
-						<input type="text" class="form-control" name="number_of_engineers" id="number_of_engineers" placeholder="Number of engineers..." >
-					</div>
+					
+						<!-- <div class="col-md-12">
+							<input type="text" class="form-control" name="number_of_engineers" id="number_of_engineers" placeholder="Number of engineers..." >
+						</div> -->
+						<div class="form-check">
+						    <input type="radio" value="<20" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >< 20</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value="20-50" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >20 - 50</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value="50 - 100" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >50 - 100</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value=">100" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >> 100</label>
+					    </div>
+				    </div>
 				</div>
 			</div>
 		</div>
@@ -250,9 +267,25 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label>- &nbsp;Percentage of Kuwait University graduates (if known):</label>
-					</div>
-					<div class="col-md-12">
-						<input type="text" class="form-control" name="percentage" id="percentage" placeholder="Percentage..." >
+						<!-- <div class="col-md-12">
+							<input type="text" class="form-control" name="percentage" id="percentage" placeholder="Percentage..." >
+						</div> -->
+						<div class="form-check">
+						    <input type="radio" value="<10" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >< 10%</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value="10-25" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >10 - 25%</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value="25 - 50" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >25 - 50%</label>
+					    </div>
+					    <div class="form-check">
+						    <input type="radio" value=">50" name="number_of_engineers" class="form-check-input organization" >
+						    <label class="form-check-label" >> 50%</label>
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -260,7 +293,7 @@
 
 
 		<div class="row mb-5">
-			<div class="col-md-12">
+			<!-- <div class="col-md-12">
 				<h4>Please:</h4>
 			</div>
 			<div class="col-md-12">
@@ -268,6 +301,10 @@
 			</div>
 			<div class="col-md-12">
 				<p><b>Second:</b> Rate each item according to its importance to your business and operations.</p>
+			</div> -->
+			<div class="col-md-12"><h4>Please rate the skills, abilities, and knowledge of KU graduates for two categories:</h4></div>
+			<div class="col-md-12">
+				<p><b>Category A:</b> Assessment of Graduates, <b>Category B:</b> Importance to business</p>
 			</div>
 		</div>
 
@@ -277,9 +314,9 @@
 				<table class="table table-bordered table-striped">
 				  <thead class="text-center">
 				    <tr>
-				      <th scope="col" colspan="6" class="table_title">Assessment of Graduates</th>
+				      <th scope="col" colspan="6" class="table_title">Category A</th>
 				      <th colspan="10"></th>
-				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
+				      <th scope="col" colspan="6" class="table_title">Category B</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -291,7 +328,7 @@
 				      <td class="vertical-align"><p class="rotate2">Not prepared</p></td>
 				      <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td>
 
-				      <td colspan="10" class="vertical_align table_title">Skills, abilities, and knowledge</td>
+				      <td colspan="10" class="vertical_align table_title">Skills, abilities and knowledge</td>
 
 				      <td class="vertical-align"><p class="rotate2">Extremely important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Very important</p></td>
@@ -327,7 +364,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_2" value="5"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_2" value="6"></td>
 
-				      	<td colspan="10" class="text-left">2. Identify, formulate, and solve engineering problems</td>
+				      	<td colspan="10" class="text-left">2. Identify, formulate and solve engineering problems</td>
 
 				      	<td><input class="form-check-input" type="radio"  name="important_2" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_2" value="2"></td>
@@ -363,7 +400,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_4" value="5"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_4" value="6"></td>
 
-				      <td colspan="10" class="text-left">4. Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)</td>
+				      <td colspan="10" class="text-left">4. Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="important_4" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_4" value="2"></td>
@@ -417,7 +454,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_7" value="5"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_7" value="6"></td>
 
-				      <td colspan="10" class="text-left">7. Communicate in writing: letters, technical reports, etc</td>
+				      <td colspan="10" class="text-left">7. Communicate in writing: letters, technical reports</td>
 
 				      <td><input class="form-check-input" type="radio"  name="important_7" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_7" value="2"></td>
@@ -470,7 +507,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="5"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="6"></td>
-				      <td colspan="10" class="text-left">10. Understand contemporary social, economic, and cultural issues</td>
+				      <td colspan="10" class="text-left">10. Understand contemporary social, economic and cultural issues</td>
 				      <td><input class="form-check-input" type="radio"  name="important_10" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="3"></td>
@@ -527,7 +564,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_13" value="5"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_13" value="6"></td>
 
-				      <td colspan="10" class="text-left">13. Design and conduct experiments, analyze, and interpret data</td>
+				      <td colspan="10" class="text-left">13. Design and conduct experiments, analyze and interpret data</td>
 				      <td><input class="form-check-input" type="radio"  name="important_13" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_13" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_13" value="3"></td>
@@ -580,10 +617,10 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<p>Please evaluate/rate the following engineering programs objectives according to:</p>
+				<p>Please evaluate/rate the following element of Program Educational Objectives according to:</p>
 				<ul class="dashed">
-				  <li>How important they are to your company needs</li>
-				  <li>The level of attainment of our graduates.</li>
+				  <li><b>Category A:</b> Level of Attainment</li>
+				  <li><b>Category B:</b> Importance to business</li>
 				</ul>
 			</div>
 		</div>
@@ -593,9 +630,9 @@
 				<table class="table table-bordered table-striped">
 				  <thead class="text-center">
 				    <tr>
-				      <th scope="col" colspan="6" class="table_title">Level of Attainment</th>
+				      <th scope="col" colspan="6" class="table_title">Category A</th>
 				      <th colspan="8"></th>
-				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
+				      <th scope="col" colspan="6" class="table_title">Category B</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -605,7 +642,7 @@
 				      <td class="vertical-align"><p class="rotate2">Somewhat satisfactory</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not satisfactory</p></td>
 
-				      <td colspan="10" class="vertical_align table_title">Objectives</td>
+				      <td colspan="10" class="vertical_align table_title">element of Program Educational Objectives</td>
 
 				      <td class="vertical-align"><p class="rotate2">Extremely important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Very important</p></td>
@@ -621,7 +658,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_1" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_1" value="4"></td>
 
-				      <td colspan="10" class="text-left">1. Contribution to company/workplace/institution (e.g., improve product/service quality, increase productivity, increase revenues, reduce expenses, improve customer satisfaction)</td>
+				      <td colspan="10" class="text-left">1. Contribution to company/workplace/institution (e.g. improve product/service quality, increase productivity, increase revenues, reduce expenses, improve customer satisfaction etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="2"></td>
@@ -638,7 +675,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_2" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_2" value="4"></td>
 
-				      <td colspan="10" class="text-left">2. Contribution to wellbeing of society and the environment (e.g., safeguard the interest of society, improve economy, develop professional standards and best practices, safeguard and improve the environment)</td>
+				      <td colspan="10" class="text-left">2. Contribution the wellbeing of society and the environment (e.g. safeguard the interest of society, improve economy, develop professional standards and best practices, safeguard and improve the environment etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="2"></td>
@@ -655,7 +692,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_3" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_3" value="4"></td>
 
-				      <td colspan="10" class="text-left">3. Career advancement (e.g., promotion to higher ranks/positions, increased responsibilities)</td>
+				      <td colspan="10" class="text-left">3. Career advancement (e.g. promotion to higher ranks/positions, increased responsibilities etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="2"></td>
@@ -672,7 +709,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_4" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_4" value="4"></td>
 
-				      <td colspan="10" class="text-left">4. Degree advancement and continuing education. (e.g., diplomas, formal course work, graduate courses, graduate degree, training, certificates and professional certification)</td>
+				      <td colspan="10" class="text-left">4. Degree advancement and continuing education. (e.g. diplomas, formal course work, graduate courses, graduate degree, training, certificates and professional certification etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="2"></td>
@@ -689,7 +726,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_5" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_5" value="4"></td>
 
-				      <td colspan="10" class="text-left">5. Staying current in profession (e.g., participation in seminars and conferences, professional development courses and activities, membership in professional societies)</td>
+				      <td colspan="10" class="text-left">5. Staying current in profession (e.g. participation in seminars and conferences, professional development courses and activities, membership in professional societies etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="2"></td>
@@ -706,7 +743,7 @@
 				      <td><input class="form-check-input" type="radio"  name="significant_6" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="significant_6" value="4"></td>
 
-				      <td colspan="10" class="text-left">6. Use of leadership capabilities (e.g., promotion to leadership positions, ability to lead teams, supervisory skills and abilities)</td>
+				      <td colspan="10" class="text-left">6. Use of leadership capabilities (e.g. promotion to leadership positions, ability to lead teams, supervisory skills and abilities etc.)</td>
 
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="1"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="2"></td>
@@ -734,26 +771,54 @@
 				<label>- &nbsp;How do Kuwait University graduates compare with graduates from other universities?</label>
 			</div>
 			<div class="col-md-12 mb-3">
-				<div class="form-check form-check-inline">
-			  		<input class="form-check-input" type="radio" name="compare" id="inlineCheckbox1" value="Strongly recommend" >
-				    <label class="form-check-label" >Much better</label>
-				</div>
-				<div class="form-check form-check-inline">
-			  		<input class="form-check-input" type="radio" name="compare" id="inlineCheckbox1" value="Somewhat better" >
-				    <label class="form-check-label" >Somewhat better</label>
-				</div>
-				<div class="form-check form-check-inline">
-			  		<input class="form-check-input" type="radio" name="compare" id="inlineCheckbox1" value="Not as good" >
-				    <label class="form-check-label" >Not as good</label>
-				</div>
-				<div class="form-check form-check-inline">
-			  		<input class="form-check-input" type="radio" name="compare" id="inlineCheckbox1" value="Much worse" >
-				    <label class="form-check-label" >Much worse</label>
-				</div>
-				<div class="form-check form-check-inline">
-			  		<input class="form-check-input" type="radio" name="compare" id="inlineCheckbox1" value="About the same" >
-				    <label class="form-check-label" >About the same</label>
-				</div>
+				<ol type="a">
+				  <li>in terms of technical knowledge and skills
+				  	<br>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Strongly recommend" >
+					    <label class="form-check-label" >Much better</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Somewhat better" >
+					    <label class="form-check-label" >Somewhat better</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Not as good" >
+					    <label class="form-check-label" >Not as good</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Much worse" >
+					    <label class="form-check-label" >Much worse</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="About the same" >
+					    <label class="form-check-label" >About the same</label>
+					</div>
+				  </li>
+				  <li>in terms of communication, teamwork and leadership qualities.
+				  	<br>
+				  	<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Strongly recommend" >
+					    <label class="form-check-label" >Much better</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Somewhat better" >
+					    <label class="form-check-label" >Somewhat better</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Not as good" >
+					    <label class="form-check-label" >Not as good</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Much worse" >
+					    <label class="form-check-label" >Much worse</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="About the same" >
+					    <label class="form-check-label" >About the same</label>
+					</div>
+				  </li>
+				</ol> 
 			</div>
 		</div>
 
@@ -782,7 +847,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Is hiring a KU graduate your first preference?</label>
+				<label>- &nbsp;Is hiring a <b>Kuwait University</b> graduate your first preference?</label>
 			</div>
 			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
@@ -828,7 +893,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Would you be interested in participating at a luncheon briefing with other employers and faculty staff on the results of the College of Engineering Employer Survey of 2022 – 2023?</label>
+				<label>- &nbsp;Would you be interested in participating at a luncheon briefing with other employers and faculty on the results of the College of Engineering Employer Survey of 2022 – 2023?</label>
 			</div>
 			<div class="col-md-12">
 				<div class="form-check-inline">
@@ -852,7 +917,7 @@
 	</form>
 
 	<div class="row thank-you-text">
-		<div class="row mb-3 mt-5">
+		<div class="row mb-3">
 			<div class="col-md-12 text-center">
 				<h3>Thank you for completing this survey.<br>Your feedback will be used to improve the preparation of<br>Kuwait University Engineering graduates for employment.</h3>
 			</div>

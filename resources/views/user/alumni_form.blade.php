@@ -673,7 +673,7 @@
 	</form>
 
 	<div class="row thank-you-text">
-		<div class="row mb-3 mt-5">
+		<div class="row mb-3">
 			<div class="col-md-12 text-center">
 				<h3>Thank you for completing this survey.<br>Your feedback will be used to improve the preparation of<br>College of Engineering and Petroleum graduates.</h3>
 			</div>

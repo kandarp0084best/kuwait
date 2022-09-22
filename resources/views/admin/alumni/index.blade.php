@@ -52,7 +52,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">alumni filter</h3>
+              <h3 class="box-title">Search</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -63,7 +63,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="Departm">Departm ent:</label>
-                  <select class="form-control" name="departm">
+                  <select class="form-control" name="major">
                     <option value="" disabled="" selected="">-- Departm ent --</option>
                     <option value="College">College</option>
                     <option value="Chemical">Chemical</option>
@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                   <label for="years">Year:</label>
-                   <select  class="form-control" name="year">
+                   <select  class="form-control" name="graduation">
                       <option value='' selected="" disabled="">-- Select Year --</option>
 
                     <!-- <?php 
@@ -86,23 +86,13 @@
                           echo "<option value='".$i."'>$i</option>";
                        }
                     ?> -->
-                    <option value='{{now()->year}}'>{{now()->year}}</option>
+                    <option value='2017-2018'>2017-2018</option>
+                    <option value='2018-2019'>2018-2019</option>
+                    <option value='2019-2020'>2019-2020</option>
+                    <option value='2020-2021'>2020-2021</option>
+                    <option value='{{date("Y",strtotime("-1 year"))}}-{{now()->year}}'>{{date("Y",strtotime("-1 year"))}}-{{now()->year}}</option>
                   </select>
                 </div>
-
-                <!-- <div class="form-group">
-                  <label for="years">Semester:</label>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="semester" value="Fall">
-                    <label class="form-check-label" >Fall</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="radio" name="semester" value="Spring">
-                    <label class="form-check-label" >Spring</label>
-                    &nbsp;&nbsp;
-                    <input class="form-check-input" type="radio" name="semester" value="Summer">
-                    <label class="form-check-label" >Summer</label>
-                  </div>
-                </div> -->
 
                 <div class="checkbox">
                   <label>
@@ -156,6 +146,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
+                <p style="color: green;"><b>Note : </b>Please select the checkbox which data you want to view by search</p>
                 <button type="submit" class="btn btn-primary" id="filter">Submit</button>
               </div>
             </form>

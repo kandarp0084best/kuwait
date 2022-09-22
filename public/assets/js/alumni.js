@@ -27,10 +27,6 @@ $(function() {
       'job_description': { 
         required: true 
       },
-      'mailing_address': { 
-        required: true,
-        email: true,
-      },
       'email': { 
         required: true,
         email: true,
@@ -175,7 +171,8 @@ $(function() {
                   $('#alumnisave').append('Submit');
                 if (data.status)  {
                   $('#alumni').trigger("reset");
-
+                  $('#alumni').hide();
+                  $('.thank-you-text').show();
                   $('html, body').animate({ scrollTop: 0 }, 'slow');
                   toastr.success('Success!');
 

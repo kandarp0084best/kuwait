@@ -81,13 +81,6 @@
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Mailing Address:</label>
-				    <input type="text" class="form-control" name="mailing_address" id="mailing_address" placeholder="Mailing Address....">
-				 </div>
-			</div>
-
-			<div class="col-md-12 mb-3">
-				<div class="form-group">
 				    <label>E-mail:</label>
 				    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail....">
 				 </div>
@@ -95,15 +88,23 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Telephone:</label>
-				    <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Telephone....">
+				    <label>Contact Number:</label>
+				    <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Contact Number....">
 				 </div>
 			</div>
 		
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
 				    <label>Year of Graduation:</label>
-				    <input type="text" class="form-control" name="graduation" id="graduation" placeholder="Year of Graduation...">
+				    <!-- <input type="text" class="form-control" name="graduation" id="graduation" placeholder="Year of Graduation..."> -->
+				    <select class="form-control" name="graduation">
+					    <option selected="" value="" disabled="">-- Year of Graduation --</option>
+				    	<option value="2017-2018">2017 - 2018</option>
+				    	<option value="2018-2019">2018 - 2019</option>
+				    	<option value="2019-2020">2019 - 2020</option>
+				    	<option value="2020-2021">2020 - 2021</option>
+				    	<option value="2021-2022">2021 - 2022</option>
+				    </select>
 				 </div>
 			</div>
 
@@ -133,20 +134,20 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>University Honors/Recognitions (if any):</label>
-				    <input type="text" class="form-control" name="university" id="university" placeholder="University Honors/Recognitions (if any)....">
+				    <label>University Honors/Recognitions (if none, then don’t answer):</label>
+				    <input type="text" class="form-control" name="university" id="university" placeholder="University Honors/Recognitions (if none, then don’t answer)....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Membership in Professional Societies (if any):</label>
-				    <input type="text" class="form-control" name="membership" id="membership" placeholder="Membership in Professional Societies (if any)....">
+				    <label>Membership in Professional Societies (if none, then don’t answer):</label>
+				    <input type="text" class="form-control" name="membership" id="membership" placeholder="Membership in Professional Societies (if none, then don’t answer)....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
-				<div class="form-group">
+				<div class="form-group mb-3">
 				    <label>Employment Status:</label><br>
 				    <!-- <input type="text" class="form-control" name="employment_status" id="employment_status" placeholder="Employment Status...."> -->
 				    <div class="form-group form-check-inline">
@@ -237,8 +238,8 @@
 			
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Employment Honors/Recognition (if any):</label>
-				    <input type="text" class="form-control" name="employment" id="employment" placeholder="Employment Honors/Recognition (if any)....">
+				    <label>Employment Honors/Recognition (if none, then don’t answer):</label>
+				    <input type="text" class="form-control" name="employment" id="employment" placeholder="Employment Honors/Recognition (if none, then don’t answer)....">
 				 </div>
 			</div>
 			
@@ -437,403 +438,6 @@
 			</table>
 
 
-			<!-- <div class="col-md-5">
-				<h4>Element of Educational Objectives</h4>
-			</div>
-			<div class="col-md-4">
-				<label class="mb-2"><b>Importance to employment</b></label>
-				<div class="col-md-1">
-				</div>
-
-				<div class="row">
-					<div class="col-md-2"><p class="rotate">Extremely important</p></div>
-					<div class="col-md-2"><p class="rotate">Very important</p></div>
-					<div class="col-md-2"><p class="rotate">important</p></div>
-					<div class="col-md-2"><p class="rotate">Somewhat important</p></div>
-					<div class="col-md-2"><p class="rotate">Not important</p></div>
-				</div>
-					
-			</div>
-			<div class="col-md-3">
-				<label class="mb-2"><b>Level of attainment</b></label>
-				<div class="row">
-					<div class="col-md-2"><p class="rotate">Significant</p></div>
-					<div class="col-md-2"><p class="rotate">Satisfactory</p></div>
-					<div class="col-md-2"><p class="rotate">Somewhat Satisfactory</p></div>
-					<div class="col-md-2"><p class="rotate">Not Satisfactory</p></div>
-				</div>
-			</div> -->
-
-			
-			<!-- <div class="row mb-3">
-				<div class="col-md-5">
-					<p>1. Contribution to company/workplace/institution (e.g., improve product/service quality, increase productivity, increase revenues, reduce expenses, improve customer satisfaction, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_1" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_1" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_1" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_1" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_1" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_1" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_1" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_1" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_1" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-5">
-					<p>2. Contribution to the well-being of society and the environment
-						(e.g., safeguard the interest of society, improve economy, develop professional standards and best practices, safeguard and improve the environment, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_2" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_2" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_2" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_2" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_2" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_2" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_2" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_2" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_2" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
-			<div class="row mb-3">
-				<div class="col-md-5">
-					<p>3. Career advancement (e.g., promotion to higher ranks/positions, increased responsibilities, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_3" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_3" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_3" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_3" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_3" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_3" value="2"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_3" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_3" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_3" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row mb-3">
-				<div class="col-md-5">
-					<p>4. Degree advancement and continuing education (e.g., diplomas, formal course work, graduate courses, graduate degree, training, certificates and professional certification, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_4" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_4" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_4" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_4" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_4" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_4" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_4" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_4" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_4" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-5">
-					<p>5. Staying current in the profession (e.g., participation in seminars and conferences, professional development courses and activities, membership in professional societies, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_5" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_5" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_5" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_5" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_5" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_5" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_5" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_5" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_5" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-5">
-					<p>6. Use of leadership capabilities (e.g., promotion to leadership positions, ability to lead teams, supervisory skills and abilities, etc.)
-					</p>
-				</div>
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_6" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_6" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_6" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_6" value="4" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="importance_6" value="5" >
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_6" value="1"  >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_6" value="2" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_6" value="3" >
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="form-check form-check-inline custom-form-check">
-						  		<input class="form-check-input"  type="radio" name="attainment_6" value="4" >
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
 		</div>
 
 		<div class="row mb-3">
@@ -844,13 +448,7 @@
 		</div>
 
 		<table class="table table-bordered table-striped">
-				  <!-- <thead class="text-center">
-				    <tr>
-				      <th scope="col" colspan="6" class="table_title">Importance to employment</th>
-				      <th colspan="9"></th>
-				      <th scope="col" colspan="4" class="table_title">Level of attainment</th>
-				    </tr>
-				  </thead> -->
+				  
 				  <tbody class="text-center">
 
 				  	<tr>
@@ -953,299 +551,7 @@
 				  </tbody>
 			</table>
 
-		<!-- <div class="row mb-3">
-			<div class="col-md-7"></div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2"><p class="rotate">Very well prepared</p></div>
-					<div class="col-md-2"><p class="rotate">Well prepared</p></div>
-					<div class="col-md-2"><p class="rotate">Prepared</p></div>
-					<div class="col-md-2"><p class="rotate">Somewhat prepared</p></div>
-					<div class="col-md-2"><p class="rotate">Not prepared</p></div>
-					<div class="col-md-2"><p class="rotate">Can't Evaluate</p></div>
-				</div>
-			</div>
-		</div> -->
-
-		<!-- <div class="row mb-3">
-			<div class="col-md-7">
-				<p>a) Be a technically competent engineer</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_1" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>b) Obtain your first job after graduation</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="1"   >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="2"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="3"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="4"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="5"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_2" value="6"  >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>c) Have the necessary professional skills to meet expectations of your job</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_3" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>d) Contribute to the society as an engineer</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_4" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>e) Be aware of your responsibility to consider sustainability in engineering solutions</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_5" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>f) Pursue advanced degree</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_6" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row mb-3">
-			<div class="col-md-7">
-				<p>g) Be an entrepreneur and start your own business</p>
-			</div>
-			<div class="col-md-5">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="1"  >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="2" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="3" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="4" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="5" >
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="form-check form-check-inline custom-form-check">
-					  		<input class="form-check-input"  type="radio" name="questions_7" value="6" >
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
+		
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
@@ -1365,6 +671,15 @@
 		</div>
 
 	</form>
+
+	<div class="row thank-you-text">
+		<div class="row mb-3 mt-5">
+			<div class="col-md-12 text-center">
+				<h3>Thank you for completing this survey.<br>Your feedback will be used to improve the preparation of<br>College of Engineering and Petroleum graduates.</h3>
+			</div>
+		</div>
+	</div>
+	
 	</div>
 
 </div>

@@ -238,10 +238,10 @@
 					<div class="col-md-12">
 						<label>- &nbsp;Number of engineers employed in your company (if known):</label>
 					
-						<!-- <div class="col-md-12">
+						<div class="col-md-12">
 							<input type="text" class="form-control" name="number_of_engineers" id="number_of_engineers" placeholder="Number of engineers..." >
-						</div> -->
-						<div class="form-check">
+						</div>
+						<!-- <div class="form-check">
 						    <input type="radio" value="<20" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >< 20</label>
 					    </div>
@@ -256,7 +256,7 @@
 					    <div class="form-check">
 						    <input type="radio" value=">100" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >> 100</label>
-					    </div>
+					    </div> -->
 				    </div>
 				</div>
 			</div>
@@ -267,10 +267,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label>- &nbsp;Percentage of Kuwait University graduates (if known):</label>
-						<!-- <div class="col-md-12">
+						<div class="col-md-12">
 							<input type="text" class="form-control" name="percentage" id="percentage" placeholder="Percentage..." >
-						</div> -->
-						<div class="form-check">
+						</div>
+						<!-- <div class="form-check">
 						    <input type="radio" value="<10" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >< 10%</label>
 					    </div>
@@ -285,7 +285,7 @@
 					    <div class="form-check">
 						    <input type="radio" value=">50" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >> 50%</label>
-					    </div>
+					    </div> -->
 					</div>
 				</div>
 			</div>

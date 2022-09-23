@@ -68,7 +68,7 @@ class EmployerController extends Controller
 
 		$html .= '</table>';
 
-
+		/* Years In Position */
 		$total_years_in_position = 0;
 		$data['years_in_position'][$request->year] = Employer::where('years_in_position','=', $request->year)->count();
 		$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';

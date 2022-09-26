@@ -86,6 +86,7 @@
                           echo "<option value='".$i."'>$i</option>";
                        }
                     ?> -->
+                    <option value='all'>Select All</option>
                     <option value='2017-2018'>2017-2018</option>
                     <option value='2018-2019'>2018-2019</option>
                     <option value='2019-2020'>2019-2020</option>

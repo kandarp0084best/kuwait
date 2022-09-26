@@ -89,7 +89,7 @@ class EmployerController extends Controller
 			}
 
 			/* Years In Position */
-			$total_years_in_position = 0;
+			/*$total_years_in_position = 0;
 			$data['years_in_position']['< 20'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('years_in_position','<',20)->count();
 
 			$data['years_in_position']['20 - 50'] = Employer::where('majors', 'like', '%'.$request->major.'%')->whereBetween('years_in_position',[20,50])->count();
@@ -106,7 +106,7 @@ class EmployerController extends Controller
 
 				}
 				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_years_in_position.'</td></tr>';
-			$html .= '</table>';
+			$html .= '</table>';*/
 
 
 			/* Organization */
@@ -116,7 +116,7 @@ class EmployerController extends Controller
 			$data['organization']['Others'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Others')->count();
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;">Which ONE of the following best describes your organization as a whole</th><th style="width:30%;">Total Responses</th></tr>';
+				$html .= '<tr><th style="width:70%;">Which ONE of the following best describes your organization as a whole?</th><th style="width:30%;">Total Responses</th></tr>';
 				foreach ($data['organization'] as $k1 => $v1) {
 					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
 					$total_organization = $total_organization + $v1;
@@ -196,7 +196,7 @@ class EmployerController extends Controller
 
 
 			/* evaluated */
-			$evaluated_Civil = Employer::where('majors', 'like', '%'.$request->major.'%')->where('evaluated', 'like', '%Civil%')->count();
+			/*$evaluated_Civil = Employer::where('majors', 'like', '%'.$request->major.'%')->where('evaluated', 'like', '%Civil%')->count();
 			$data['evaluated']['Civil'] = $evaluated_Civil;
 
 			$evaluated_Chemical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('evaluated','like','%Chemical%')->count();
@@ -228,19 +228,19 @@ class EmployerController extends Controller
 				}
 				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_evaluated.'</td></tr>';
 
-			$html .= '</table>';
+			$html .= '</table>';*/
 
 
 
 
 			$total_number_of_engineers = 0;
-			$data['number_of_engineers']['< 20'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','<',20)->count();
+			$data['number_of_engineers']['< 20'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','<20')->count();
 
-			$data['number_of_engineers']['20 - 50'] = Employer::where('majors', 'like', '%'.$request->major.'%')->whereBetween('number_of_engineers',[20,50])->count();
+			$data['number_of_engineers']['20 - 50'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','20-50')->count();
 
-			$data['number_of_engineers']['50 - 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->whereBetween('number_of_engineers',[50,100])->count();
+			$data['number_of_engineers']['50 - 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','50-100')->count();
 
-			$data['number_of_engineers']['100 >'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','>',100)->count();
+			$data['number_of_engineers']['> 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','>100')->count();
 			
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th style="width:70%;">Number of engineers employed in your company</th><th style="width:30%;">Total Responses</th></tr>';
@@ -256,13 +256,13 @@ class EmployerController extends Controller
 			$total_percentage = 0;
 			/*$data['percentage']['Yes'] = Employer::where('years_in_position',$request->year)->where('percentage','!=', '')->count();
 			$data['percentage']['No'] = Employer::where('years_in_position',$request->year)->where('percentage','=', null)->count();*/
-			$data['percentage']['< 10%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','<',10)->count();
+			$data['percentage']['< 10%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','<10%')->count();
 
-			$data['percentage']['10 - 25%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->whereBetween('percentage',[10,25])->count();
+			$data['percentage']['10 - 25%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','10-25')->count();
 
-			$data['percentage']['25 - 50%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->whereBetween('percentage',[25,50])->count();
+			$data['percentage']['25 - 50%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','25-50')->count();
 
-			$data['percentage']['50 %'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','>',50)->count();
+			$data['percentage']['50 %'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','>50')->count();
 			
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th style="width:70%;">Percentage of Kuwait University graduates</th><th style="width:30%;">Total Responses</th></tr>';
@@ -591,7 +591,7 @@ class EmployerController extends Controller
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>Rate each item according to its importance to your business and operations</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+			 	$html .= '<tr><th>Rate each item according to its importance to your business and operations</th><th>EI</th><th>VI</th><th>I</th><th>SI</th><th>NI</th><th>CNE</th><th>Average</th></tr>';
 
 			 	for ($i=1; $i <16; $i++) { 
 			 		$weight = 5; 
@@ -752,7 +752,7 @@ class EmployerController extends Controller
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>The level of attainment of our graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+			 	$html .= '<tr><th>The level of attainment of our graduates</th><th>EI</th><th>VI</th><th>I</th><th>SI</th><th>NI</th><th>CNE</th><th>Average</th></tr>';
 
 			 	for ($i=1; $i <7; $i++) { 
 			 		$weight = 5; 
@@ -780,19 +780,19 @@ class EmployerController extends Controller
 
 
 			/* Question  */
-			$total_abilities_knowledge = 0;
-			$data['abilities_knowledge']['Yes'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('abilities_knowledge','!=', null)->count();
-			$data['abilities_knowledge']['No'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('abilities_knowledge','=', '')->count();
+			// $total_abilities_knowledge = 0;
+			$data['abilities_knowledge'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('abilities_knowledge','!=', null)->get();
+			
 
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;"> Please list three technical knowledge or professional skills that you think should be taught in the engineering program that you attended at Kuwait University</th><th style="width:30%;">Total Responses</th></tr>';
+			$html .= '<table class="table table-bordered table-striped" style="margin-bottom:20px;">';
+				$html .= '<tr><th style="width:70%;"> Are there other skills, abilities, or knowledge you regard as being important when employing recent graduates? Please outline these below</th></tr>';
 				foreach ($data['abilities_knowledge'] as $k1 => $v1) 
 				{
-					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
-					$total_abilities_knowledge = $total_abilities_knowledge + $v1;
+					$html .= '<tr><td>'.$v1->abilities_knowledge.'</td></tr>';
+					// $total_abilities_knowledge = $total_abilities_knowledge + $v1;
 
 				}
-				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_abilities_knowledge.'</td></tr>';
+				// $html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$total_abilities_knowledge.'</td></tr>';
 			$html .= '</table>';
 
 
@@ -859,7 +859,7 @@ class EmployerController extends Controller
 			$data['hiring']['No'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('hiring', '=', 0)->count();
 			
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;">Is hiring a KU graduate your first preference?</th><th style="width:30%;">Total Responses</th></tr>';
+				$html .= '<tr><th style="width:70%;">Is hiring a Kuwait University graduate your first preference?</th><th style="width:30%;">Total Responses</th></tr>';
 				foreach ($data['hiring'] as $k1 => $v1) {
 					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
 					$total_hiring = $total_hiring + $v1;
@@ -869,37 +869,36 @@ class EmployerController extends Controller
 			$html .= '</table>';
 
 			/* particular */
-			$particular_strengths = 0;
-			$data['particular_strengths']['Yes'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('particular_strengths','!=', null)->count();
-			$data['particular_strengths']['No'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('particular_strengths','=', '')->count();
+			// $particular_strengths = 0;
+			$data['particular_strengths'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('particular_strengths_1','!=', null)->get();
 
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;"> What particular strengths do you perceive Kuwait University engineering graduates possess?</th><th style="width:30%;">Total Responses</th></tr>';
+			$html .= '<table class="table table-bordered table-striped" style="margin-bottom:20px;">';
+				$html .= '<tr><th style="width:70%;"> What particular strengths do you perceive Kuwait University engineering graduates possess?</th></tr>';
 				foreach ($data['particular_strengths'] as $k1 => $v1) 
 				{
-					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
-					$particular_strengths = $particular_strengths + $v1;
+					// $html .= '<tr><td>'.$v1->particular_strengths_1.'</td></tr>';
+					$html .= '<tr><td>'.$v1->particular_strengths_1.'<br>'.$v1->particular_strengths_2.'<br>'.$v1->particular_strengths_3.'</td></tr>';
+
+					// $particular_strengths = $particular_strengths + $v1;
 
 				}
-				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$particular_strengths.'</td></tr>';
 			$html .= '</table>';
 
 
 
 			/* participating */
-			$preparation = 0;
-			$data['preparation']['Yes'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('preparation','!=', null)->count();
-			$data['preparation']['No'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('preparation','=', '')->count();
+			// $preparation = 0;
+			$data['preparation'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('preparation_1','!=', null)->get();
 
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-				$html .= '<tr><th style="width:70%;">In what areas should Kuwait University improve its preparation of engineering graduates for employment?</th><th style="width:30%;">Total Responses</th></tr>';
+			$html .= '<table class="table table-bordered table-striped" style="margin-bottom:20px;">';
+				$html .= '<tr><th style="width:70%;">In what areas should Kuwait University improve its preparation of engineering graduates for employment?</th></tr>';
 				foreach ($data['preparation'] as $k1 => $v1) 
 				{
-					$html .= '<tr><td>'.$k1.'</td><td>'.$v1.'</td></tr>';
-					$preparation = $preparation + $v1;
+					// $html .= '<tr><td>'.$v1->preparation.'</td></tr>';
+					$html .= '<tr><td>'.$v1->preparation_1.'<br>'.$v1->preparation_2.'<br>'.$v1->preparation_3.'</td></tr>';
+
 
 				}
-				$html .= '<tr class="tr_foo text-left"><td>Total</td><td>'.$preparation.'</td></tr>';
 			$html .= '</table>';
 
 

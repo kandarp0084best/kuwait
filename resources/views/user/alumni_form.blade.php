@@ -10,11 +10,11 @@
 		      <a class="navbar-brand" href="/"><img src="{{asset('public/assets/images/logo.png')}}" width="100%" height="185"></a>
 		    </div>
 		</div>
-		<div class="col-md-6 text-center header-title">
+		<div class="col-md-6 text-center header-title mb-3">
 			<h3>Kuwait University<br>
 				College of Engineering & Petroleum<br>
 				Office of Academic Assessment<br>
-				ALUMNI SURVEY</h3>
+				ALUMNI SURVEY<br>2022 (for graduates of 2017 to 2022)</h3>
 		</div>
 		<div class="col-md-3">
 		</div>
@@ -43,7 +43,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 			  <div class="form-group">
-			    <label>Engineering Major:</label>
+			    <label>1. Engineering Major:</label>
 			    <select class="form-control" name="major">
 			    	<option  selected="" disabled="">-- Select Engineering Major --</option>
 			    	<option value="Chemical">Chemical</option>
@@ -61,12 +61,12 @@
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label >Name :</label>
+				    <label >2. Name :</label>
 				    <input type="text" class="form-control" name="name" id="name" placeholder="Name...">
 				 </div>
 			</div>
 			<div class="col-md-12 mb-3">
-				<label >Gender: </label>
+				<label >3. Gender: </label>
 				<div class="form-check form-check-inline">
 				  <input class="form-check-input"  type="radio" name="gender" value="Female">
 				  <label class="form-check-label" >Female</label>
@@ -81,21 +81,21 @@
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>E-mail:</label>
+				    <label>4. E-mail:</label>
 				    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Contact Number:</label>
+				    <label>5. Contact Number:</label>
 				    <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Contact Number....">
 				 </div>
 			</div>
 		
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Year of Graduation:</label>
+				    <label>6. Year of Graduation:</label>
 				    <!-- <input type="text" class="form-control" name="graduation" id="graduation" placeholder="Year of Graduation..."> -->
 				    <select class="form-control" name="graduation">
 					    <option selected="" value="" disabled="">-- Year of Graduation --</option>
@@ -110,7 +110,7 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Advanced Degrees (M.Sc./PhD if any):</label><br>
+				    <label>7. Advanced Degrees (M.Sc./PhD if any):</label><br>
 				    <!-- <input type="text" class="form-control" name="degrees" id="degrees" placeholder="Advanced Degrees (M.Sc./PhD if any)...."> -->
 				    <div class="form-group form-check-inline">
 					    <input type="radio" value="MSc" name="degrees" class="form-check-input"  >
@@ -134,21 +134,21 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>University Honors/Recognitions (if none, then don’t answer):</label>
+				    <label>8. University Honors/Recognitions (if none, then don’t answer):</label>
 				    <input type="text" class="form-control" name="university" id="university" placeholder="University Honors/Recognitions (if none, then don’t answer)....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Membership in Professional Societies (if none, then don’t answer):</label>
+				    <label>9. Membership in Professional Societies (if none, then don’t answer):</label>
 				    <input type="text" class="form-control" name="membership" id="membership" placeholder="Membership in Professional Societies (if none, then don’t answer)....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group mb-3">
-				    <label>Employment Status:</label><br>
+				    <label>10. Employment Status:</label><br>
 				    <!-- <input type="text" class="form-control" name="employment_status" id="employment_status" placeholder="Employment Status...."> -->
 				    <div class="form-group form-check-inline">
 					    <input type="radio" value="Employed" name="employment_status" class="form-check-input"  >
@@ -179,14 +179,14 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Employer:</label>
+				    <label>11. Employer:</label>
 				    <input type="text" class="form-control" name="employer" id="employer" placeholder="Employer....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Employer Classification:</label><br>
+				    <label>12. Employer Classification:</label><br>
 				    <!-- <input type="text" class="form-control" name="employer_classification" id="employer_classification" placeholder="Employer Classification...."> -->
 				    <select class="form-control" name="employer_classification">
 				    	<option selected="" value="" disabled="">-- Select Employer Classification --</option>
@@ -208,14 +208,14 @@
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Job Title:</label>
+				    <label>13. Job Title:</label>
 				    <input type="text" class="form-control" name="job_title" id="job_title" placeholder="Job Title....">
 				 </div>
 			</div>
 
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Job Responsibilities:</label><br>
+				    <label>14. Job Responsibilities:</label><br>
 				    <!-- <textarea class="form-control" name="job_description" id="job_description" placeholder="Job Description...." rows="5"></textarea> -->
 				    <select class="form-control" name="job_description">
 				    	<option selected="" value="" disabled="">-- Select Job Responsibilities --</option>
@@ -238,7 +238,7 @@
 			
 			<div class="col-md-12 mb-3">
 				<div class="form-group">
-				    <label>Employment Honors/Recognition (if none, then don’t answer):</label>
+				    <label>15. Employment Honors/Recognition (if none, then don’t answer):</label>
 				    <input type="text" class="form-control" name="employment" id="employment" placeholder="Employment Honors/Recognition (if none, then don’t answer)....">
 				 </div>
 			</div>
@@ -247,7 +247,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>Have you attended any professional/technical society conferences or meetings since graduation?</label>
+				<label>16. Have you attended any professional/technical society conferences or meetings since graduation?</label>
 				<br>
 				<div class="form-group form-check-inline">
 				    <input type="radio" value="1" name="conferences" class="form-check-input" >
@@ -262,7 +262,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>Have you participated in continuing education activities e.g. (short courses, seminars, conferences)since graduation?</label><br>
+				<label>17. Have you participated in continuing education activities e.g. (short courses, seminars, conferences)since graduation?</label><br>
 				<div class="form-group form-check-inline">
 				    <input type="radio" value="1" name="activities" class="form-check-input"  id="activities">
 				    <label class="form-check-label">Yes</label>
@@ -276,21 +276,21 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>How connected do you feel to Kuwait University and your engineering department?</label><br>
+				<label>18. How connect do you feel to Kuwait University and your engineering department after graduating from Kuwait University?</label><br>
 				<div class="form-group form-check-inline">
-				    <input type="radio" value="Very well connected" name="connected" class="form-check-input"  >
+				    <input type="radio" value="Very well connected" name="connected" class="form-check-input">
 				    <label class="form-check-label">Very well connected</label>
 			    </div>
 			    <div class="form-group form-check-inline">
-				    <input type="radio" value="Well connected" name="connected" class="form-check-input"  >
+				    <input type="radio" value="Well connected" name="connected" class="form-check-input">
 				    <label class="form-check-label">Well connected</label>
 			    </div>
 			    <div class="form-group form-check-inline">
-				    <input type="radio" value="Little connected" name="connected" class="form-check-input"  >
+				    <input type="radio" value="Little connected" name="connected" class="form-check-input">
 				    <label class="form-check-label">Little connected</label>
 			    </div>
 			    <div class="form-group form-check-inline">
-				    <input type="radio" value="Not connected" name="connected" class="form-check-input"  >
+				    <input type="radio" value="Not connected" name="connected" class="form-check-input">
 				    <label class="form-check-label">Not connected</label>
 			    </div>
 			</div>
@@ -299,7 +299,7 @@
 		<div class="row mb-3">
 
 			<div class="col-md-12 mb-3">
-				<label><b>Please evaluate/rate the following elements of program educational objectives according to:</b></label><br>
+				<label>19. <b>Please evaluate/rate the following elements of Program Educational Objectives according to:</b></label><br>
 				<label class="form-check-label">a) How important there are to your career</label><br>
 				<label class="form-check-label">b) The level of your attainment</label>
 			</div>
@@ -323,7 +323,7 @@
 				      <td class="vertical-align"><p class="rotate2">Somewhat important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not important</p></td>
 
-				      <td colspan="10" class="vertical_align table_title">Element of Educational Objectives</td>
+				      <td colspan="10" class="vertical_align table_title">Element of Program Educational Objectives</td>
 
 				      <td class="vertical-align"><p class="rotate2">Significant</p></td>
 				      <td class="vertical-align"><p class="rotate2">Satisfactory</p></td>
@@ -442,7 +442,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label><b>Please answer the following questions:</b></label><br>
+				<label>20. <b>Please answer the following questions:</b></label><br>
 				<p>1. Rate your overall preparation at Kuwait University with respect to the following:</p>
 			</div>
 		</div>
@@ -555,7 +555,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>2. Would you recommend Engineering programs of Kuwait University to a friend or a relative?</label><br>
+				<label>21. Would you recommend Engineering programs of Kuwait University to a friend or a relative?</label><br>
 				
 				<div class="form-check form-check-inline">
 			  		<input class="form-check-input"  type="radio" name="programs"   value="Strongly recommend">
@@ -574,7 +574,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>3. The performance of Kuwait University engineering graduates at your workplace is comparable to their peers from other institutions.</label><br>
+				<label>22. The performance of Kuwait University engineering graduates at your workplace is comparable to their peers from other institutions.</label><br>
 				<div class="form-check form-check-inline">
 			  		<input class="form-check-input"  type="radio" name="performance"   value="Strongly agree">
 				    <label class="form-check-label">Strongly agree</label>
@@ -600,7 +600,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>4. Taking the engineering training course during your studies at Kuwait University prepares you well in getting or succeeding in your first job.</label><br>
+				<label>23. Taking the engineering training course during your studies at Kuwait University prepares you well in getting or succeeding in your first job.</label><br>
 				<div class="form-check form-check-inline">
 			  		<input class="form-check-input"  type="radio" name="training_course"   value="Strongly agree">
 				    <label class="form-check-label">Strongly agree</label>
@@ -626,7 +626,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>5. In light of your professional experience, please list three of the most useful technical knowledge or professional skills that you acquired during your studies at Kuwait University.</label>
+				<label>24. In light of your professional experience, please list three of the most useful technical knowledge or professional skills that you acquired during your studies at Kuwait University.</label>
 				<!-- <textarea class="form-control" name="experience" id="experience" rows="5"></textarea> -->
 			</div>
 			<div class="col-md-12 mb-1">
@@ -642,7 +642,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>6. Please list three technical knowledge or professional skills that you think should be taught in the engineering program that you attended at Kuwait University</label>
+				<label>25. Please list three technical knowledge or professional skills that you think should be taught in the engineering program that you attended at Kuwait University</label>
 				<!-- <textarea class="form-control" name="technical" id="technical" rows="5"></textarea> -->
 			</div>
 			<div class="col-md-12 mb-1">
@@ -658,8 +658,17 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>7. What improvements to facilities (classrooms, laboratories, library, computing resources, recreation etc.), faculty (science, social science, and engineering) or delivery mode (hands-on tutorials, video lectures, online lecturing etc.) are likely to enhance learning at Kuwait University?</label>
-				<textarea class="form-control" name="improvements" id="improvements" rows="5"></textarea>
+				<label>26. What improvements to facilities (classrooms, laboratories, library, computing resources, recreation etc.), faculty (science, social science, and engineering) or delivery mode (hands-on tutorials, video lectures, online lecturing etc.) are likely to enhance learning at Kuwait University?</label>
+				<!-- <textarea class="form-control" name="improvements" id="improvements" rows="5"></textarea> -->
+				<div class="col-md-12 mb-1">
+					<input type="text" name="improvements_1" class="form-control" placeholder="1. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="improvements_2" class="form-control" placeholder="2. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="improvements_3" class="form-control" placeholder="3. Answer">
+				</div>
 			</div>
 			
 		</div>

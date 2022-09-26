@@ -41,8 +41,8 @@ class EmployerSurveyController extends Controller
     {   
 
         $request['staff'] = implode(',', $request->staff);
-        $request['majors'] = implode(',', $request->major);
-        $request['evaluated'] = implode(',', $request->evaluated);
+        // $request['majors'] = implode(',', $request->major);
+        // $request['evaluated'] = implode(',', $request->evaluated);
 
         $employer = Employer::create($request->all());
 

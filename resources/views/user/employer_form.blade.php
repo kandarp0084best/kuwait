@@ -41,14 +41,14 @@
 
 		{{ csrf_field() }}
 
-		<div class="row mb-3">
+		<!-- <div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
 				    <label>Name:</label>
 				    <input type="text" class="form-control" name="name" id="name" placeholder="Name..." >
 				 </div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row mb-3">
 			<div class="col-md-12">
@@ -77,14 +77,14 @@
 			</div>
 		</div>
 
-		<div class="row mb-3">
+		<!-- <div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
 				    <label>Years in position:</label>
 				    <input type="Number" min="0" class="form-control" name="years_in_position" id="years_in_position" placeholder="Years in position..." >
 				 </div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="row mb-3">
 			<div class="col-md-12">
@@ -167,37 +167,37 @@
 			<div class="col-md-12 mb-3">
 				<label>- &nbsp;Majors of Engineers being evaluated (Choose all that apply):</label><br>
 				<div class="form-group form-check">
-				    <input type="checkbox" value="Civil" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Civil" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Civil</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Chemical" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Chemical" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Chemical</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Computer" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Computer" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Computer</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Electrical" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Electrical" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Electrical</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Petroleum" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Petroleum" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Petroleum</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Mechanical" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Mechanical" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Mechanical</label>
 			    </div>
 			    <div class="form-group form-check">
-				    <input type="checkbox" value="Industrial & Management Systems" name="major[]" class="form-check-input" >
+				    <input type="radio" value="Industrial & Management Systems" name="major" class="form-check-input" >
 				    <label class="form-check-label" >Industrial & Management Systems</label>
 			    </div>
 			</div>
 		</div>
 
-		<div class="row mb-3">
+		<!-- <div class="row mb-3">
 			<div class="col-md-12 mb-3">
 				<label>- &nbsp;Engineers to be evaluated are mainly from discipline (Choose 2 maximum).</label><br>
 				<div class="form-group form-check">
@@ -229,7 +229,7 @@
 				    <label class="form-check-label" >Industrial & Management Systems</label>
 			    </div>
 			</div>
-		</div>
+		</div> -->
 
 
 		<div class="row mb-3">
@@ -238,9 +238,17 @@
 					<div class="col-md-12">
 						<label>- &nbsp;Number of engineers employed in your company (if known):</label>
 					
-						<div class="col-md-12">
+						<!-- <div class="col-md-12">
 							<input type="text" class="form-control" name="number_of_engineers" id="number_of_engineers" placeholder="Number of engineers..." >
-						</div>
+						</div> -->
+						<select class="form-control" name="number_of_engineers">
+							<option selected="" disabled="" value="">-- Number of engineers --</option>
+							<option value="<20">< 20</option>
+							<option value="20-50">20 - 50</option>
+							<option value="50-100">50 - 100</option>
+							<option value=">100">> 100</option>
+						</select>
+
 						<!-- <div class="form-check">
 						    <input type="radio" value="<20" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >< 20</label>
@@ -267,9 +275,18 @@
 				<div class="row">
 					<div class="col-md-12">
 						<label>- &nbsp;Percentage of Kuwait University graduates (if known):</label>
-						<div class="col-md-12">
+						<!-- <div class="col-md-12">
 							<input type="text" class="form-control" name="percentage" id="percentage" placeholder="Percentage..." >
-						</div>
+						</div> -->
+
+						<select class="form-control" name="percentage">
+							<option selected="" disabled="" value="">-- Percentage of Kuwait University graduates --</option>
+							<option value="<10%">< 10%</option>
+							<option value="10-25">10 - 25%</option>
+							<option value="25-50">25 - 50%</option>
+							<option value=">50">> 50%</option>
+						</select>
+
 						<!-- <div class="form-check">
 						    <input type="radio" value="<10" name="number_of_engineers" class="form-check-input organization" >
 						    <label class="form-check-label" >< 10%</label>
@@ -314,9 +331,9 @@
 				<table class="table table-bordered table-striped">
 				  <thead class="text-center">
 				    <tr>
-				      <th scope="col" colspan="6" class="table_title">Category A</th>
+				      <th scope="col" colspan="6" class="table_title">Assessment of Graduates</th>
 				      <th colspan="10"></th>
-				      <th scope="col" colspan="6" class="table_title">Category B</th>
+				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -630,9 +647,9 @@
 				<table class="table table-bordered table-striped">
 				  <thead class="text-center">
 				    <tr>
-				      <th scope="col" colspan="6" class="table_title">Category A</th>
+				      <th scope="col" colspan="6" class="table_title">Level of Attainment</th>
 				      <th colspan="8"></th>
-				      <th scope="col" colspan="6" class="table_title">Category B</th>
+				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -826,7 +843,7 @@
 			<div class="col-md-12">
 				<label>- &nbsp;Have you find it necessary to provide training to the graduates of Kuwait University during the first year of their employment in your organization?</label>
 			</div>
-			<div class="col-md-12 mb-3">
+			<div class="col-md-12">
 				<div class="form-group form-check-inline">
 				    <input type="radio" value="1" name="necessary" class="form-check-input necessary" id="necessary" >
 				    <label class="form-check-label" >Yes</label>
@@ -840,14 +857,25 @@
 
 		<div class="row mb-3" id="specify" style="display: none;">
 			<div class="col-md-12">
-				<label>- &nbsp;If yes, Please specify.</label>
-				<textarea class="form-control" rows="5"  name="specify"></textarea>
+				<!-- <label>- &nbsp;If yes, Please specify.</label>
+				<textarea class="form-control" rows="5"  name="specify"></textarea> -->
+				&nbsp;&nbsp;&nbsp;
+				<div class="form-group form-check-inline">
+				    <input type="radio" value="Training is provided to all fresh graduates" name="specify" class="form-check-input">
+				    <label class="form-check-label" >Training is provided to all fresh graduates</label>
+			    </div>
+			    <br>
+			    &nbsp;&nbsp;&nbsp;
+			    <div class="form-group form-check-inline">
+				    <input type="radio" value="Training needed only for Kuwait University graduates" name="specify" class="form-check-input">
+				    <label class="form-check-label" >Training needed only for Kuwait University graduates</label>
+			    </div>
 			</div>
 		</div>
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Is hiring a <b>Kuwait University</b> graduate your first preference?</label>
+				<label>- &nbsp;Is hiring a Kuwait University graduate your first preference?</label>
 			</div>
 			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
@@ -864,14 +892,32 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<label>- &nbsp;What particular strengths do you perceive Kuwait University engineering graduates possess?</label>
-				<textarea class="form-control" rows="5"  name="particular_strengths"></textarea>
+				<!-- <textarea class="form-control" rows="5"  name="particular_strengths"></textarea> -->
+				<div class="col-md-12 mb-1">
+					<input type="text" name="particular_strengths_1" class="form-control" placeholder="1. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="particular_strengths_2" class="form-control" placeholder="2. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="particular_strengths_3" class="form-control" placeholder="3. Answer">
+				</div>
 			</div>
 		</div>
 
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<label>- &nbsp;In what areas should Kuwait University improve its preparation of engineering graduates for employment?</label>
-				<textarea class="form-control" rows="5"  name="preparation"></textarea>
+				<!-- <textarea class="form-control" rows="5"  name="preparation"></textarea> -->
+				<div class="col-md-12 mb-1">
+					<input type="text" name="preparation_1" class="form-control" placeholder="1. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="preparation_2" class="form-control" placeholder="2. Answer">
+				</div>
+				<div class="col-md-12 mb-1">
+					<input type="text" name="preparation_3" class="form-control" placeholder="3. Answer">
+				</div>
 			</div>
 		</div>
 

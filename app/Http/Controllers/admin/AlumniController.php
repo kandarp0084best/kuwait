@@ -28,7 +28,7 @@ class AlumniController extends Controller
 				if ($request->major != '') 
 				{
 					$major = Alumni::where('major',$request->major);
-					if ($request->graduation) {
+					if ($request->graduation != 'all') {
 						$major = $major->where('graduation',$request->graduation);
 					}
 					$major = $major->count();
@@ -130,7 +130,7 @@ class AlumniController extends Controller
 				$mail_qry = $mail_qry->where('major',$request->major);
 				$femail_qry = $femail_qry->where('major',$request->major);
 			}
-			if ($request->graduation) {
+			if ($request->graduation != 'all') {
 				$mail_qry = $mail_qry->where('graduation',$request->graduation);
 				$femail_qry = $femail_qry->where('graduation',$request->graduation);
 			}
@@ -158,7 +158,7 @@ class AlumniController extends Controller
 		if ($request->major != '' && $request->graduation != '' && $request->response == 'response') 
 		{
 			$total_years = 0;
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 
 				$query = Alumni::where('graduation',$request->graduation);
@@ -234,7 +234,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -247,7 +247,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -260,7 +260,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -272,7 +272,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -299,7 +299,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -311,7 +311,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -340,7 +340,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -369,9 +369,13 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
+			}
+			else {
+				$query = $query->where('graduation',[2017, 2022]);
+
 			}
 			$query = $query->get();
 			$job_description = $query;
@@ -399,7 +403,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -411,7 +415,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -441,7 +445,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -453,7 +457,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -477,7 +481,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -489,7 +493,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -519,7 +523,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -532,7 +536,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -545,7 +549,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -559,7 +563,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -589,7 +593,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -602,7 +606,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -616,7 +620,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -627,7 +631,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -638,7 +642,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -659,7 +663,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -670,7 +674,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -681,7 +685,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -692,7 +696,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -703,7 +707,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -723,7 +727,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -734,7 +738,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -745,7 +749,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -756,7 +760,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -767,7 +771,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -787,7 +791,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -798,7 +802,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -809,7 +813,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -820,7 +824,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -831,7 +835,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -850,7 +854,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -861,7 +865,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -872,7 +876,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -883,7 +887,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -894,7 +898,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -913,7 +917,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -924,7 +928,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -935,7 +939,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -946,7 +950,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -957,7 +961,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1011,7 +1015,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1022,7 +1026,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1033,7 +1037,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1044,7 +1048,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1055,7 +1059,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1076,7 +1080,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1087,7 +1091,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1098,7 +1102,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1109,7 +1113,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1120,7 +1124,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1141,7 +1145,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1152,7 +1156,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1163,7 +1167,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1174,7 +1178,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1185,7 +1189,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1206,7 +1210,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1217,7 +1221,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1228,7 +1232,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1239,7 +1243,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1250,7 +1254,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1271,7 +1275,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1282,7 +1286,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1293,7 +1297,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1304,7 +1308,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1315,7 +1319,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1339,7 +1343,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1350,7 +1354,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1361,7 +1365,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1372,7 +1376,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1383,7 +1387,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1405,7 +1409,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1416,7 +1420,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1427,7 +1431,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1438,7 +1442,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1449,7 +1453,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1470,7 +1474,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1481,7 +1485,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1492,7 +1496,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1503,7 +1507,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1514,7 +1518,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1535,7 +1539,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1546,7 +1550,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1557,7 +1561,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1568,7 +1572,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1579,7 +1583,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1600,7 +1604,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1611,7 +1615,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1622,7 +1626,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1633,7 +1637,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1644,7 +1648,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1667,7 +1671,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1678,7 +1682,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1689,7 +1693,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1700,7 +1704,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1711,7 +1715,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1732,7 +1736,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1743,7 +1747,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1754,7 +1758,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1765,7 +1769,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1776,7 +1780,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1797,7 +1801,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1808,7 +1812,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1819,7 +1823,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1830,7 +1834,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1841,7 +1845,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1862,7 +1866,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1873,7 +1877,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1884,7 +1888,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1895,7 +1899,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1906,7 +1910,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1927,7 +1931,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1938,7 +1942,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1949,7 +1953,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1960,7 +1964,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1971,7 +1975,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -1995,7 +1999,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2006,7 +2010,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2017,7 +2021,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2028,7 +2032,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2039,7 +2043,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2060,7 +2064,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2071,7 +2075,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2082,7 +2086,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2093,7 +2097,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2104,7 +2108,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2125,7 +2129,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2136,7 +2140,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2147,7 +2151,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2158,7 +2162,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2169,7 +2173,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2190,7 +2194,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2201,7 +2205,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2212,7 +2216,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2223,7 +2227,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2234,7 +2238,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2255,7 +2259,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2266,7 +2270,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2277,7 +2281,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2288,7 +2292,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2299,7 +2303,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2322,7 +2326,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2333,7 +2337,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2344,7 +2348,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2355,7 +2359,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2366,7 +2370,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2387,7 +2391,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2398,7 +2402,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2409,7 +2413,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2420,7 +2424,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2431,7 +2435,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2452,7 +2456,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2463,7 +2467,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2474,7 +2478,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2485,7 +2489,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2496,7 +2500,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2517,7 +2521,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2528,7 +2532,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2539,7 +2543,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2550,7 +2554,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2561,7 +2565,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2582,7 +2586,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2593,7 +2597,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2604,7 +2608,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2615,7 +2619,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2626,7 +2630,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2649,7 +2653,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2660,7 +2664,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2671,7 +2675,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2682,7 +2686,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2693,7 +2697,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2714,7 +2718,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2725,7 +2729,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2736,7 +2740,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2747,7 +2751,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2758,7 +2762,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2779,7 +2783,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2790,7 +2794,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2801,7 +2805,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2812,7 +2816,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2823,7 +2827,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2844,7 +2848,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2855,7 +2859,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2866,7 +2870,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2877,7 +2881,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2888,7 +2892,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2909,7 +2913,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2920,7 +2924,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2931,7 +2935,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2942,7 +2946,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2953,7 +2957,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -2997,11 +3001,15 @@ class AlumniController extends Controller
 								$multi_sum_2 = 0;
 								$html .= '<tr>';
 								foreach ($v1 as $k01 => $v01) {
+
 									$html .= '<td class="tr_foo_1">'.$v01.'</td>';
-									$sum_2 = ((int)$sum_2 + (int)$v01);
-									$multi = ((int)$weight_2 * (int)$v01);
-									$multi_sum_2 = $multi_sum_2 + $multi;
-									$weight_2 --;
+									if ($k01 != 'year') {
+										$sum_2 = ((int)$sum_2 + (int)$v01);
+										$multi = ((int)$weight_2 * (int)$v01);
+										$multi_sum_2 = $multi_sum_2 + $multi;
+										$weight_2 --;
+									}
+
 								}
 								if ($sum_2 != 0) {
 									$avg_2 = $multi_sum_2 / $sum_2;
@@ -3033,7 +3041,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3044,7 +3052,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3055,7 +3063,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3066,7 +3074,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3085,7 +3093,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3096,7 +3104,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3107,7 +3115,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3118,7 +3126,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3137,7 +3145,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3148,7 +3156,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3159,7 +3167,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3170,7 +3178,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3189,7 +3197,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3200,7 +3208,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3211,7 +3219,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3222,7 +3230,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3240,7 +3248,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3251,7 +3259,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3262,7 +3270,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3273,7 +3281,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3291,7 +3299,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3302,7 +3310,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3313,7 +3321,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3324,7 +3332,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3377,7 +3385,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3388,7 +3396,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3399,7 +3407,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3410,7 +3418,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3430,7 +3438,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3441,7 +3449,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3452,7 +3460,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3463,7 +3471,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3483,7 +3491,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3494,7 +3502,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3505,7 +3513,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3516,7 +3524,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3536,7 +3544,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3547,7 +3555,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3558,7 +3566,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3569,7 +3577,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3589,7 +3597,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3600,7 +3608,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3611,7 +3619,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3622,7 +3630,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3644,7 +3652,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3655,7 +3663,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3666,7 +3674,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3677,7 +3685,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3697,7 +3705,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3708,7 +3716,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3719,7 +3727,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3730,7 +3738,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3750,7 +3758,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3761,7 +3769,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3772,7 +3780,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3783,7 +3791,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3803,7 +3811,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3814,7 +3822,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3825,7 +3833,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3836,7 +3844,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3856,7 +3864,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3867,7 +3875,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3878,7 +3886,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3889,7 +3897,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3910,7 +3918,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3921,7 +3929,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3932,7 +3940,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3943,7 +3951,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3963,7 +3971,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3974,7 +3982,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3985,7 +3993,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -3996,7 +4004,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4016,7 +4024,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4027,7 +4035,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4038,7 +4046,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4049,7 +4057,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4069,7 +4077,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4080,7 +4088,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4091,7 +4099,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4102,7 +4110,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4122,7 +4130,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4133,7 +4141,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4144,7 +4152,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4155,7 +4163,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4176,7 +4184,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4187,7 +4195,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4198,7 +4206,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4209,7 +4217,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4229,7 +4237,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4240,7 +4248,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4251,7 +4259,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4262,7 +4270,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4282,7 +4290,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4293,7 +4301,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4304,7 +4312,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4315,7 +4323,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4335,7 +4343,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4346,7 +4354,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4357,7 +4365,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4368,7 +4376,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4388,7 +4396,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4399,7 +4407,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4410,7 +4418,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4421,7 +4429,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4442,7 +4450,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4453,7 +4461,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4464,7 +4472,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4475,7 +4483,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4495,7 +4503,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4506,7 +4514,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4517,7 +4525,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4528,7 +4536,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4548,7 +4556,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4559,7 +4567,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4570,7 +4578,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4581,7 +4589,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4601,7 +4609,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4612,7 +4620,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4623,7 +4631,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4634,7 +4642,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4654,7 +4662,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4665,7 +4673,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4676,7 +4684,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4687,7 +4695,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4709,7 +4717,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4720,7 +4728,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4731,7 +4739,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4742,7 +4750,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4762,7 +4770,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4773,7 +4781,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4784,7 +4792,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4795,7 +4803,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4815,7 +4823,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4826,7 +4834,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4837,7 +4845,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4848,7 +4856,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4868,7 +4876,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4879,7 +4887,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4890,7 +4898,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4901,7 +4909,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4921,7 +4929,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4932,7 +4940,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4943,7 +4951,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -4954,7 +4962,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5038,7 +5046,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5050,7 +5058,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5062,7 +5070,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5074,7 +5082,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5086,7 +5094,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5098,7 +5106,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5119,7 +5127,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5131,7 +5139,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5143,7 +5151,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5155,7 +5163,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5167,7 +5175,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5179,7 +5187,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5200,7 +5208,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5212,7 +5220,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5224,7 +5232,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5236,7 +5244,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5248,7 +5256,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5260,7 +5268,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5281,7 +5289,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5293,7 +5301,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5305,7 +5313,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5317,7 +5325,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5329,7 +5337,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5341,7 +5349,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5362,7 +5370,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5374,7 +5382,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5386,7 +5394,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5398,7 +5406,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5410,7 +5418,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5422,7 +5430,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5443,7 +5451,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5455,7 +5463,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5467,7 +5475,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5479,7 +5487,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5491,7 +5499,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5503,7 +5511,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5524,7 +5532,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5536,7 +5544,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5548,7 +5556,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5560,7 +5568,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5572,7 +5580,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5584,7 +5592,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5638,7 +5646,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5649,7 +5657,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5660,7 +5668,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5671,7 +5679,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5682,7 +5690,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5693,7 +5701,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5715,7 +5723,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5726,7 +5734,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5737,7 +5745,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5748,7 +5756,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5759,7 +5767,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5770,7 +5778,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5792,7 +5800,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5803,7 +5811,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5814,7 +5822,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5825,7 +5833,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5836,7 +5844,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5847,7 +5855,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5869,7 +5877,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5880,7 +5888,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5891,7 +5899,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5902,7 +5910,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5913,7 +5921,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5924,7 +5932,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5946,7 +5954,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5957,7 +5965,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5968,7 +5976,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5979,7 +5987,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -5990,7 +5998,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6001,7 +6009,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6024,7 +6032,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6035,7 +6043,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6046,7 +6054,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6057,7 +6065,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6068,7 +6076,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6079,7 +6087,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6101,7 +6109,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6112,7 +6120,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6123,7 +6131,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6134,7 +6142,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6145,7 +6153,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6156,7 +6164,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6178,7 +6186,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6189,7 +6197,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6200,7 +6208,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6211,7 +6219,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6222,7 +6230,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6233,7 +6241,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6255,7 +6263,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6266,7 +6274,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6277,7 +6285,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6288,7 +6296,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6299,7 +6307,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6310,7 +6318,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6332,7 +6340,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6343,7 +6351,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6354,7 +6362,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6365,7 +6373,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6376,7 +6384,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6387,7 +6395,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6411,7 +6419,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6422,7 +6430,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6433,7 +6441,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6444,7 +6452,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6455,7 +6463,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6466,7 +6474,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6488,7 +6496,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6499,7 +6507,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6510,7 +6518,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6521,7 +6529,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6532,7 +6540,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6543,7 +6551,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6565,7 +6573,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6576,7 +6584,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6587,7 +6595,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6598,7 +6606,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6609,7 +6617,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6620,7 +6628,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6642,7 +6650,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6653,7 +6661,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6664,7 +6672,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6675,7 +6683,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6686,7 +6694,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6697,7 +6705,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6719,7 +6727,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6730,7 +6738,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6741,7 +6749,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6752,7 +6760,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6763,7 +6771,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6774,7 +6782,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6797,7 +6805,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6808,7 +6816,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6819,7 +6827,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6830,7 +6838,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6841,7 +6849,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6852,7 +6860,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6874,7 +6882,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6885,7 +6893,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6896,7 +6904,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6907,7 +6915,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6918,7 +6926,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6929,7 +6937,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6951,7 +6959,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6962,7 +6970,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6973,7 +6981,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6984,7 +6992,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -6995,7 +7003,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7006,7 +7014,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7028,7 +7036,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7039,7 +7047,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7050,7 +7058,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7061,7 +7069,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7072,7 +7080,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7083,7 +7091,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7105,7 +7113,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7116,7 +7124,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7127,7 +7135,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7138,7 +7146,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7149,7 +7157,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7160,7 +7168,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7184,7 +7192,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7195,7 +7203,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7206,7 +7214,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7217,7 +7225,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7228,7 +7236,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7239,7 +7247,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7261,7 +7269,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7272,7 +7280,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7283,7 +7291,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7294,7 +7302,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7305,7 +7313,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7316,7 +7324,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7338,7 +7346,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7349,7 +7357,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7360,7 +7368,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7371,7 +7379,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7382,7 +7390,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7393,7 +7401,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7415,7 +7423,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7426,7 +7434,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7437,7 +7445,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7448,7 +7456,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7459,7 +7467,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7470,7 +7478,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7492,7 +7500,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7503,7 +7511,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7514,7 +7522,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7525,7 +7533,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7536,7 +7544,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7547,7 +7555,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7571,7 +7579,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7582,7 +7590,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7593,7 +7601,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7604,7 +7612,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7615,7 +7623,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7626,7 +7634,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7648,7 +7656,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7659,7 +7667,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7670,7 +7678,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7681,7 +7689,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7692,7 +7700,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7703,7 +7711,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7725,7 +7733,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7736,7 +7744,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7747,7 +7755,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7758,7 +7766,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7769,7 +7777,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7780,7 +7788,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7802,7 +7810,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7813,7 +7821,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7824,7 +7832,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7835,7 +7843,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7846,7 +7854,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7857,7 +7865,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7879,7 +7887,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7890,7 +7898,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7901,7 +7909,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7912,7 +7920,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7923,7 +7931,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7934,7 +7942,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7958,7 +7966,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7969,7 +7977,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7980,7 +7988,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -7991,7 +7999,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8002,7 +8010,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8013,7 +8021,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8035,7 +8043,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8046,7 +8054,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8057,7 +8065,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8068,7 +8076,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8079,7 +8087,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8090,7 +8098,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8112,7 +8120,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8123,7 +8131,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8134,7 +8142,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8145,7 +8153,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8156,7 +8164,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8167,7 +8175,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8189,7 +8197,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8200,7 +8208,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8211,7 +8219,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8222,7 +8230,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8233,7 +8241,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8244,7 +8252,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8266,7 +8274,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8277,7 +8285,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8288,7 +8296,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8299,7 +8307,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8310,7 +8318,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8321,7 +8329,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8413,7 +8421,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8424,7 +8432,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8435,7 +8443,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8446,7 +8454,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8457,7 +8465,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8486,7 +8494,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8498,7 +8506,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8510,7 +8518,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8522,7 +8530,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8534,7 +8542,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8563,7 +8571,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8586,7 +8594,7 @@ class AlumniController extends Controller
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8604,12 +8612,12 @@ class AlumniController extends Controller
 			$html .= '</table>';
 
 
-			$query = Alumni::select('improvements')->where('improvements','!=',null);
+			$query = Alumni::select('improvements_1','improvements_2','improvements_3')->where('improvements_1','!=',null);
 			if ($request->major != '') 
 			{
 				$query = $query->where('major', $request->major);
 			}
-			if ($request->graduation != '') 
+			if ($request->graduation != 'all') 
 			{
 				$query = $query->where('graduation', $request->graduation);
 			}
@@ -8621,7 +8629,7 @@ class AlumniController extends Controller
 				$html .= '<tr><th style="width:100%;"> Please list three technical knowledge or professional skills that you think should be taught in the engineering program that you attended at Kuwait University</th></tr>';
 				foreach ($data['question_7'] as $k1 => $v1) 
 				{
-					$html .= '<tr><td>'.$v1->improvements.'</td></tr>';
+					$html .= '<tr><td>'.$v1->improvements_1.'<br>'.$v1->improvements_2.'<br>'.$v1->improvements_3.'</td></tr>';
 				}
 
 			$html .= '</table>';

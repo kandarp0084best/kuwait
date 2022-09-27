@@ -33,7 +33,7 @@ $(function() {
       'staff[]': { 
         required: true 
       },
-      'major[]': { 
+      'majors': { 
         required: true 
       },
       'evaluated[]': { 
@@ -180,10 +180,22 @@ $(function() {
       'hiring': { 
         required: true 
       },
-      'particular_strengths': { 
+      'particular_strengths_1': { 
         required: true 
       },
-      'preparation': { 
+      'particular_strengths_2': { 
+        required: true 
+      },
+      'particular_strengths_3': { 
+        required: true 
+      },
+      'preparation_1': { 
+        required: true 
+      },
+      'preparation_2': { 
+        required: true 
+      },
+      'preparation_3': { 
         required: true 
       },
       'summary_report': { 

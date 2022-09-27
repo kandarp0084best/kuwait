@@ -109,7 +109,7 @@ label#major\[\]-error {
 }
 label#gender-error {
     position: absolute;
-    margin-left: -84px;
+    margin-left: -100px;
 }
 label#importance_1-error, label#importance_2-error, label#importance_3-error, label#importance_4-error, label#importance_5-error, label#importance_6-error, label#attainment_1-error, label#attainment_2-error, label#attainment_3-error, label#attainment_4-error, label#attainment_5-error, label#attainment_6-error, label#questions_1-error, label#questions_2-error, label#questions_3-error, label#questions_4-error, label#questions_5-error, label#questions_6-error, label#questions_7-error {
     position: absolute;
@@ -174,4 +174,23 @@ label#evaluated\[\]-error {
     margin-bottom: 40px;
     border: 2px solid #000;
     box-shadow: 4px 5px 5px #00000057;
+}
+label#majors-error {
+    position: absolute;
+    margin-top: 155px;
+    margin-left: -22px;
+}
+label#compare_a-error {
+    position: absolute;
+    margin-top: 104px;
+    margin-left: -22px;
+}
+label#compare_b-error {
+    position: absolute;
+    margin-top: 104px;
+    margin-left: -22px;
+}
+.alert-text
+{
+  color: #ef0909;
 }

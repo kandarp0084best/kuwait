@@ -53,7 +53,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>Company/Organization:</label>
+				    <label>1. Company/Organization:</label>
 				    <input type="text" class="form-control" name="company_organization" id="company_organization" placeholder="Company/Organization..." >
 				 </div>
 			</div>
@@ -62,7 +62,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>Department/Division:</label>
+				    <label>2. Department/Division:</label>
 				    <input type="text" class="form-control" name="department_division" id="department_division" placeholder="Department/Division..." >
 				 </div>
 			</div>
@@ -71,7 +71,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>Position:</label>
+				    <label>3. Position:</label>
 				    <input type="text" class="form-control" name="position" id="position" placeholder="Position..." >
 				 </div>
 			</div>
@@ -89,7 +89,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>E-mail:</label>
+				    <label>4. E-mail:</label>
 				    <input type="text" class="form-control" name="email" id="email" placeholder="E-mail..." >
 				 </div>
 			</div>
@@ -98,7 +98,7 @@
 		<div class="row mb-3">
 			<div class="col-md-12">
 				<div class="form-group">
-				    <label>Contact Number:</label>
+				    <label>5. Contact Number:</label>
 				    <input type="text" class="form-control" name="tel" id="tel" placeholder="Contact Number..." >
 				 </div>
 			</div>
@@ -115,7 +115,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>- &nbsp;Which ONE of the following best describes your organization as a whole?</label><br>
+				<label>6. Which ONE of the following best describes your organization as a whole?</label><br>
 				<div class="form-check">
 				    <input type="radio" value="Government" name="organization" class="form-check-input organization" >
 				    <label class="form-check-label" >Government</label>
@@ -134,7 +134,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>- &nbsp;Job nature of engineering staff (Choose all that apply):</label><br>
+				<label>7. Job nature of engineering staff (Choose all that apply):</label><br>
 				<div class="form-group form-check">
 				    <input type="checkbox" value="Design" name="staff[]" class="form-check-input" >
 				    <label class="form-check-label" >Design</label>
@@ -165,7 +165,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>- &nbsp;Majors of Engineers being evaluated (Choose all that apply):</label><br>
+				<label>8. Majors of Engineers being evaluated (Choose all that apply):</label><br>
 				<div class="form-group form-check">
 				    <input type="radio" value="Civil" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Civil</label>
@@ -236,7 +236,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<label>- &nbsp;Number of engineers employed in your company (if known):</label>
+						<label>9. Number of engineers employed in your company (if known):</label>
 					
 						<!-- <div class="col-md-12">
 							<input type="text" class="form-control" name="number_of_engineers" id="number_of_engineers" placeholder="Number of engineers..." >
@@ -274,7 +274,7 @@
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12">
-						<label>- &nbsp;Percentage of Kuwait University graduates (if known):</label>
+						<label>10. Percentage of Kuwait University graduates (if known):</label>
 						<!-- <div class="col-md-12">
 							<input type="text" class="form-control" name="percentage" id="percentage" placeholder="Percentage..." >
 						</div> -->
@@ -319,9 +319,12 @@
 			<div class="col-md-12">
 				<p><b>Second:</b> Rate each item according to its importance to your business and operations.</p>
 			</div> -->
-			<div class="col-md-12"><h4>Please rate the skills, abilities, and knowledge of KU graduates for two categories:</h4></div>
+			<div class="col-md-12"><label>11. Please rate the skills, abilities, and knowledge of KU graduates for two categories:</label></div>
 			<div class="col-md-12">
-				<p><b>Category A:</b> Assessment of Graduates, <b>Category B:</b> Importance to business</p>
+				<ul class="dashed">
+				  <li><b>Category A:</b> Assessment of Graduates</li>
+				  <li><b>Category B:</b> Importance to business</li>
+				</ul>
 			</div>
 		</div>
 
@@ -633,8 +636,8 @@
 		</div>
 
 		<div class="row mb-3">
+				<div class="col-md-12"><label>12. Please evaluate/rate the following element of Program Educational Objectives according to:</label></div>
 			<div class="col-md-12">
-				<p>Please evaluate/rate the following element of Program Educational Objectives according to:</p>
 				<ul class="dashed">
 				  <li><b>Category A:</b> Level of Attainment</li>
 				  <li><b>Category B:</b> Importance to business</li>
@@ -778,18 +781,18 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Are there other skills, abilities, or knowledge you regard as being important when employing recent graduates? Please outline these below.</label>
+				<label>13. Are there other skills, abilities, or knowledge you regard as being important when employing recent graduates? Please outline these below.</label>
 				<textarea class="form-control" rows="5"  name="abilities_knowledge"></textarea>
 			</div>
 		</div>
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;How do Kuwait University graduates compare with graduates from other universities?</label>
+				<label>14. How do Kuwait University graduates compare with graduates from other universities?</label>
 			</div>
-			<div class="col-md-12 mb-3">
+			<div class="col-md-12 mb-4">
 				<ol type="a">
-				  <li>in terms of technical knowledge and skills
+				  <li class="mb-3">in terms of technical knowledge and skills
 				  	<br>
 					<div class="form-check form-check">
 				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Strongly recommend" >
@@ -841,9 +844,9 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Have you find it necessary to provide training to the graduates of Kuwait University during the first year of their employment in your organization?</label>
+				<label>15. Have you find it necessary to provide training to the graduates of Kuwait University during the first year of their employment in your organization?</label>
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
 				    <input type="radio" value="1" name="necessary" class="form-check-input necessary" id="necessary" >
 				    <label class="form-check-label" >Yes</label>
@@ -875,7 +878,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Is hiring a Kuwait University graduate your first preference?</label>
+				<label>16. Is hiring a Kuwait University graduate your first preference?</label>
 			</div>
 			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
@@ -891,7 +894,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;What particular strengths do you perceive Kuwait University engineering graduates possess?</label>
+				<label>17. What particular strengths do you perceive Kuwait University engineering graduates possess?</label>
 				<!-- <textarea class="form-control" rows="5"  name="particular_strengths"></textarea> -->
 				<div class="col-md-12 mb-1">
 					<input type="text" name="particular_strengths_1" class="form-control" placeholder="1. Answer">
@@ -907,7 +910,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;In what areas should Kuwait University improve its preparation of engineering graduates for employment?</label>
+				<label>18. In what areas should Kuwait University improve its preparation of engineering graduates for employment?</label>
 				<!-- <textarea class="form-control" rows="5"  name="preparation"></textarea> -->
 				<div class="col-md-12 mb-1">
 					<input type="text" name="preparation_1" class="form-control" placeholder="1. Answer">
@@ -923,7 +926,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Would you be interested in receiving a summary report on the College of Engineering Employer Survey of 2022 – 2023?</label>
+				<label>19. Would you be interested in receiving a summary report on the College of Engineering Employer Survey of 2022 – 2023?</label>
 			</div>
 			<div class="col-md-12 mb-3">
 				<div class="form-group form-check-inline">
@@ -939,7 +942,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12">
-				<label>- &nbsp;Would you be interested in participating at a luncheon briefing with other employers and faculty on the results of the College of Engineering Employer Survey of 2022 – 2023?</label>
+				<label>20. Would you be interested in participating at a luncheon briefing with other employers and faculty on the results of the College of Engineering Employer Survey of 2022 – 2023?</label>
 			</div>
 			<div class="col-md-12">
 				<div class="form-check-inline">

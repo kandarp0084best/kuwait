@@ -124,7 +124,13 @@ $(function() {
       'technical_3': { 
         required: true 
       },
-      'improvements': { 
+      'improvements_1': { 
+        required: true 
+      },
+      'improvements_2': { 
+        required: true 
+      },
+      'improvements_3': { 
         required: true 
       },
       'employment_status': { 

@@ -36,6 +36,11 @@
 		</div>
 	</div>
 
+	<div class="row pt-3 pb-3">
+		<div class="col-md-12">
+			<h6 class="text-center alert-text"><b>Note :</b> Please answer ALL questions. Your survey will not be submitted if you skipped the answer to any question. <br>Thank you.</h6>
+		</div>
+	</div>
 	<form id="alumni" name="alumni" method="post" onsubmit="return false;">
 
 		{{ csrf_field() }}

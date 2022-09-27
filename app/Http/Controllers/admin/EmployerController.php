@@ -284,7 +284,7 @@ class EmployerController extends Controller
 			$prep_1['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',4)->count();
 			$prep_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',5)->count();
 			$prep_1['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',6)->count();
-			$data['prepared_1']['Apply mathematics, science and engineering knowledge'] = $prep_1;
+			$data['prepared_1_1']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_1;
 
 			$prep_2 = array();
 			$prep_2['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',1)->count();
@@ -293,7 +293,7 @@ class EmployerController extends Controller
 			$prep_2['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',4)->count();
 			$prep_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',5)->count();
 			$prep_2['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',6)->count();
-			$data['prepared_2']['Identify, formulate, and solve engineering problems'] = $prep_2;
+			$data['prepared_1_2']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_2;
 
 			$prep_3 = array();
 			$prep_3['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',1)->count();
@@ -302,7 +302,115 @@ class EmployerController extends Controller
 			$prep_3['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',4)->count();
 			$prep_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',5)->count();
 			$prep_3['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',6)->count();
-			$data['prepared_3']['Develop new or innovative ideas and work independently'] = $prep_3;
+			$data['prepared_1_3']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_3;
+
+
+			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
+			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+
+
+			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <4; $i++) 
+ 			{
+				foreach ($data['prepared_1_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 30;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 50;
+							} 
+							if ($i == 3) {
+								$vwp = $vwp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 30;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 50;
+							} 
+							if ($i == 3) {
+								$wp = $wp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 30;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 50;
+							} 
+							if ($i == 3) {
+								$p = $p + $v * 20;
+							}
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 30;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 50;
+							} 
+							if ($i == 3) {
+								$sp = $sp + $v * 20;
+							}
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 30;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 50;
+							} 
+							if ($i == 3) {
+								$np = $np + $v * 20;
+							}
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 30;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 50;
+							} 
+							if ($i == 3) {
+								$cne = $cne + $v * 20;
+							}
+						}
+					}
+				}
+			}
+
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
 
 			$prep_4 = array();
 			$prep_4['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',1)->count();
@@ -311,7 +419,7 @@ class EmployerController extends Controller
 			$prep_4['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',4)->count();
 			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',5)->count();
 			$prep_4['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',6)->count();
-			$data['prepared_4']['Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)'] = $prep_4;
+			$data['prepared_2_1']['Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)'] = $prep_4;
 
 			$prep_5 = array();
 			$prep_5['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',1)->count();
@@ -320,8 +428,98 @@ class EmployerController extends Controller
 			$prep_5['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',4)->count();
 			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',5)->count();
 			$prep_5['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',6)->count();
-			$data['prepared_5']['Design a system, component, or process to meet desired needs'] = $prep_5;
+			$data['prepared_2_2']['Design a system, component, or process to meet desired needs'] = $prep_5;
 
+
+			$html .= '<tr><td>Apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['prepared_2_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 40;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 40;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 40;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 40;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 40;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 40;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 60;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			
 			$prep_6 = array();
 			$prep_6['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',1)->count();
 			$prep_6['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',2)->count();
@@ -329,7 +527,7 @@ class EmployerController extends Controller
 			$prep_6['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',4)->count();
 			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',5)->count();
 			$prep_6['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',6)->count();
-			$data['prepared_6']['Communicate orally: informal and prepared talks'] = $prep_6;
+			$data['prepared_3_1']['Communicate orally: informal and prepared talks'] = $prep_6;
 
 			$prep_7 = array();
 			$prep_7['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',1)->count();
@@ -338,7 +536,96 @@ class EmployerController extends Controller
 			$prep_7['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',4)->count();
 			$prep_7['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',5)->count();
 			$prep_7['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',6)->count();
-			$data['prepared_7']['Communicate in writing: letters, technical reports, etc'] = $prep_7;
+			$data['prepared_3_2']['Communicate in writing: letters, technical reports, etc'] = $prep_7;
+
+
+			$html .= '<tr><td>Communicate effectively with a range of audiences.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['prepared_3_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 50;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 50;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 50;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 50;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 50;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 50;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 50;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
 
 
 			$prep_8 = array();
@@ -348,7 +635,7 @@ class EmployerController extends Controller
 			$prep_8['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',4)->count();
 			$prep_8['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',5)->count();
 			$prep_8['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',6)->count();
-			$data['prepared_8']['Understand professional and ethical responsibility'] = $prep_8;
+			$data['prepared_4_1']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_8;
 
 
 			$prep_9 = array();
@@ -358,7 +645,7 @@ class EmployerController extends Controller
 			$prep_9['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',4)->count();
 			$prep_9['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',5)->count();
 			$prep_9['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',6)->count();
-			$data['prepared_9']['Understand impact of engineering solutions in a global/societal context'] = $prep_9;
+			$data['prepared_4_2']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_9;
 
 
 			$prep_10 = array();
@@ -368,9 +655,110 @@ class EmployerController extends Controller
 			$prep_10['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',4)->count();
 			$prep_10['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',5)->count();
 			$prep_10['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',6)->count();
-			$data['prepared_10']['Understand contemporary social, economic, and cultural issues'] = $prep_10;
+			$data['prepared_4_3']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_10;
 
 
+			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <4; $i++) 
+ 			{
+				foreach ($data['prepared_4_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 40;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 40;
+							} 
+							if ($i == 3) {
+								$vwp = $vwp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 40;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 40;
+							} 
+							if ($i == 3) {
+								$wp = $wp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 40;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 40;
+							} 
+							if ($i == 3) {
+								$p = $p + $v * 20;
+							}
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 40;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 40;
+							} 
+							if ($i == 3) {
+								$sp = $sp + $v * 20;
+							}
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 40;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 40;
+							} 
+							if ($i == 3) {
+								$np = $np + $v * 20;
+							}
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 40;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 40;
+							} 
+							if ($i == 3) {
+								$cne = $cne + $v * 20;
+							}
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			
 			$prep_11 = array();
 			$prep_11['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',1)->count();
 			$prep_11['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',2)->count();
@@ -378,7 +766,7 @@ class EmployerController extends Controller
 			$prep_11['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',4)->count();
 			$prep_11['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',5)->count();
 			$prep_11['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',6)->count();
-			$data['prepared_11']['Work in teams and develop leadership skills'] = $prep_11;
+			$data['prepared_5_1']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_11;
 
 
 			$prep_12 = array();
@@ -388,7 +776,96 @@ class EmployerController extends Controller
 			$prep_12['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',4)->count();
 			$prep_12['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',5)->count();
 			$prep_12['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',6)->count();
-			$data['prepared_12']['Function effectively in international and multicultural contexts'] = $prep_12;
+			$data['prepared_5_2']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_12;
+
+
+			$html .= '<tr><td>Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['prepared_5_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 80;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 80;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 80;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 80;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 80;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 80;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 20;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
 
 			$prep_13 = array();
 			$prep_13['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',1)->count();
@@ -397,7 +874,83 @@ class EmployerController extends Controller
 			$prep_13['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',4)->count();
 			$prep_13['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',5)->count();
 			$prep_13['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',6)->count();
-			$data['prepared_13']['Design and conduct experiments, analyze, and interpret data'] = $prep_13;
+			$data['prepared_6_1']['Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.'] = $prep_13;
+
+			$html .= '<tr><td>Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <2; $i++) 
+ 			{
+				foreach ($data['prepared_6_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 100;
+							}
+							
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 100;
+							}
+							
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 100;
+							}
+							 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
 
 			$prep_14 = array();
 			$prep_14['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',1)->count();
@@ -406,7 +959,7 @@ class EmployerController extends Controller
 			$prep_14['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',4)->count();
 			$prep_14['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',5)->count();
 			$prep_14['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',6)->count();
-			$data['prepared_14']['Learn new skills and stay current technically and professionally'] = $prep_14;
+			$data['prepared_7_1']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_14;
 
 			$prep_15 = array();
 			$prep_15['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',1)->count();
@@ -415,18 +968,106 @@ class EmployerController extends Controller
 			$prep_15['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',4)->count();
 			$prep_15['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',5)->count();
 			$prep_15['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',6)->count();
-			$data['prepared_15']['Recognize the need to engage in lifelong learning'] = $prep_15;
+			$data['prepared_7_2']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_15;
 
 
-			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+			$html .= '<tr><td>Acquire and apply new knowledge as needed, using appropriate learning strategies.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['prepared_7_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
 
-			 	for ($i=1; $i <16; $i++) { 
+							if ($i == 1) {
+								$vwp = $vwp + $v * 70;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 70;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 70;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 70;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 70;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 70;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 30;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+
+			 	/*for ($i=1; $i <2; $i++) 
+			 	{
+
 			 		$weight = 5; 
 					$sum = 0;
 					$multi_sum = 0;
 					foreach ($data['prepared_'.$i] as $key => $value) {
-						$html .= '<tr><td>'.$key.'</td>';
+						$html .= '<tr><td rowspan="3">'.$key.'</td>';
 						foreach ($value as $k1 => $v1) {
 							$html .= '<td>'.$v1.'</td>';
 							$sum = $sum + $v1;
@@ -442,14 +1083,14 @@ class EmployerController extends Controller
 						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
 						$html .= '</tr>';
 					}
-				}
+				}*/
 			$html .= '</table>';
 
 
 
 
 			/* important */
-			$prep_1 = array();
+			/*$prep_1 = array();
 			$prep_1['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',1)->count();
 			$prep_1['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',2)->count();
 			$prep_1['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',3)->count();
@@ -615,10 +1256,817 @@ class EmployerController extends Controller
 						$html .= '</tr>';
 					}
 				}
+			$html .= '</table>';*/
+
+
+			/* prepared */
+			$impot_1 = array();
+			$impot_1['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',1)->count();
+			$impot_1['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',2)->count();
+			$impot_1['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',3)->count();
+			$impot_1['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',4)->count();
+			$impot_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',5)->count();
+			$impot_1['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',6)->count();
+			$data['important_1_1']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_1;
+
+			$impot_2 = array();
+			$impot_2['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',1)->count();
+			$impot_2['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',2)->count();
+			$impot_2['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',3)->count();
+			$impot_2['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',4)->count();
+			$impot_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',5)->count();
+			$impot_2['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',6)->count();
+			$data['important_1_2']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_2;
+
+			$impot_3 = array();
+			$impot_3['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',1)->count();
+			$impot_3['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',2)->count();
+			$impot_3['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',3)->count();
+			$impot_3['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',4)->count();
+			$impot_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',5)->count();
+			$impot_3['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',6)->count();
+			$data['important_1_3']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_3;
+
+
+			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
+			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+
+
+			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <4; $i++) 
+ 			{
+				foreach ($data['important_1_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 30;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 50;
+							} 
+							if ($i == 3) {
+								$vwp = $vwp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 30;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 50;
+							} 
+							if ($i == 3) {
+								$wp = $wp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 30;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 50;
+							} 
+							if ($i == 3) {
+								$p = $p + $v * 20;
+							}
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 30;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 50;
+							} 
+							if ($i == 3) {
+								$sp = $sp + $v * 20;
+							}
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 30;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 50;
+							} 
+							if ($i == 3) {
+								$np = $np + $v * 20;
+							}
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 30;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 50;
+							} 
+							if ($i == 3) {
+								$cne = $cne + $v * 20;
+							}
+						}
+					}
+				}
+			}
+
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+
+			$prep_4 = array();
+			$prep_4['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',1)->count();
+			$prep_4['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',2)->count();
+			$prep_4['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',3)->count();
+			$prep_4['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',4)->count();
+			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',5)->count();
+			$prep_4['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',6)->count();
+			$data['important_2_1']['Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)'] = $prep_4;
+
+			$prep_5 = array();
+			$prep_5['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',1)->count();
+			$prep_5['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',2)->count();
+			$prep_5['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',3)->count();
+			$prep_5['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',4)->count();
+			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',5)->count();
+			$prep_5['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',6)->count();
+			$data['important_2_2']['Design a system, component, or process to meet desired needs'] = $prep_5;
+
+
+			$html .= '<tr><td>Apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['important_2_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 40;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 40;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 40;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 40;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 40;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 60;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 40;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 60;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			
+			$prep_6 = array();
+			$prep_6['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',1)->count();
+			$prep_6['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',2)->count();
+			$prep_6['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',3)->count();
+			$prep_6['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',4)->count();
+			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',5)->count();
+			$prep_6['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',6)->count();
+			$data['important_3_1']['Communicate orally: informal and prepared talks'] = $prep_6;
+
+			$prep_7 = array();
+			$prep_7['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',1)->count();
+			$prep_7['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',2)->count();
+			$prep_7['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',3)->count();
+			$prep_7['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',4)->count();
+			$prep_7['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',5)->count();
+			$prep_7['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',6)->count();
+			$data['important_3_2']['Communicate in writing: letters, technical reports, etc'] = $prep_7;
+
+
+			$html .= '<tr><td>Communicate effectively with a range of audiences.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['important_3_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 50;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 50;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 50;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 50;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 50;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 50;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 50;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 50;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+
+			$prep_8 = array();
+			$prep_8['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',1)->count();
+			$prep_8['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',2)->count();
+			$prep_8['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',3)->count();
+			$prep_8['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',4)->count();
+			$prep_8['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',5)->count();
+			$prep_8['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',6)->count();
+			$data['important_4_1']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_8;
+
+
+			$prep_9 = array();
+			$prep_9['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',1)->count();
+			$prep_9['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',2)->count();
+			$prep_9['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',3)->count();
+			$prep_9['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',4)->count();
+			$prep_9['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',5)->count();
+			$prep_9['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',6)->count();
+			$data['important_4_2']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_9;
+
+
+			$prep_10 = array();
+			$prep_10['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',1)->count();
+			$prep_10['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',2)->count();
+			$prep_10['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',3)->count();
+			$prep_10['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',4)->count();
+			$prep_10['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',5)->count();
+			$prep_10['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',6)->count();
+			$data['important_4_3']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_10;
+
+
+			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <4; $i++) 
+ 			{
+				foreach ($data['important_4_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 40;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 40;
+							} 
+							if ($i == 3) {
+								$vwp = $vwp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 40;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 40;
+							} 
+							if ($i == 3) {
+								$wp = $wp + $v * 20;
+							} 
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 40;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 40;
+							} 
+							if ($i == 3) {
+								$p = $p + $v * 20;
+							}
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 40;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 40;
+							} 
+							if ($i == 3) {
+								$sp = $sp + $v * 20;
+							}
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 40;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 40;
+							} 
+							if ($i == 3) {
+								$np = $np + $v * 20;
+							}
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 40;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 40;
+							} 
+							if ($i == 3) {
+								$cne = $cne + $v * 20;
+							}
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			
+			$prep_11 = array();
+			$prep_11['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',1)->count();
+			$prep_11['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',2)->count();
+			$prep_11['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',3)->count();
+			$prep_11['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',4)->count();
+			$prep_11['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',5)->count();
+			$prep_11['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',6)->count();
+			$data['important_5_1']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_11;
+
+
+			$prep_12 = array();
+			$prep_12['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',1)->count();
+			$prep_12['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',2)->count();
+			$prep_12['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',3)->count();
+			$prep_12['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',4)->count();
+			$prep_12['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',5)->count();
+			$prep_12['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',6)->count();
+			$data['important_5_2']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_12;
+
+
+			$html .= '<tr><td>Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['important_5_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 80;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 80;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 80;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 80;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 80;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 20;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 80;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 20;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			$prep_13 = array();
+			$prep_13['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',1)->count();
+			$prep_13['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',2)->count();
+			$prep_13['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',3)->count();
+			$prep_13['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',4)->count();
+			$prep_13['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',5)->count();
+			$prep_13['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',6)->count();
+			$data['important_6_1']['Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.'] = $prep_13;
+
+			$html .= '<tr><td>Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <2; $i++) 
+ 			{
+				foreach ($data['important_6_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 100;
+							}
+							
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 100;
+							}
+							 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 100;
+							}
+							
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 100;
+							}
+							 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+			$prep_14 = array();
+			$prep_14['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',1)->count();
+			$prep_14['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',2)->count();
+			$prep_14['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',3)->count();
+			$prep_14['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',4)->count();
+			$prep_14['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',5)->count();
+			$prep_14['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',6)->count();
+			$data['important_7_1']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_14;
+
+			$prep_15 = array();
+			$prep_15['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',1)->count();
+			$prep_15['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',2)->count();
+			$prep_15['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',3)->count();
+			$prep_15['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',4)->count();
+			$prep_15['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',5)->count();
+			$prep_15['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',6)->count();
+			$data['important_7_2']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_15;
+
+
+			$html .= '<tr><td>Acquire and apply new knowledge as needed, using appropriate learning strategies.</td>';
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			for ($i=1; $i <3; $i++) 
+ 			{
+				foreach ($data['important_7_'.$i] as $key => $value) {
+					foreach ($value as $k => $v) 
+					{
+						if ($k == 'opt_1') {
+
+							if ($i == 1) {
+								$vwp = $vwp + $v * 70;
+							}
+							if ($i == 2) {
+								$vwp = $vwp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_2') {
+							if ($i == 1) {
+								$wp = $wp + $v * 70;
+							}
+							if ($i == 2) {
+								$wp = $wp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_3') {
+							if ($i == 1) {
+								$p = $p + $v * 70;
+							}
+							if ($i == 2) {
+								$p = $p + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_4') {
+							if ($i == 1) {
+								$sp = $sp + $v * 70;
+							}
+							if ($i == 2) {
+								$sp = $sp + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_5') {
+							if ($i == 1) {
+								$np = $np + $v * 70;
+							}
+							if ($i == 2) {
+								$np = $np + $v * 30;
+							} 
+							
+						}
+						if ($k == 'opt_6') {
+							if ($i == 1) {
+								$cne = $cne + $v * 70;
+							}
+							if ($i == 2) {
+								$cne = $cne + $v * 30;
+							} 
+							
+						}
+					}
+				}
+			}
+			$html .= '<td>'.$vwp.'%</td>';
+			$html .= '<td>'.$wp.'%</td>';
+			$html .= '<td>'.$p.'%</td>';
+			$html .= '<td>'.$sp.'%</td>';
+			$html .= '<td>'.$np.'%</td>';
+			$html .= '<td>'.$cne.'%</td>';
+			
+			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$vwp_multi =  $vwp * 5;
+			$wp_multi =  $wp * 4;
+			$p_multi =  $p * 3;
+			$sp_multi =  $sp * 2;
+			$np_multi =  $np * 1;
+			$cne_multi =  $np * 0;
+
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			if ($total != 0) {
+			$avg = $multi_sum / $total;
+			} else {
+				$avg = 0;
+			}
+			$html .= '<td>'.number_format((float)$avg, 2, '.', '').'</td></tr>';
+
+
+			 	/*for ($i=1; $i <2; $i++) 
+			 	{
+
+			 		$weight = 5; 
+					$sum = 0;
+					$multi_sum = 0;
+					foreach ($data['prepared_'.$i] as $key => $value) {
+						$html .= '<tr><td rowspan="3">'.$key.'</td>';
+						foreach ($value as $k1 => $v1) {
+							$html .= '<td>'.$v1.'</td>';
+							$sum = $sum + $v1;
+							$multi = $weight * $v1;
+							$multi_sum = $multi_sum + $multi;
+							$weight --;
+						}
+						if ($sum != 0) {
+							$avg = $multi_sum / $sum;
+						} else {
+							$avg = 0;
+						}
+						$html .= '<td class="avg_footer">'.number_format((float)$avg, 2, '.', '').'</td>';
+						$html .= '</tr>';
+					}
+				}*/
 			$html .= '</table>';
-
-
-
 
 			/* significant */
 			$prep_1 = array();

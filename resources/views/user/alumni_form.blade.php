@@ -11,10 +11,15 @@
 		    </div>
 		</div>
 		<div class="col-md-6 text-center header-title mb-3">
-			<h3>Kuwait University<br>
-				College of Engineering & Petroleum<br>
-				Office of Academic Assessment<br>
-				ALUMNI SURVEY<br>2022 (for graduates of 2017 to 2022)</h3>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Kuwait University<br>
+						College of Engineering & Petroleum<br>
+						Office of Academic Assessment</h3>
+					<h5>ALUMNI SURVEY 2022<br>For Graduates of 2017 to 2022</h5>
+					
+				</div>
+			</div>
 		</div>
 		<div class="col-md-3">
 		</div>

@@ -18,6 +18,9 @@ $(function() {
       'graduation': { 
         required: true 
       },
+      'degrees': { 
+        required: true 
+      },
       'employer': { 
         required: true 
       },

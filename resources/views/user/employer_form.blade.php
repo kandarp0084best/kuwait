@@ -165,7 +165,7 @@
 
 		<div class="row mb-3">
 			<div class="col-md-12 mb-3">
-				<label>8. Majors of Engineers being evaluated (Choose all that apply):</label><br>
+				<label>8. Majors of Engineers being evaluated</label><br>
 				<div class="form-group form-check">
 				    <input type="radio" value="Civil" name="majors" class="form-check-input" >
 				    <label class="form-check-label" >Civil</label>
@@ -323,7 +323,7 @@
 			<div class="col-md-12">
 				<ul class="dashed">
 				  <li><b>Category A:</b> Assessment of Graduates</li>
-				  <li><b>Category B:</b> Importance to business</li>
+				  <li><b>Category B:</b> Importance to Business</li>
 				</ul>
 			</div>
 		</div>
@@ -336,7 +336,7 @@
 				    <tr>
 				      <th scope="col" colspan="6" class="table_title">Assessment of Graduates</th>
 				      <th colspan="10"></th>
-				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
+				      <th scope="col" colspan="6" class="table_title">Importance to Business</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -346,7 +346,7 @@
 				      <td class="vertical-align"><p class="rotate2">Prepared</p></td>
 				      <td class="vertical-align"><p class="rotate2">Somewhat prepared</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not prepared</p></td>
-				      <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td>
+				      <!-- <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td> -->
 
 				      <td colspan="10" class="vertical_align table_title">Skills, abilities and knowledge</td>
 
@@ -355,7 +355,7 @@
 				      <td class="vertical-align"><p class="rotate2">Important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Somewhat important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not important</p></td>
-				      <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td>
+				      <!-- <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td> -->
 				    </tr>
 
 				    <tr>
@@ -364,7 +364,7 @@
 				      <td><input class="form-check-input" type="radio"  name="prepared_1" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="prepared_1" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="prepared_1" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="prepared_1" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="prepared_1" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">1. Apply mathematics, science and engineering knowledge</td>
 
@@ -373,7 +373,7 @@
 				      <td><input class="form-check-input" type="radio"  name="important_1" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="important_1" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="important_1" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="important_1" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="important_1" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -382,7 +382,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_2" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_2" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_2" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_2" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_2" value="6"></td> -->
 
 				      	<td colspan="10" class="text-left">2. Identify, formulate and solve engineering problems</td>
 
@@ -391,7 +391,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_2" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_2" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_2" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_2" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_2" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -400,7 +400,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_3" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_3" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_3" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_3" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_3" value="6"></td> -->
 
 				      	<td colspan="10" class="text-left">3. Develop new or innovative ideas and work independently</td>
 
@@ -409,7 +409,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_3" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_3" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_3" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_3" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_3" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -418,7 +418,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_4" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_4" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_4" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_4" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_4" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">4. Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software)</td>
 
@@ -427,7 +427,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_4" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_4" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_4" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_4" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_4" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -436,7 +436,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_5" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_5" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_5" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_5" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_5" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">5. Design a system, component, or process to meet desired needs</td>
 
@@ -445,7 +445,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_5" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_5" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_5" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_5" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_5" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -454,7 +454,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_6" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_6" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_6" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_6" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_6" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">6. Communicate orally: informal and prepared talks</td>
 
@@ -463,7 +463,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_6" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_6" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_6" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_6" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_6" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -472,7 +472,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_7" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_7" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_7" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_7" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_7" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">7. Communicate in writing: letters, technical reports</td>
 
@@ -481,7 +481,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_7" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_7" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_7" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_7" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_7" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -490,7 +490,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_8" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_8" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_8" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_8" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_8" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">8. Understand professional and ethical responsibility</td>
 
@@ -499,7 +499,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_8" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_8" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_8" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_8" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_8" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -508,7 +508,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_9" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_9" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_9" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_9" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_9" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">9. Understand impact of engineering solutions in a global/societal context</td>
 
@@ -517,7 +517,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_9" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_9" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_9" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_9" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_9" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -526,14 +526,14 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_10" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_10" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_10" value="6"></td> -->
 				      <td colspan="10" class="text-left">10. Understand contemporary social, economic and cultural issues</td>
 				      <td><input class="form-check-input" type="radio"  name="important_10" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_10" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_10" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_10" value="6"></td> -->
 
 
 				      
@@ -546,14 +546,14 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_11" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_11" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_11" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_11" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_11" value="6"></td> -->
 				      <td colspan="10" class="text-left">11. Work in teams and develop leadership skills</td>
 				      <td><input class="form-check-input" type="radio"  name="important_11" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_11" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_11" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_11" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_11" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_11" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_11" value="6"></td> -->
 
 				    </tr>
 
@@ -563,14 +563,14 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_12" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_12" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_12" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_12" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_12" value="6"></td> -->
 				      <td colspan="10" class="text-left">12. Function effectively in international and multicultural contexts</td>
 				      <td><input class="form-check-input" type="radio"  name="important_12" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_12" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_12" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_12" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_12" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_12" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_12" value="6"></td> -->
 
 
 				    </tr>
@@ -582,7 +582,7 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_13" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_13" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_13" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_13" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_13" value="6"></td> -->
 
 				      <td colspan="10" class="text-left">13. Design and conduct experiments, analyze and interpret data</td>
 				      <td><input class="form-check-input" type="radio"  name="important_13" value="1"></td>
@@ -590,7 +590,7 @@
 						<td><input class="form-check-input" type="radio"  name="important_13" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_13" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_13" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_13" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_13" value="6"></td> -->
 
 				    </tr>
 
@@ -600,14 +600,14 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_14" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_14" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_14" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_14" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_14" value="6"></td> -->
 				      <td colspan="10" class="text-left">14. Learn new skills and stay current technically and professionally</td>
 				      <td><input class="form-check-input" type="radio"  name="important_14" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_14" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_14" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_14" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_14" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_14" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_14" value="6"></td> -->
 
 
 				    </tr>
@@ -618,14 +618,14 @@
 						<td><input class="form-check-input" type="radio"  name="prepared_15" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_15" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="prepared_15" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="prepared_15" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="prepared_15" value="6"></td> -->
 				      <td colspan="10" class="text-left">15. Recognize the need to engage in lifelong learning</td>
 				      <td><input class="form-check-input" type="radio"  name="important_15" value="1"></td>
 						<td><input class="form-check-input" type="radio"  name="important_15" value="2"></td>
 						<td><input class="form-check-input" type="radio"  name="important_15" value="3"></td>
 						<td><input class="form-check-input" type="radio"  name="important_15" value="4"></td>
 						<td><input class="form-check-input" type="radio"  name="important_15" value="5"></td>
-						<td><input class="form-check-input" type="radio"  name="important_15" value="6"></td>
+						<!-- <td><input class="form-check-input" type="radio"  name="important_15" value="6"></td> -->
 
 
 				    </tr>
@@ -640,7 +640,7 @@
 			<div class="col-md-12">
 				<ul class="dashed">
 				  <li><b>Category A:</b> Level of Attainment</li>
-				  <li><b>Category B:</b> Importance to business</li>
+				  <li><b>Category B:</b> Importance to Business</li>
 				</ul>
 			</div>
 		</div>
@@ -652,7 +652,7 @@
 				    <tr>
 				      <th scope="col" colspan="6" class="table_title">Level of Attainment</th>
 				      <th colspan="8"></th>
-				      <th scope="col" colspan="6" class="table_title">Importance to business</th>
+				      <th scope="col" colspan="6" class="table_title">Importance to Business</th>
 				    </tr>
 				  </thead>
 				  <tbody class="text-center">
@@ -662,14 +662,14 @@
 				      <td class="vertical-align"><p class="rotate2">Somewhat satisfactory</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not satisfactory</p></td>
 
-				      <td colspan="10" class="vertical_align table_title">element of Program Educational Objectives</td>
+				      <td colspan="10" class="vertical_align table_title">Element of Program Educational Objectives</td>
 
 				      <td class="vertical-align"><p class="rotate2">Extremely important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Very important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Somewhat important</p></td>
 				      <td class="vertical-align"><p class="rotate2">Not important</p></td>
-				      <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td>
+				      <!-- <td class="vertical-align"><p class="rotate2">Cannot evaluate</p></td> -->
 				    </tr>
 
 				    <tr>
@@ -685,7 +685,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_1" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -702,7 +702,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_2" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -719,7 +719,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_3" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -736,7 +736,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_4" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -753,7 +753,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_5" value="6"></td> -->
 				    </tr>
 
 				    <tr>
@@ -770,7 +770,7 @@
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="3"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="4"></td>
 				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="5"></td>
-				      <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="6"></td>
+				      <!-- <td><input class="form-check-input" type="radio"  name="objectives_important_6" value="6"></td> -->
 				    </tr>
 
 				  </tbody>
@@ -803,12 +803,12 @@
 					    <label class="form-check-label" >Somewhat better</label>
 					</div>
 					<div class="form-check form-check">
-				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Not as good" >
-					    <label class="form-check-label" >Not as good</label>
-					</div>
-					<div class="form-check form-check">
 				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Much worse" >
 					    <label class="form-check-label" >Much worse</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="Not as good" >
+					    <label class="form-check-label" >Not as good</label>
 					</div>
 					<div class="form-check form-check">
 				  		<input class="form-check-input" type="radio" name="compare_a" id="inlineCheckbox1" value="About the same" >
@@ -826,12 +826,12 @@
 					    <label class="form-check-label" >Somewhat better</label>
 					</div>
 					<div class="form-check form-check">
-				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Not as good" >
-					    <label class="form-check-label" >Not as good</label>
-					</div>
-					<div class="form-check form-check">
 				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Much worse" >
 					    <label class="form-check-label" >Much worse</label>
+					</div>
+					<div class="form-check form-check">
+				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="Not as good" >
+					    <label class="form-check-label" >Not as good</label>
 					</div>
 					<div class="form-check form-check">
 				  		<input class="form-check-input" type="radio" name="compare_b" id="inlineCheckbox1" value="About the same" >
@@ -956,9 +956,13 @@
 			</div>
 		</div>
 
-		
+		<div class="row">
+			<div class="col-md-12">
+				<p>Thank you for completing the survey.</p>
+			</div>
+		</div>
 
-		<div class="row pt-5">
+		<div class="row pt-3">
 			<div class="col-md-1"><button type="submit" class="btn btn-primary" id="employer_survey_save">Submit</button></div>
 			<div class="col-md-11"></div>
 		</div>

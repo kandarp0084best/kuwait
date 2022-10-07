@@ -36,6 +36,12 @@ $(function() {
       'majors': { 
         required: true 
       },
+      'number_of_engineers': { 
+        required: true 
+      },
+      'percentage': { 
+        required: true 
+      },
       'evaluated[]': { 
         required: true 
       },

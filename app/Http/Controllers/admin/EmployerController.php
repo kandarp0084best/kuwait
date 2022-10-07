@@ -26,10 +26,23 @@ class EmployerController extends Controller
 
 			/* Company/Organization */
 			$total_company_organization = 0;
-			$company_organization = Employer::where('company_organization','!=', '')->where('majors', 'like', '%'.$request->major.'%')->get();
 
-			foreach ($company_organization as $keybt => $valuebt) {
-				$data['company_organization'][$valuebt->company_organization] = Employer::where('company_organization',$valuebt->company_organization)->count();
+			if ($request->major == 'College') {
+				$company_organization = Employer::all();
+			} else {
+				$company_organization = Employer::where('majors', 'like', '%'.$request->major.'%')->get();
+			}
+
+			foreach ($company_organization as $keybt => $valuebt) 
+			{	
+				if ($request->major == 'College') {
+
+					$data['company_organization'][$valuebt->company_organization] = Employer::where('company_organization',$valuebt->company_organization)->count();
+
+				} else {
+
+					$data['company_organization'][$valuebt->company_organization] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('company_organization',$valuebt->company_organization)->count();
+				}
 			}
 
 			if ($data) {
@@ -47,10 +60,24 @@ class EmployerController extends Controller
 
 			/* Department/Division */
 			$total_department_division = 0;
-			$department_division = Employer::where('department_division','!=', '')->where('majors', 'like', '%'.$request->major.'%')->get();
+			if ($request->major == 'College') {
+				$department_division = Employer::where('department_division','!=', '')->get();
+			} else {
+				$department_division = Employer::where('department_division','!=', '')->where('majors', 'like', '%'.$request->major.'%')->get();
+			}
 
 			foreach ($department_division as $keybt => $valuebt) {
-				$data['department_division'][$valuebt->department_division] = Employer::where('department_division',$valuebt->department_division)->count();
+
+				if ($request->major == 'College') {
+
+					$data['department_division'][$valuebt->department_division] = Employer::where('department_division',$valuebt->department_division)->count();
+
+				} else {
+
+					$data['department_division'][$valuebt->department_division] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('department_division',$valuebt->department_division)->count();
+
+				}
+
 			}
 			
 			if ($data) 
@@ -69,11 +96,21 @@ class EmployerController extends Controller
 
 			/* Position */
 			$total_position = 0;
-			$position = Employer::where('position','!=', '')->where('majors', 'like', '%'.$request->major.'%')->get();
+			if ($request->major == 'College') {
+				$position = Employer::where('position','!=', '')->get();
+			} else {
+				$position = Employer::where('position','!=', '')->where('majors', 'like', '%'.$request->major.'%')->get();
+			}
 
 			foreach ($position as $keybt => $valuebt) {
+
+				if ($request->major == 'College') {
 					$data['position'][$valuebt->position] = Employer::where('position',$valuebt->position)->count();
+				} else {
+					$data['position'][$valuebt->position] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('position',$valuebt->position)->count();
 				}
+
+			}
 			
 			if ($data) 
 			{
@@ -111,9 +148,19 @@ class EmployerController extends Controller
 
 			/* Organization */
 			$total_organization = 0;
-			$data['organization']['Government'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Government')->count();
-			$data['organization']['Private Company'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Private Company')->count();
-			$data['organization']['Others'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Others')->count();
+
+			if ($request->major == 'College') {
+
+				$data['organization']['Government'] = Employer::where('organization','Government')->count();
+				$data['organization']['Private Company'] = Employer::where('organization','Private Company')->count();
+				$data['organization']['Others'] = Employer::where('organization','Others')->count();
+
+			} else {
+				$data['organization']['Government'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Government')->count();
+				$data['organization']['Private Company'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Private Company')->count();
+				$data['organization']['Others'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('organization','Others')->count();
+			}
+
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th style="width:70%;">Which ONE of the following best describes your organization as a whole?</th><th style="width:30%;">Total Responses</th></tr>';
@@ -127,23 +174,47 @@ class EmployerController extends Controller
 
 
 			/* Staff */
-			$staff_design = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff', 'like', '%Design%')->count();
-			$data['staff']['Design'] = $staff_design;
+			if ($request->major == 'College') {
 
-			$staff_programming = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Programming%')->count();
-			$data['staff']['Programming'] = $staff_programming;
+				$staff_design = Employer::where('staff', 'like', '%Design%')->count();
+				$data['staff']['Design'] = $staff_design;
 
-			$staff_maintenance = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Maintenance%')->count();
-			$data['staff']['Maintenance'] = $staff_maintenance;
+				$staff_programming = Employer::where('staff','like','%Programming%')->count();
+				$data['staff']['Programming'] = $staff_programming;
 
-			$staff_procurement = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Procurement%')->count();
-			$data['staff']['Procurement'] = $staff_procurement;
+				$staff_maintenance = Employer::where('staff','like','%Maintenance%')->count();
+				$data['staff']['Maintenance'] = $staff_maintenance;
 
-			$staff_administrative = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Administrative%')->count();
-			$data['staff']['Administrative'] = $staff_administrative;
+				$staff_procurement = Employer::where('staff','like','%Procurement%')->count();
+				$data['staff']['Procurement'] = $staff_procurement;
 
-			$staff_other = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Other%')->count();
-			$data['staff']['Other'] = $staff_other;
+				$staff_administrative = Employer::where('staff','like','%Administrative%')->count();
+				$data['staff']['Administrative'] = $staff_administrative;
+
+				$staff_other = Employer::where('staff','like','%Other%')->count();
+				$data['staff']['Other'] = $staff_other;
+
+			} else {
+
+				$staff_design = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff', 'like', '%Design%')->count();
+				$data['staff']['Design'] = $staff_design;
+
+				$staff_programming = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Programming%')->count();
+				$data['staff']['Programming'] = $staff_programming;
+
+				$staff_maintenance = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Maintenance%')->count();
+				$data['staff']['Maintenance'] = $staff_maintenance;
+
+				$staff_procurement = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Procurement%')->count();
+				$data['staff']['Procurement'] = $staff_procurement;
+
+				$staff_administrative = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Administrative%')->count();
+				$data['staff']['Administrative'] = $staff_administrative;
+
+				$staff_other = Employer::where('majors', 'like', '%'.$request->major.'%')->where('staff','like','%Other%')->count();
+				$data['staff']['Other'] = $staff_other;
+
+			}	
 
 			$total_staff = 0;
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
@@ -158,26 +229,52 @@ class EmployerController extends Controller
 
 
 			/* major */
-			$major_Civil = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors', 'like', '%Civil%')->count();
-			$data['majors']['Civil'] = $major_Civil;
+			if ($request->major == 'College') {
+				$major_Civil = Employer::where('majors', 'like', '%Civil%')->count();
+				$data['majors']['Civil'] = $major_Civil;
 
-			$majors_Chemical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Chemical%')->count();
-			$data['majors']['Chemical'] = $majors_Chemical;
+				$majors_Chemical = Employer::where('majors','like','%Chemical%')->count();
+				$data['majors']['Chemical'] = $majors_Chemical;
 
-			$majors_Computer = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Computer%')->count();
-			$data['majors']['Computer'] = $majors_Computer;
+				$majors_Computer = Employer::where('majors','like','%Computer%')->count();
+				$data['majors']['Computer'] = $majors_Computer;
 
-			$majors_Electrical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Electrical%')->count();
-			$data['majors']['Electrical'] = $majors_Electrical;
+				$majors_Electrical = Employer::where('majors','like','%Electrical%')->count();
+				$data['majors']['Electrical'] = $majors_Electrical;
 
-			$majors_Petroleum = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Petroleum%')->count();
-			$data['majors']['Petroleum'] = $majors_Petroleum;
+				$majors_Petroleum = Employer::where('majors','like','%Petroleum%')->count();
+				$data['majors']['Petroleum'] = $majors_Petroleum;
 
-			$majors_Mechanical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Mechanical%')->count();
-			$data['majors']['Mechanical'] = $majors_Mechanical;
+				$majors_Mechanical = Employer::where('majors','like','%Mechanical%')->count();
+				$data['majors']['Mechanical'] = $majors_Mechanical;
 
-			$majors_Industrial_Management_Systems = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Industrial & Management Systems%')->count();
-			$data['majors']['Industrial & Management Systems'] = $majors_Industrial_Management_Systems;
+				$majors_Industrial_Management_Systems = Employer::where('majors','like','%Industrial & Management Systems%')->count();
+				$data['majors']['Industrial & Management Systems'] = $majors_Industrial_Management_Systems;
+
+			} else {
+
+				$major_Civil = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors', 'like', '%Civil%')->count();
+				$data['majors']['Civil'] = $major_Civil;
+
+				$majors_Chemical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Chemical%')->count();
+				$data['majors']['Chemical'] = $majors_Chemical;
+
+				$majors_Computer = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Computer%')->count();
+				$data['majors']['Computer'] = $majors_Computer;
+
+				$majors_Electrical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Electrical%')->count();
+				$data['majors']['Electrical'] = $majors_Electrical;
+
+				$majors_Petroleum = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Petroleum%')->count();
+				$data['majors']['Petroleum'] = $majors_Petroleum;
+
+				$majors_Mechanical = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Mechanical%')->count();
+				$data['majors']['Mechanical'] = $majors_Mechanical;
+
+				$majors_Industrial_Management_Systems = Employer::where('majors', 'like', '%'.$request->major.'%')->where('majors','like','%Industrial & Management Systems%')->count();
+				$data['majors']['Industrial & Management Systems'] = $majors_Industrial_Management_Systems;
+
+			}
 
 			
 
@@ -234,13 +331,29 @@ class EmployerController extends Controller
 
 
 			$total_number_of_engineers = 0;
-			$data['number_of_engineers']['< 20'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','<20')->count();
 
-			$data['number_of_engineers']['20 - 50'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','20-50')->count();
+			if ($request->major == 'College') {
 
-			$data['number_of_engineers']['50 - 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','50-100')->count();
+				$data['number_of_engineers']['< 20'] = Employer::where('number_of_engineers','<20')->count();
 
-			$data['number_of_engineers']['> 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','>100')->count();
+				$data['number_of_engineers']['20 - 50'] = Employer::where('number_of_engineers','20-50')->count();
+
+				$data['number_of_engineers']['50 - 100'] = Employer::where('number_of_engineers','50-100')->count();
+
+				$data['number_of_engineers']['> 100'] = Employer::where('number_of_engineers','>100')->count();
+
+
+			} else {
+
+				$data['number_of_engineers']['< 20'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','<20')->count();
+
+				$data['number_of_engineers']['20 - 50'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','20-50')->count();
+
+				$data['number_of_engineers']['50 - 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','50-100')->count();
+
+				$data['number_of_engineers']['> 100'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('number_of_engineers','>100')->count();
+			}
+			
 			
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th style="width:70%;">Number of engineers employed in your company</th><th style="width:30%;">Total Responses</th></tr>';
@@ -254,15 +367,27 @@ class EmployerController extends Controller
 
 
 			$total_percentage = 0;
-			/*$data['percentage']['Yes'] = Employer::where('years_in_position',$request->year)->where('percentage','!=', '')->count();
-			$data['percentage']['No'] = Employer::where('years_in_position',$request->year)->where('percentage','=', null)->count();*/
-			$data['percentage']['< 10%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','<10%')->count();
+			if ($request->major == 'College') {
+				
+				$data['percentage']['< 10%'] = Employer::where('percentage','<10%')->count();
 
-			$data['percentage']['10 - 25%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','10-25')->count();
+				$data['percentage']['10 - 25%'] = Employer::where('percentage','10-25')->count();
 
-			$data['percentage']['25 - 50%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','25-50')->count();
+				$data['percentage']['25 - 50%'] = Employer::where('percentage','25-50')->count();
 
-			$data['percentage']['50 %'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','>50')->count();
+				$data['percentage']['50 %'] = Employer::where('percentage','>50')->count();
+
+			} else {
+
+				$data['percentage']['< 10%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','<10%')->count();
+
+				$data['percentage']['10 - 25%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','10-25')->count();
+
+				$data['percentage']['25 - 50%'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','25-50')->count();
+
+				$data['percentage']['50 %'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('percentage','>50')->count();
+
+			}
 			
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
 				$html .= '<tr><th style="width:70%;">Percentage of Kuwait University graduates</th><th style="width:30%;">Total Responses</th></tr>';
@@ -278,39 +403,132 @@ class EmployerController extends Controller
 
 			/* prepared */
 			$prep_1 = array();
-			$prep_1['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',1)->count();
-			$prep_1['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',2)->count();
+			$prep_1['opt_1'] = Employer::where('prepared_1',1);
+			if ($request->major != 'College') {
+				$prep_1['opt_1'] = $prep_1['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_1['opt_1'] = $prep_1['opt_1']->count();
+
+
+			$prep_1['opt_2'] = Employer::where('prepared_1',2);
+			if ($request->major != 'College') {
+				$prep_1['opt_2'] = $prep_1['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_1['opt_2'] = $prep_1['opt_2']->count();
+
+			$prep_1['opt_3'] = Employer::where('prepared_1',3);
+			if ($request->major != 'College') {
+				$prep_1['opt_3'] = $prep_1['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_1['opt_3'] = $prep_1['opt_3']->count();
+
+
+			$prep_1['opt_4'] = Employer::where('prepared_1',4);
+			if ($request->major != 'College') {
+				$prep_1['opt_4'] = $prep_1['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_1['opt_4'] = $prep_1['opt_4']->count();
+
+			$prep_1['opt_5'] = Employer::where('prepared_1',5);
+			if ($request->major != 'College') {
+				$prep_1['opt_5'] = $prep_1['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_1['opt_5'] = $prep_1['opt_5']->count();
+
+			/*$prep_1['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',2)->count();
 			$prep_1['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',3)->count();
 			$prep_1['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',4)->count();
-			$prep_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',5)->count();
-			$prep_1['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',6)->count();
+			$prep_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_1',5)->count();*/
+
 			$data['prepared_1_1']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_1;
 
 			$prep_2 = array();
-			$prep_2['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',1)->count();
+			/*$prep_2['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',1)->count();
 			$prep_2['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',2)->count();
 			$prep_2['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',3)->count();
 			$prep_2['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',4)->count();
-			$prep_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',5)->count();
-			$prep_2['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',6)->count();
+			$prep_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_2',5)->count();*/
+
+			$prep_2['opt_1'] = Employer::where('prepared_2',1);
+			if ($request->major != 'College') {
+				$prep_2['opt_1'] = $prep_2['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_2['opt_1'] = $prep_2['opt_1']->count();
+
+
+			$prep_2['opt_2'] = Employer::where('prepared_2',2);
+			if ($request->major != 'College') {
+				$prep_2['opt_2'] = $prep_2['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_2['opt_2'] = $prep_2['opt_2']->count();
+
+
+			$prep_2['opt_3'] = Employer::where('prepared_2',3);
+			if ($request->major != 'College') {
+				$prep_2['opt_3'] = $prep_2['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_2['opt_3'] = $prep_2['opt_3']->count();
+
+			$prep_2['opt_4'] = Employer::where('prepared_2',4);
+			if ($request->major != 'College') {
+				$prep_2['opt_4'] = $prep_2['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_2['opt_4'] = $prep_2['opt_4']->count();
+
+			$prep_2['opt_5'] = Employer::where('prepared_2',5);
+			if ($request->major != 'College') {
+				$prep_2['opt_5'] = $prep_2['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_2['opt_5'] = $prep_2['opt_5']->count();
+
 			$data['prepared_1_2']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_2;
 
 			$prep_3 = array();
-			$prep_3['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',1)->count();
+			/*$prep_3['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',1)->count();
 			$prep_3['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',2)->count();
 			$prep_3['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',3)->count();
 			$prep_3['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',4)->count();
-			$prep_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',5)->count();
-			$prep_3['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',6)->count();
+			$prep_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_3',5)->count();*/
+
+			$prep_3['opt_1'] = Employer::where('prepared_3',1);
+			if ($request->major != 'College') {
+				$prep_3['opt_1'] = $prep_3['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_3['opt_1'] = $prep_3['opt_1']->count();
+
+			$prep_3['opt_2'] = Employer::where('prepared_3',2);
+			if ($request->major != 'College') {
+				$prep_3['opt_2'] = $prep_3['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_3['opt_2'] = $prep_3['opt_2']->count();
+
+			$prep_3['opt_3'] = Employer::where('prepared_3',3);
+			if ($request->major != 'College') {
+				$prep_3['opt_3'] = $prep_3['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_3['opt_3'] = $prep_3['opt_3']->count();
+
+			$prep_3['opt_4'] = Employer::where('prepared_3',4);
+			if ($request->major != 'College') {
+				$prep_3['opt_4'] = $prep_3['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_3['opt_4'] = $prep_3['opt_4']->count();
+
+			$prep_3['opt_5'] = Employer::where('prepared_3',5);
+			if ($request->major != 'College') {
+				$prep_3['opt_5'] = $prep_3['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_3['opt_5'] = $prep_3['opt_5']->count();
+
 			$data['prepared_1_3']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $prep_3;
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>Average</th></tr>';
 
 
 			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <4; $i++) 
  			{
 				foreach ($data['prepared_1_'.$i] as $key => $value) {
@@ -372,17 +590,6 @@ class EmployerController extends Controller
 								$np = $np + $v * 20;
 							}
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 30;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 50;
-							} 
-							if ($i == 3) {
-								$cne = $cne + $v * 20;
-							}
-						}
 					}
 				}
 			}
@@ -392,17 +599,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
@@ -413,26 +618,88 @@ class EmployerController extends Controller
 
 
 			$prep_4 = array();
-			$prep_4['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',1)->count();
+			/*$prep_4['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',1)->count();
 			$prep_4['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',2)->count();
 			$prep_4['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',3)->count();
 			$prep_4['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',4)->count();
-			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',5)->count();
-			$prep_4['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',6)->count();
+			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_4',5)->count();*/
+
+			$prep_4['opt_1'] = Employer::where('prepared_4',1);
+			if ($request->major != 'College') {
+				$prep_4['opt_1'] = $prep_4['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_4['opt_1'] = $prep_4['opt_1']->count();
+
+
+			$prep_4['opt_2'] = Employer::where('prepared_4',2);
+			if ($request->major != 'College') {
+				$prep_4['opt_2'] = $prep_4['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_4['opt_2'] = $prep_4['opt_2']->count();
+
+			$prep_4['opt_3'] = Employer::where('prepared_4',3);
+			if ($request->major != 'College') {
+				$prep_4['opt_3'] = $prep_4['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_4['opt_3'] = $prep_4['opt_3']->count();
+
+			$prep_4['opt_4'] = Employer::where('prepared_4',4);
+			if ($request->major != 'College') {
+				$prep_4['opt_4'] = $prep_4['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_4['opt_4'] = $prep_4['opt_4']->count();
+
+			$prep_4['opt_5'] = Employer::where('prepared_4',5);
+			if ($request->major != 'College') {
+				$prep_4['opt_5'] = $prep_4['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_4['opt_5'] = $prep_4['opt_5']->count();
+
 			$data['prepared_2_1']['Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)'] = $prep_4;
 
 			$prep_5 = array();
-			$prep_5['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',1)->count();
+			/*$prep_5['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',1)->count();
 			$prep_5['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',2)->count();
 			$prep_5['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',3)->count();
 			$prep_5['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',4)->count();
-			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',5)->count();
-			$prep_5['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',6)->count();
+			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_5',5)->count();*/
+
+			$prep_5['opt_1'] = Employer::where('prepared_5',1);
+			if ($request->major != 'College') {
+				$prep_5['opt_1'] = $prep_5['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_5['opt_1'] = $prep_5['opt_1']->count();
+
+
+			$prep_5['opt_2'] = Employer::where('prepared_5',2);
+			if ($request->major != 'College') {
+				$prep_5['opt_2'] = $prep_5['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_5['opt_2'] = $prep_5['opt_2']->count();
+
+			$prep_5['opt_3'] = Employer::where('prepared_5',3);
+			if ($request->major != 'College') {
+				$prep_5['opt_3'] = $prep_5['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_5['opt_3'] = $prep_5['opt_3']->count();
+
+			$prep_5['opt_4'] = Employer::where('prepared_5',4);
+			if ($request->major != 'College') {
+				$prep_5['opt_4'] = $prep_5['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_5['opt_4'] = $prep_5['opt_4']->count();
+
+			$prep_5['opt_5'] = Employer::where('prepared_5',5);
+			if ($request->major != 'College') {
+				$prep_5['opt_5'] = $prep_5['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_5['opt_5'] = $prep_5['opt_5']->count();
+
 			$data['prepared_2_2']['Design a system, component, or process to meet desired needs'] = $prep_5;
 
 
 			$html .= '<tr><td>Apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['prepared_2_'.$i] as $key => $value) {
@@ -484,15 +751,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 40;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 60;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -501,17 +760,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -521,26 +778,88 @@ class EmployerController extends Controller
 
 			
 			$prep_6 = array();
-			$prep_6['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',1)->count();
+			/*$prep_6['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',1)->count();
 			$prep_6['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',2)->count();
 			$prep_6['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',3)->count();
 			$prep_6['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',4)->count();
-			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',5)->count();
-			$prep_6['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',6)->count();
+			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_6',5)->count();*/
+
+			$prep_6['opt_1'] = Employer::where('prepared_6',1);
+			if ($request->major != 'College') {
+				$prep_6['opt_1'] = $prep_6['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_6['opt_1'] = $prep_6['opt_1']->count();
+
+
+			$prep_6['opt_2'] = Employer::where('prepared_6',2);
+			if ($request->major != 'College') {
+				$prep_6['opt_2'] = $prep_6['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_6['opt_2'] = $prep_6['opt_2']->count();
+
+			$prep_6['opt_3'] = Employer::where('prepared_6',3);
+			if ($request->major != 'College') {
+				$prep_6['opt_3'] = $prep_6['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_6['opt_3'] = $prep_6['opt_3']->count();
+
+			$prep_6['opt_4'] = Employer::where('prepared_6',4);
+			if ($request->major != 'College') {
+				$prep_6['opt_4'] = $prep_6['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_6['opt_4'] = $prep_6['opt_4']->count();
+
+			$prep_6['opt_5'] = Employer::where('prepared_6',5);
+			if ($request->major != 'College') {
+				$prep_6['opt_5'] = $prep_6['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_6['opt_5'] = $prep_6['opt_5']->count();
+
 			$data['prepared_3_1']['Communicate orally: informal and prepared talks'] = $prep_6;
 
 			$prep_7 = array();
-			$prep_7['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',1)->count();
+			/*$prep_7['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',1)->count();
 			$prep_7['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',2)->count();
 			$prep_7['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',3)->count();
 			$prep_7['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',4)->count();
-			$prep_7['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',5)->count();
-			$prep_7['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',6)->count();
+			$prep_7['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_7',5)->count();*/
+
+			$prep_7['opt_1'] = Employer::where('prepared_7',1);
+			if ($request->major != 'College') {
+				$prep_7['opt_1'] = $prep_7['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_7['opt_1'] = $prep_7['opt_1']->count();
+
+
+			$prep_7['opt_2'] = Employer::where('prepared_7',2);
+			if ($request->major != 'College') {
+				$prep_7['opt_2'] = $prep_7['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_7['opt_2'] = $prep_7['opt_2']->count();
+
+			$prep_7['opt_3'] = Employer::where('prepared_7',3);
+			if ($request->major != 'College') {
+				$prep_7['opt_3'] = $prep_7['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_7['opt_3'] = $prep_7['opt_3']->count();
+
+			$prep_7['opt_4'] = Employer::where('prepared_7',4);
+			if ($request->major != 'College') {
+				$prep_7['opt_4'] = $prep_7['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_7['opt_4'] = $prep_7['opt_4']->count();
+
+			$prep_7['opt_5'] = Employer::where('prepared_7',5);
+			if ($request->major != 'College') {
+				$prep_7['opt_5'] = $prep_7['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_7['opt_5'] = $prep_7['opt_5']->count();
+
 			$data['prepared_3_2']['Communicate in writing: letters, technical reports, etc'] = $prep_7;
 
 
 			$html .= '<tr><td>Communicate effectively with a range of audiences.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['prepared_3_'.$i] as $key => $value) {
@@ -609,17 +928,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -629,12 +946,43 @@ class EmployerController extends Controller
 
 
 			$prep_8 = array();
-			$prep_8['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',1)->count();
+			/*$prep_8['opt_1'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',1)->count();
 			$prep_8['opt_2'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',2)->count();
 			$prep_8['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',3)->count();
 			$prep_8['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',4)->count();
-			$prep_8['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',5)->count();
-			$prep_8['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',6)->count();
+			$prep_8['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_8',5)->count();*/
+
+			$prep_8['opt_1'] = Employer::where('prepared_8',1);
+			if ($request->major != 'College') {
+				$prep_8['opt_1'] = $prep_8['opt_1']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_8['opt_1'] = $prep_8['opt_1']->count();
+
+
+			$prep_8['opt_2'] = Employer::where('prepared_8',2);
+			if ($request->major != 'College') {
+				$prep_8['opt_2'] = $prep_8['opt_2']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_8['opt_2'] = $prep_8['opt_2']->count();
+
+			$prep_8['opt_3'] = Employer::where('prepared_8',3);
+			if ($request->major != 'College') {
+				$prep_8['opt_3'] = $prep_8['opt_3']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_8['opt_3'] = $prep_8['opt_3']->count();
+
+			$prep_8['opt_4'] = Employer::where('prepared_8',4);
+			if ($request->major != 'College') {
+				$prep_8['opt_4'] = $prep_8['opt_4']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_8['opt_4'] = $prep_8['opt_4']->count();
+
+			$prep_8['opt_5'] = Employer::where('prepared_8',5);
+			if ($request->major != 'College') {
+				$prep_8['opt_5'] = $prep_8['opt_5']->where('majors', 'like', '%'.$request->major.'%');
+			}
+			$prep_8['opt_5'] = $prep_8['opt_5']->count();
+
 			$data['prepared_4_1']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_8;
 
 
@@ -644,7 +992,6 @@ class EmployerController extends Controller
 			$prep_9['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',3)->count();
 			$prep_9['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',4)->count();
 			$prep_9['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',5)->count();
-			$prep_9['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_9',6)->count();
 			$data['prepared_4_2']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_9;
 
 
@@ -654,12 +1001,11 @@ class EmployerController extends Controller
 			$prep_10['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',3)->count();
 			$prep_10['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',4)->count();
 			$prep_10['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',5)->count();
-			$prep_10['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_10',6)->count();
 			$data['prepared_4_3']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_10;
 
 
 			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <4; $i++) 
  			{
 				foreach ($data['prepared_4_'.$i] as $key => $value) {
@@ -721,17 +1067,7 @@ class EmployerController extends Controller
 								$np = $np + $v * 20;
 							}
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 40;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 40;
-							} 
-							if ($i == 3) {
-								$cne = $cne + $v * 20;
-							}
-						}
+						
 					}
 				}
 			}
@@ -740,17 +1076,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -765,7 +1099,6 @@ class EmployerController extends Controller
 			$prep_11['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',3)->count();
 			$prep_11['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',4)->count();
 			$prep_11['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',5)->count();
-			$prep_11['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_11',6)->count();
 			$data['prepared_5_1']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_11;
 
 
@@ -775,12 +1108,11 @@ class EmployerController extends Controller
 			$prep_12['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',3)->count();
 			$prep_12['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',4)->count();
 			$prep_12['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',5)->count();
-			$prep_12['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_12',6)->count();
 			$data['prepared_5_2']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_12;
 
 
 			$html .= '<tr><td>Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['prepared_5_'.$i] as $key => $value) {
@@ -832,15 +1164,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 80;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 20;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -849,17 +1173,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -873,7 +1195,6 @@ class EmployerController extends Controller
 			$prep_13['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',3)->count();
 			$prep_13['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',4)->count();
 			$prep_13['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',5)->count();
-			$prep_13['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_13',6)->count();
 			$data['prepared_6_1']['Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.'] = $prep_13;
 
 			$html .= '<tr><td>Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.</td>';
@@ -919,13 +1240,7 @@ class EmployerController extends Controller
 							
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 100;
-							}
-							 
-							
-						}
+						
 					}
 				}
 			}
@@ -934,17 +1249,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -958,7 +1271,6 @@ class EmployerController extends Controller
 			$prep_14['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',3)->count();
 			$prep_14['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',4)->count();
 			$prep_14['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',5)->count();
-			$prep_14['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_14',6)->count();
 			$data['prepared_7_1']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_14;
 
 			$prep_15 = array();
@@ -967,12 +1279,11 @@ class EmployerController extends Controller
 			$prep_15['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',3)->count();
 			$prep_15['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',4)->count();
 			$prep_15['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',5)->count();
-			$prep_15['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('prepared_15',6)->count();
 			$data['prepared_7_2']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_15;
 
 
 			$html .= '<tr><td>Acquire and apply new knowledge as needed, using appropriate learning strategies.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['prepared_7_'.$i] as $key => $value) {
@@ -1024,15 +1335,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 70;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 30;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -1041,17 +1344,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1266,7 +1567,6 @@ class EmployerController extends Controller
 			$impot_1['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',3)->count();
 			$impot_1['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',4)->count();
 			$impot_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',5)->count();
-			$impot_1['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_1',6)->count();
 			$data['important_1_1']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_1;
 
 			$impot_2 = array();
@@ -1275,7 +1575,6 @@ class EmployerController extends Controller
 			$impot_2['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',3)->count();
 			$impot_2['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',4)->count();
 			$impot_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',5)->count();
-			$impot_2['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_2',6)->count();
 			$data['important_1_2']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_2;
 
 			$impot_3 = array();
@@ -1284,16 +1583,15 @@ class EmployerController extends Controller
 			$impot_3['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',3)->count();
 			$impot_3['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',4)->count();
 			$impot_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',5)->count();
-			$impot_3['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_3',6)->count();
 			$data['important_1_3']['Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.'] = $impot_3;
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>CNE</th><th>Average</th></tr>';
+			 	$html .= '<tr><th>Rate the following skills, abilities, and knowledge in terms of the level of preparedness of recent Kuwait University engineering graduates</th><th>VWP</th><th>WP</th><th>P</th><th>SP</th><th>NP</th><th>Average</th></tr>';
 
 
 			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <4; $i++) 
  			{
 				foreach ($data['important_1_'.$i] as $key => $value) {
@@ -1355,17 +1653,7 @@ class EmployerController extends Controller
 								$np = $np + $v * 20;
 							}
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 30;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 50;
-							} 
-							if ($i == 3) {
-								$cne = $cne + $v * 20;
-							}
-						}
+						
 					}
 				}
 			}
@@ -1375,17 +1663,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1400,7 +1686,6 @@ class EmployerController extends Controller
 			$prep_4['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',3)->count();
 			$prep_4['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',4)->count();
 			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',5)->count();
-			$prep_4['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_4',6)->count();
 			$data['important_2_1']['Use techniques, skills, and modern engineering tools necessary for Engineering design and professional practice (Computer, Internet, Engineering software, etc)'] = $prep_4;
 
 			$prep_5 = array();
@@ -1409,12 +1694,11 @@ class EmployerController extends Controller
 			$prep_5['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',3)->count();
 			$prep_5['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',4)->count();
 			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',5)->count();
-			$prep_5['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_5',6)->count();
 			$data['important_2_2']['Design a system, component, or process to meet desired needs'] = $prep_5;
 
 
 			$html .= '<tr><td>Apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['important_2_'.$i] as $key => $value) {
@@ -1466,15 +1750,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 40;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 60;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -1483,17 +1759,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1508,7 +1782,6 @@ class EmployerController extends Controller
 			$prep_6['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',3)->count();
 			$prep_6['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',4)->count();
 			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',5)->count();
-			$prep_6['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_6',6)->count();
 			$data['important_3_1']['Communicate orally: informal and prepared talks'] = $prep_6;
 
 			$prep_7 = array();
@@ -1517,12 +1790,11 @@ class EmployerController extends Controller
 			$prep_7['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',3)->count();
 			$prep_7['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',4)->count();
 			$prep_7['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',5)->count();
-			$prep_7['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_7',6)->count();
 			$data['important_3_2']['Communicate in writing: letters, technical reports, etc'] = $prep_7;
 
 
 			$html .= '<tr><td>Communicate effectively with a range of audiences.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['important_3_'.$i] as $key => $value) {
@@ -1574,15 +1846,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 50;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 50;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -1591,17 +1855,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1616,7 +1878,6 @@ class EmployerController extends Controller
 			$prep_8['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',3)->count();
 			$prep_8['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',4)->count();
 			$prep_8['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',5)->count();
-			$prep_8['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_8',6)->count();
 			$data['important_4_1']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_8;
 
 
@@ -1626,7 +1887,6 @@ class EmployerController extends Controller
 			$prep_9['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',3)->count();
 			$prep_9['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',4)->count();
 			$prep_9['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',5)->count();
-			$prep_9['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_9',6)->count();
 			$data['important_4_2']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_9;
 
 
@@ -1636,12 +1896,11 @@ class EmployerController extends Controller
 			$prep_10['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',3)->count();
 			$prep_10['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',4)->count();
 			$prep_10['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',5)->count();
-			$prep_10['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_10',6)->count();
 			$data['important_4_3']['Recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts.'] = $prep_10;
 
 
 			$html .= '<tr><td>Identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <4; $i++) 
  			{
 				foreach ($data['important_4_'.$i] as $key => $value) {
@@ -1703,17 +1962,7 @@ class EmployerController extends Controller
 								$np = $np + $v * 20;
 							}
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 40;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 40;
-							} 
-							if ($i == 3) {
-								$cne = $cne + $v * 20;
-							}
-						}
+						
 					}
 				}
 			}
@@ -1722,17 +1971,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1747,7 +1994,6 @@ class EmployerController extends Controller
 			$prep_11['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',3)->count();
 			$prep_11['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',4)->count();
 			$prep_11['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',5)->count();
-			$prep_11['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_11',6)->count();
 			$data['important_5_1']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_11;
 
 
@@ -1757,12 +2003,11 @@ class EmployerController extends Controller
 			$prep_12['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',3)->count();
 			$prep_12['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',4)->count();
 			$prep_12['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',5)->count();
-			$prep_12['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_12',6)->count();
 			$data['important_5_2']['Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.'] = $prep_12;
 
 
 			$html .= '<tr><td>Function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['important_5_'.$i] as $key => $value) {
@@ -1814,15 +2059,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 80;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 20;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -1831,17 +2068,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1855,11 +2090,10 @@ class EmployerController extends Controller
 			$prep_13['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',3)->count();
 			$prep_13['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',4)->count();
 			$prep_13['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',5)->count();
-			$prep_13['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_13',6)->count();
 			$data['important_6_1']['Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.'] = $prep_13;
 
 			$html .= '<tr><td>Develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0; 
 			for ($i=1; $i <2; $i++) 
  			{
 				foreach ($data['important_6_'.$i] as $key => $value) {
@@ -1901,13 +2135,7 @@ class EmployerController extends Controller
 							
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 100;
-							}
-							 
-							
-						}
+						
 					}
 				}
 			}
@@ -1916,17 +2144,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -1940,7 +2166,6 @@ class EmployerController extends Controller
 			$prep_14['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',3)->count();
 			$prep_14['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',4)->count();
 			$prep_14['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',5)->count();
-			$prep_14['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_14',6)->count();
 			$data['important_7_1']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_14;
 
 			$prep_15 = array();
@@ -1949,12 +2174,11 @@ class EmployerController extends Controller
 			$prep_15['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',3)->count();
 			$prep_15['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',4)->count();
 			$prep_15['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',5)->count();
-			$prep_15['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('important_15',6)->count();
 			$data['important_7_2']['Acquire and apply new knowledge as needed, using appropriate learning strategies.'] = $prep_15;
 
 
 			$html .= '<tr><td>Acquire and apply new knowledge as needed, using appropriate learning strategies.</td>';
-			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0;  $cne = 0;
+			$vwp = 0;  $wp = 0;  $p = 0;  $sp = 0; $np = 0; 
 			for ($i=1; $i <3; $i++) 
  			{
 				foreach ($data['important_7_'.$i] as $key => $value) {
@@ -2006,15 +2230,7 @@ class EmployerController extends Controller
 							} 
 							
 						}
-						if ($k == 'opt_6') {
-							if ($i == 1) {
-								$cne = $cne + $v * 70;
-							}
-							if ($i == 2) {
-								$cne = $cne + $v * 30;
-							} 
-							
-						}
+						
 					}
 				}
 			}
@@ -2023,17 +2239,15 @@ class EmployerController extends Controller
 			$html .= '<td>'.$p.'%</td>';
 			$html .= '<td>'.$sp.'%</td>';
 			$html .= '<td>'.$np.'%</td>';
-			$html .= '<td>'.$cne.'%</td>';
 			
-			$total = $vwp + $wp + $p + $sp + $np + $cne;
+			$total = $vwp + $wp + $p + $sp + $np;
 			$vwp_multi =  $vwp * 5;
 			$wp_multi =  $wp * 4;
 			$p_multi =  $p * 3;
 			$sp_multi =  $sp * 2;
 			$np_multi =  $np * 1;
-			$cne_multi =  $np * 0;
 
-			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi + $cne_multi;
+			$multi_sum = $vwp_multi + $wp_multi + $p_multi + $sp_multi + $np_multi;
 			if ($total != 0) {
 			$avg = $multi_sum / $total;
 			} else {
@@ -2150,7 +2364,6 @@ class EmployerController extends Controller
 			$prep_1['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_1',3)->count();
 			$prep_1['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_1',4)->count();
 			$prep_1['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_1',5)->count();
-			$prep_1['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_1',6)->count();
 			$data['objectives_important_1']['Contribution to company/workplace/institution (e.g., improve product/service quality, increase productivity, increase revenues, reduce expenses, improve customer satisfaction)'] = $prep_1;
 
 			$prep_2 = array();
@@ -2159,7 +2372,6 @@ class EmployerController extends Controller
 			$prep_2['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_2',3)->count();
 			$prep_2['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_2',4)->count();
 			$prep_2['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_2',5)->count();
-			$prep_2['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_2',6)->count();
 			$data['objectives_important_2']['Contribution to wellbeing of society and the environment (e.g., safeguard the interest of society, improve economy, develop professional standards and best practices, safeguard and improve the environment)'] = $prep_2;
 
 			$prep_3 = array();
@@ -2168,7 +2380,6 @@ class EmployerController extends Controller
 			$prep_3['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_3',3)->count();
 			$prep_3['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_3',4)->count();
 			$prep_3['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_3',5)->count();
-			$prep_3['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_3',6)->count();
 			$data['objectives_important_3']['Career advancement (e.g., promotion to higher ranks/positions, increased responsibilities)'] = $prep_3;
 
 			$prep_4 = array();
@@ -2177,7 +2388,6 @@ class EmployerController extends Controller
 			$prep_4['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_4',3)->count();
 			$prep_4['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_4',4)->count();
 			$prep_4['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_4',5)->count();
-			$prep_4['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_4',6)->count();
 			$data['objectives_important_4']['Degree advancement and continuing education. (e.g., diplomas, formal course work, graduate courses, graduate degree, training, certificates and professional certification)'] = $prep_4;
 
 			$prep_5 = array();
@@ -2186,7 +2396,6 @@ class EmployerController extends Controller
 			$prep_5['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_5',3)->count();
 			$prep_5['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_5',4)->count();
 			$prep_5['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_5',5)->count();
-			$prep_5['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_5',6)->count();
 			$data['objectives_important_5']['Staying current in profession (e.g., participation in seminars and conferences, professional development courses and activities, membership in professional societies)'] = $prep_5;
 
 			$prep_6 = array();
@@ -2195,12 +2404,11 @@ class EmployerController extends Controller
 			$prep_6['opt_3'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_6',3)->count();
 			$prep_6['opt_4'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_6',4)->count();
 			$prep_6['opt_5'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_6',5)->count();
-			$prep_6['opt_6'] = Employer::where('majors', 'like', '%'.$request->major.'%')->where('objectives_important_6',6)->count();
 			$data['objectives_important_6']['Use of leadership capabilities (e.g., promotion to leadership positions, ability to lead teams, supervisory skills and abilities)'] = $prep_6;
 
 
 			$html .= '<table class="table table-bordered table-striped text-center" style="margin-bottom:20px;">';
-			 	$html .= '<tr><th>The level of attainment of our graduates</th><th>EI</th><th>VI</th><th>I</th><th>SI</th><th>NI</th><th>CNE</th><th>Average</th></tr>';
+			 	$html .= '<tr><th>The level of attainment of our graduates</th><th>EI</th><th>VI</th><th>I</th><th>SI</th><th>NI</th><th>Average</th></tr>';
 
 			 	for ($i=1; $i <7; $i++) { 
 			 		$weight = 5; 
